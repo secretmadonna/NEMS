@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.28307.705
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{2CEEAFA4-AD21-49A1-BFA0-703A84FDF2E5}"
 EndProject
@@ -43,7 +43,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "UI\WebApi\WebApi\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frnas", "Frnas", "{6C5CC9F0-2DCE-49B9-94E3-06183F1E9604}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frnas", "Frnas\Frnas.csproj", "{B55EB5ED-112D-4776-8B45-3808A56CB0A0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frnas", "UI\Frnas\Frnas.csproj", "{B55EB5ED-112D-4776-8B45-3808A56CB0A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
