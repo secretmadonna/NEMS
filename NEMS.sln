@@ -1,0 +1,89 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.705
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{2CEEAFA4-AD21-49A1-BFA0-703A84FDF2E5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Student", "Student", "{3E8CACD7-250B-47E4-94C2-DF73264B8F5A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Admin", "Admin", "{1DDB99A1-0753-4BA1-B45E-29972875BCE7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StudyCenter", "StudyCenter", "{9266A643-28B0-46D4-B7F9-F85DCDFE8663}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Teacher", "Teacher", "{B68DF582-A234-4BE4-B82B-FB33098C4B5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeacherWebUI", "UI\Teacher\TeacherWebUI\TeacherWebUI.csproj", "{815322CA-A097-48F9-860D-D3F47BD87F69}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "StudentUI", "UI\Student\StudentUI\", "{95E07F82-5C2D-4F67-9157-38A4B18B434B}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_53018"
+		Debug.AspNetCompiler.PhysicalPath = "UI\Student\StudentUI\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_53018\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_53018"
+		Release.AspNetCompiler.PhysicalPath = "UI\Student\StudentUI\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_53018\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "53018"
+		SlnRelativePath = "UI\Student\StudentUI\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApi", "WebApi", "{2C51A078-3F08-41EE-BA4B-68D3990DB540}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "UI\WebApi\WebApi\WebApi.csproj", "{C9AD047F-D889-4850-BD9C-04DBF83CA57F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frnas", "Frnas", "{6C5CC9F0-2DCE-49B9-94E3-06183F1E9604}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frnas", "Frnas\Frnas.csproj", "{B55EB5ED-112D-4776-8B45-3808A56CB0A0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{815322CA-A097-48F9-860D-D3F47BD87F69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{815322CA-A097-48F9-860D-D3F47BD87F69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{815322CA-A097-48F9-860D-D3F47BD87F69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{815322CA-A097-48F9-860D-D3F47BD87F69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95E07F82-5C2D-4F67-9157-38A4B18B434B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95E07F82-5C2D-4F67-9157-38A4B18B434B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95E07F82-5C2D-4F67-9157-38A4B18B434B}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{95E07F82-5C2D-4F67-9157-38A4B18B434B}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{C9AD047F-D889-4850-BD9C-04DBF83CA57F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9AD047F-D889-4850-BD9C-04DBF83CA57F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9AD047F-D889-4850-BD9C-04DBF83CA57F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9AD047F-D889-4850-BD9C-04DBF83CA57F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B55EB5ED-112D-4776-8B45-3808A56CB0A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B55EB5ED-112D-4776-8B45-3808A56CB0A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B55EB5ED-112D-4776-8B45-3808A56CB0A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B55EB5ED-112D-4776-8B45-3808A56CB0A0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3E8CACD7-250B-47E4-94C2-DF73264B8F5A} = {2CEEAFA4-AD21-49A1-BFA0-703A84FDF2E5}
+		{1DDB99A1-0753-4BA1-B45E-29972875BCE7} = {2CEEAFA4-AD21-49A1-BFA0-703A84FDF2E5}
+		{9266A643-28B0-46D4-B7F9-F85DCDFE8663} = {2CEEAFA4-AD21-49A1-BFA0-703A84FDF2E5}
+		{B68DF582-A234-4BE4-B82B-FB33098C4B5B} = {2CEEAFA4-AD21-49A1-BFA0-703A84FDF2E5}
+		{815322CA-A097-48F9-860D-D3F47BD87F69} = {B68DF582-A234-4BE4-B82B-FB33098C4B5B}
+		{95E07F82-5C2D-4F67-9157-38A4B18B434B} = {3E8CACD7-250B-47E4-94C2-DF73264B8F5A}
+		{2C51A078-3F08-41EE-BA4B-68D3990DB540} = {2CEEAFA4-AD21-49A1-BFA0-703A84FDF2E5}
+		{C9AD047F-D889-4850-BD9C-04DBF83CA57F} = {2C51A078-3F08-41EE-BA4B-68D3990DB540}
+		{6C5CC9F0-2DCE-49B9-94E3-06183F1E9604} = {2CEEAFA4-AD21-49A1-BFA0-703A84FDF2E5}
+		{B55EB5ED-112D-4776-8B45-3808A56CB0A0} = {6C5CC9F0-2DCE-49B9-94E3-06183F1E9604}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {33339B46-568E-4748-8746-9F5DA2F8407B}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,8 @@
+﻿<Application x:Class="SecretMadonna.NEMS.UI.Frnas.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:SecretMadonna.NEMS.UI.Frnas" Activated="Application_Activated" Deactivated="Application_Deactivated" DispatcherUnhandledException="Application_DispatcherUnhandledException" Exit="Application_Exit" FragmentNavigation="Application_FragmentNavigation" LoadCompleted="Application_LoadCompleted" Navigated="Application_Navigated" Navigating="Application_Navigating" NavigationFailed="Application_NavigationFailed" NavigationProgress="Application_NavigationProgress" NavigationStopped="Application_NavigationStopped" SessionEnding="Application_SessionEnding" Startup="Application_Startup" StartupUri="MainWindow.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>

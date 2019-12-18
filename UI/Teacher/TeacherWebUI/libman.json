@@ -1,0 +1,79 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "defaultDestination": "Content/plugins/",
+  "libraries": [
+    {
+      "provider": "cdnjs",
+      "library": "jquery@2.2.4",
+      "destination": "Content/plugins/jquery/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "twitter-bootstrap@3.4.1",
+      "destination": "Content/plugins/twitter-bootstrap/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "font-awesome@4.7.0",
+      "destination": "Content/plugins/font-awesome/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "modernizr@2.8.3",
+      "destination": "Content/plugins/modernizr/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "jquery-validate@1.19.1",
+      "destination": "Content/plugins/jquery-validate/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "respond.js@1.4.2",
+      "destination": "Content/plugins/respond.js"
+    },
+    {
+      "library": "scriptaculous@1.9.0",
+      "destination": "Content/plugins/scriptaculous/"
+    },
+    {
+      "library": "prototype@1.7.3",
+      "destination": "Content/plugins/prototype/"
+    },
+    {
+      "library": "normalize@3.0.3",
+      "destination": "Content/plugins/normalize/"
+    },
+    {
+      "library": "jqueryui@1.12.1",
+      "destination": "Content/plugins/jqueryui/"
+    },
+    {
+      "library": "jquery-validation-unobtrusive@3.2.11",
+      "destination": "Content/plugins/jquery-validation-unobtrusive/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "mootools@1.6.0",
+      "destination": "Content/plugins/mootools/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "extjs@6.2.0",
+      "destination": "Content/plugins/extjs/"
+    },
+    {
+      "library": "html5shiv@3.7.3",
+      "destination": "Content/plugins/html5shiv/"
+    },
+    {
+      "library": "selectivizr@1.0.2",
+      "destination": "Content/plugins/selectivizr/"
+    },
+    {
+      "library": "css3pie@2.0beta1",
+      "destination": "Content/plugins/css3pie/"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+﻿@model SecretMadonna.NEMS.UI.TeacherWebUI.Models.HomeIndexModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section headend
+{
+
+}
+
+<h2>Index</h2>
+
+<span><i class="ace-icon fa fa-download"></i>fa-download</span>
+<span><i class="ace-icon glyphicon glyphicon-remove"></i>glyphicon-remove</span>
+
+<img src="~/Content/images/photo.jpg" />
+
+@Html.ActionLink("TestPost", "TestPost", "Home", "http", "localhost", "123", null, new { })
+
+@section bodyend
+{
+    <script>
+        //$(function () {
+        //    $.ajax({
+        //        type: "post",
+        //        url: "http://ke.cqtx.everedu.cn/APPAPI/APP/DataApi/GetData/CeduStudentInfoBLL/Login?userid=hnpy201zhangcx&password=304018",
+        //        beforeSend: function (jqXHR, settings) {
+        //            console.log(arguments);
+        //        },
+        //        success: function (data, textStatus, jqXHR) {
+        //            console.log(arguments);
+        //        },
+        //        error: function (jqXHR, textStatus, errorThrown) {
+        //            console.log(arguments);
+        //        },
+        //        complete: function (jqXHR, textStatus) {
+        //            console.log(arguments);
+        //        }
+        //    });
+        //})
+    </script>
+}

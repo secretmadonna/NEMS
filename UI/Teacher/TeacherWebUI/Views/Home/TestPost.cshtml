@@ -1,0 +1,115 @@
+﻿@model SecretMadonna.NEMS.UI.TeacherWebUI.Models.HomeTestPostModel
+
+@{
+    ViewBag.Title = "TestPost";
+}
+
+@section headend
+{
+
+}
+
+<h2>TestPost</h2>
+
+
+@using (Ajax.BeginForm("TestPost", "Home", new AjaxOptions { }, new { }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.Id)
+    @Html.TextBoxFor(m => m.ImageBase64)
+    @Html.TextBoxFor(m => m.TeshuStr, new { Value = "`1234567890-=~!@#$%^&*()_+[]\\;',./{}|:\"<>?" })
+
+    <input type="file" />
+
+    <input type="submit" value="提交" />
+}
+
+<img src="" id="imgBase64" />
+
+@section bodyend
+{
+    <script>
+        var serverData =  {
+            imageSrc: "http://www.dftest.com:8088/Content/images/7.00MB.jpg"//"@Url.Content("~/Content/images/7.00MB.jpg")"
+        };
+        $(function (jq) {
+            function GetBase64FromImgSrcByCanvas(imgSrc) {
+                var canvas = document.createElement("canvas");
+                var ctx = canvas.getContext("2d");
+                var image = new Image();
+                image.onload = function (e) {
+                    console.log("%s:%o", "onload", e);
+                    ctx.drawImage(image, 0, 0, image.width, image.height);
+                    let imageBase64 = canvas.toDataURL();
+                    $("#ImageBase64").val(imageBase64);
+                    $("#imgBase64").attr("src", imageBase64);
+                    //console.log("GetBase64FromImgSrcByCanvas:%s", imageBase64);
+                };
+                image.onabort = function (e) {
+                    console.log("%s:%o", "abort", e);
+                };
+                image.onerror = function (e) {
+                    console.log("%s:%o", "onerror", e);
+                };
+                image.crossOrigin = "anonymous"; // 解决 canvas.toDataURL 图片跨域问题
+                image.src = imgSrc;
+            };
+
+            function GetBase64FromImgSrcByBlob(imgSrc) {
+                var xhr = new XMLHttpRequest();
+                xhr.open("get", imgSrc, true);
+                xhr.responseType = "blob"; // 至关重要
+                xhr.onload = function (ev) {
+                    if (this.status == 200) {
+                        let blob = this.response; // 得到一个 blob 对象
+
+                        let fr = new FileReader(); // 至关重要
+                        fr.onloadstart = function (e) {
+                            console.log("%s:%o", "onloadstart", e);
+                        };
+                        fr.onprogress = function (e) {
+                            console.log("%s:%o", "onprogress", e);
+                        };
+                        fr.onload = function (e) {
+                            console.log("%s:%o", "onload", e);
+                        };
+                        fr.onloadend = function (e) {
+                            console.log("%s:%o", "onloadend", e);
+                            let imageBase64 = e.target.result;
+                            $("#ImageBase64").val(imageBase64);
+                            $("#imgBase64").attr("src", imageBase64);
+                            //console.log("GetBase64FromImgSrcByBlob:%s", imageBase64);
+                        };
+                        fr.abort = function (e) {
+                            console.log("%s:%o", "abort", e);
+                        };
+                        fr.onerror = function (e) {
+                            console.log("%s:%o", "onerror", e);
+                        };
+                        fr.readAsDataURL(blob);
+
+                        // 为了在页面显示图片，可以删除 begin
+                        var windowUrl = window.URL || window.webkitURL;
+                        let newImgSrc = windowUrl.createObjectURL(blob); // 创建 URL
+                        var image = document.createElement("img");
+                        image.onload = function (e) {
+                            window.URL.revokeObjectURL(image.src); // 释放 URL
+                        };
+                        image.onabort = function (e) {
+                            console.log("%s:%o", "abort", e);
+                        };
+                        image.onerror = function (e) {
+                            console.log("%s:%o", "onerror", e);
+                        };
+                        image.src = newImgSrc;
+                        // 为了在页面显示图片，可以删除 end
+                    }
+                }
+                xhr.send();
+            };
+
+            GetBase64FromImgSrcByCanvas(serverData.imageSrc);
+            GetBase64FromImgSrcByBlob(serverData.imageSrc);
+        });
+    </script>
+}
