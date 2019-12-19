@@ -38,7 +38,7 @@ namespace SecretMadonna.NEMS.UI.Frnas
         [STAThread]
         static void Main()
         {
-            MessageBox.Show();
+            MessageBox.Show("messageBoxText", "caption", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK, MessageBoxOptions.None);
 
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
 
