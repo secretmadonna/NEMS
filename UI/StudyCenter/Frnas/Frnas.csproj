@@ -7,7 +7,7 @@
     <ProjectGuid>{B55EB5ED-112D-4776-8B45-3808A56CB0A0}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>SecretMadonna.NEMS.UI.Frnas</RootNamespace>
-    <AssemblyName>SecretMadonna.NEMS.UI.Frnas</AssemblyName>
+    <AssemblyName>Frnas</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -129,6 +129,16 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Domain\Model\Model.csproj">
+      <Project>{ad0757a5-9c71-42f0-8336-7029bf4a00d0}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Infrastructure\Common\Common.csproj">
+      <Project>{680813cf-ab43-44e2-8428-2ad201be8665}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
