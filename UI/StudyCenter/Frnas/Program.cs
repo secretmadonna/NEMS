@@ -13,7 +13,7 @@ namespace SecretMadonna.NEMS.UI.Frnas
 {
     class Program
     {
-        public static ILog logger = LogManager.GetLogger(typeof(App));
+        public static ILog logger = LogManager.GetLogger(typeof(Program));
         public static int numberIndex = 0;
 
         private static readonly string processIdentity;

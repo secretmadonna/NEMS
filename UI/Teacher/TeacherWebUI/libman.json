@@ -74,6 +74,10 @@
     {
       "library": "css3pie@2.0beta1",
       "destination": "Content/plugins/css3pie/"
+    },
+    {
+      "library": "jQuery.print@1.6.0",
+      "destination": "Content/plugins/jQuery.print/"
     }
   ]
 }

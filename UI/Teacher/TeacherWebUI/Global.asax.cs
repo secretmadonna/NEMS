@@ -1,5 +1,6 @@
 ﻿using log4net;
 using log4net.Config;
+using SecretMadonna.NEMS.Infrastructure.Common;
 using System;
 using System.Reflection;
 using System.Web.Mvc;
@@ -13,6 +14,15 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI
     {
         public static ILog logger = LogManager.GetLogger(typeof(MvcApplication));
         public static int numberIndex = 0;
+
+        public MvcApplication()
+        {
+            logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
+        }
+        ~MvcApplication()
+        {
+            logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
+        }
 
         protected void Application_Start(Object sender, EventArgs e)
         {
@@ -32,6 +42,15 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI
             Console.WriteLine(Context);
             //Console.WriteLine(Response);
             Console.WriteLine(Events);
+
+
+            //System.Web.SessionState.SessionStateStoreProviderBase
+            //System.Configuration.Provider.ProviderBase 
+            //System.Web.SessionState.ISessionIDManager
+
+
+
+
 
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
             AreaRegistration.RegisterAllAreas();
@@ -87,9 +106,12 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void Session_OnStart(Object sender, EventArgs e)
+        protected void Session_Start(Object sender, EventArgs e)
         {
-            logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
+            //System.Web.SessionState.ISessionStateModule;
+            //logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
+            var stackTrace = new System.Diagnostics.StackTrace(true);
+            logger.InfoFormat("{0:D3}.{1}", ++numberIndex, Environment.NewLine + stackTrace.DescInfo() + Environment.NewLine);
         }
         protected void Application_AcquireRequestState(Object sender, EventArgs e)
         {
@@ -177,7 +199,7 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void Application_OnError(Object sender, EventArgs e)
+        protected void Application_Error(Object sender, EventArgs e)
         {
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
         }
@@ -187,7 +209,7 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void Session_OnEnd(Object sender, EventArgs e)
+        protected void Session_End(Object sender, EventArgs e)
         {
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
         }
@@ -196,14 +218,17 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void Application_OnEnd(Object sender, EventArgs e)
+        protected void Application_End(Object sender, EventArgs e)
         {
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
         }
 
         public override void Dispose()
         {
+            logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
             base.Dispose();
         }
+
+        //RequestCompleted
     }
 }

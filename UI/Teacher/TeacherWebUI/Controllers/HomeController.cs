@@ -18,6 +18,15 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI.Controllers
             return View(vm);
         }
 
+        /// <summary>
+        /// 辽科大项目，打印成绩单
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult PrintScore()
+        {
+            return View();
+        }
+
         public ActionResult TestPost()
         {
             var vm = new HomeTestPostModel();
