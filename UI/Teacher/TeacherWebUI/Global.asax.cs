@@ -60,6 +60,16 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+
+
+
+            for (int i = 0; i < Modules.Count; i++)
+            {
+                var module = Modules[i];
+                var type = module.GetType();
+                logger.InfoFormat("{0}:  {1}  {2}  {3}", i, type.FullName, type.Assembly.ManifestModule.Name, type.Assembly.ManifestModule.FullyQualifiedName);
+            }
         }
 
         public override void Init()
