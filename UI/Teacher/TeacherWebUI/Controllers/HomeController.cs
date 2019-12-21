@@ -4,27 +4,32 @@ using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Reflection;
 using System.Web.Mvc;
 
 namespace SecretMadonna.NEMS.UI.TeacherWebUI.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
-        public ILog logger = LogManager.GetLogger(typeof(HomeController));
+        static HomeController()
+        {
+            logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
+        }
+        public HomeController()
+        {
+            logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
+        }
+        ~HomeController()
+        {
+            logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
+        }
+
         // GET: Home
         public ActionResult Index()
         {
+            logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
             var vm = new HomeIndexModel();
             return View(vm);
-        }
-
-        /// <summary>
-        /// 辽科大项目，打印成绩单
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult PrintScore()
-        {
-            return View();
         }
 
         public ActionResult TestPost()
@@ -63,5 +68,19 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI.Controllers
                 }
             }
         }
+
+
+
+
+        #region 辽科大项目，打印“成绩报告单”
+        /// <summary>
+        /// 辽科大项目，打印“成绩报告单”
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult PrintScore()
+        {
+            return View();
+        }
+        #endregion
     }
 }

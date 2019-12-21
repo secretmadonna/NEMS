@@ -10,13 +10,25 @@ namespace SecretMadonna.NEMS.UI.CustomHttpModule
         public static ILog logger = LogManager.GetLogger(typeof(CustomHttpModule));
         public static int numberIndex = 0;
 
+        static CustomHttpModule()
+        {
+            logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
+        }
+        public CustomHttpModule()
+        {
+            logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
+        }
+        ~CustomHttpModule()
+        {
+            logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
+        }
+
         /// <summary>
         /// 您将需要在网站的 Web.config 文件中配置此模块
         /// 并向 IIS 注册它，然后才能使用它。有关详细信息，
         /// 请参阅以下链接: https://go.microsoft.com/?linkid=8101007
         /// </summary>
         #region IHttpModule Members
-
         public void Dispose()
         {
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
@@ -35,7 +47,7 @@ namespace SecretMadonna.NEMS.UI.CustomHttpModule
             context.PostResolveRequestCache += new EventHandler(OnPostResolveRequestCache);
             context.MapRequestHandler += new EventHandler(OnMapRequestHandler);
             context.PostMapRequestHandler += new EventHandler(OnPostMapRequestHandler);
-            //context.Session_Start += new EventHandler(OnBeginRequest);
+            // Session_Start
             context.AcquireRequestState += new EventHandler(OnAcquireRequestState);
             context.PostAcquireRequestState += new EventHandler(OnPostAcquireRequestState);
             context.PreRequestHandlerExecute += new EventHandler(OnPreRequestHandlerExecute);
@@ -53,10 +65,7 @@ namespace SecretMadonna.NEMS.UI.CustomHttpModule
             context.PreSendRequestHeaders += new EventHandler(OnPreSendRequestHeaders);
             context.PreSendRequestContent += new EventHandler(OnPreSendRequestContent);
             context.Error += new EventHandler(OnError);
-            //context.Session_End += new EventHandler(OnBeginRequest);
-            //context.Application_End += new EventHandler(OnBeginRequest);
         }
-
         #endregion
 
         #region EventHandler

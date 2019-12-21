@@ -15,6 +15,10 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI
         public static ILog logger = LogManager.GetLogger(typeof(MvcApplication));
         public static int numberIndex = 0;
 
+        static MvcApplication()
+        {
+            logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
+        }
         public MvcApplication()
         {
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
@@ -102,13 +106,12 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI
         }
         /// <summary>
         /// Application_PostMapRequestHandler 之后执行
-        ///   如何被调用？？？
+        ///   IHttpModule(System.Web.SessionState.SessionStateModule) 中 Application_AcquireRequestState 事件中处理的
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         protected void Session_Start(Object sender, EventArgs e)
         {
-            //System.Web.SessionState.ISessionStateModule;
             //logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
             var stackTrace = new System.Diagnostics.StackTrace(true);
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, Environment.NewLine + stackTrace.DescInfo() + Environment.NewLine);
