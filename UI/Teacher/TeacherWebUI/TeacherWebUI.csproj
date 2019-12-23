@@ -725,6 +725,7 @@
   <ItemGroup>
     <Content Include="App_Code\CustomHttpHandler.cs" />
     <Content Include="App_Code\CustomHttpModule.cs" />
+    <Content Include="App_Code\CustomUrlRoutingModule.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />

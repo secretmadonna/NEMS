@@ -4,6 +4,7 @@ using SecretMadonna.NEMS.Infrastructure.Common;
 using System;
 using System.ComponentModel;
 using System.Reflection;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -18,19 +19,25 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI
 
         static MvcApplication()
         {
+            var httpContext = HttpContext.Current;
+            var request = httpContext.Request;
+            var requestContext = request.RequestContext;
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
         }
         public MvcApplication()
         {
+            var events = Events;
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
         }
         ~MvcApplication()
         {
+            var events = Events;
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
         }
 
         protected void Application_Start(Object sender, EventArgs e)
         {
+            var events = Events;
             //System.Web.HttpRuntime httpRuntime;
             //Microsoft.Web.Administration.ApplicationPool applicationPool;
             //System.AppDomain appDomain;
@@ -73,159 +80,17 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI
             }
         }
 
-        ////
-        //// 摘要:
-        ////     ASP.NET 将 HTTP 标头发送到客户端之前发生。
-        //new public event EventHandler PreSendRequestHeaders;
-        ////
-        //// 摘要:
-        ////     在选择该处理程序对请求作出响应时发生。
-        //new public event EventHandler MapRequestHandler;
-        ////
-        //// 摘要:
-        ////     释放应用程序时发生。
-        //new public event EventHandler Disposed;
-        ////
-        //// 摘要:
-        ////     作为执行的 HTTP 管道链中的第一个事件发生，当 ASP.NET 的请求做出响应。
-        //new public event EventHandler BeginRequest;
-        ////
-        //// 摘要:
-        ////     当安全模块已建立的用户标识时出现。
-        //new public event EventHandler AuthenticateRequest;
-        ////
-        //// 摘要:
-        ////     当安全模块已建立的用户标识时出现。
-        //new public event EventHandler PostAuthenticateRequest;
-        ////
-        //// 摘要:
-        ////     安全模块已验证用户身份验证时发生。
-        //new public event EventHandler AuthorizeRequest;
-        ////
-        //// 摘要:
-        ////     当前请求的用户已被授权时发生。
-        //new public event EventHandler PostAuthorizeRequest;
-        ////
-        //// 摘要:
-        ////     当 ASP.NET 完成授权事件以便从缓存中，跳过的事件处理程序 （例如，一个页面或 XML Web 服务） 执行的请求提供服务的缓存模块时发生。
-        //new public event EventHandler ResolveRequestCache;
-        ////
-        //// 摘要:
-        ////     ASP.NET 将绕过当前事件处理程序的执行，并允许缓存模块以处理从缓存请求时发生。
-        //new public event EventHandler PostResolveRequestCache;
-        ////
-        //// 摘要:
-        ////     ASP.NET 将内容发送到客户端之前发生。
-        //new public event EventHandler PreSendRequestContent;
-        ////
-        //// 摘要:
-        ////     当 ASP.NET 已映射到相应的事件处理程序的当前请求时出现。
-        //new public event EventHandler PostMapRequestHandler;
-        ////
-        //// 摘要:
-        ////     当 ASP.NET 已完成处理的事件处理程序时发生 System.Web.HttpApplication.LogRequest 事件。
-        //new public event EventHandler PostLogRequest;
-        ////
-        //// 摘要:
-        ////     已释放与请求相关联的托管的对象时发生。
-        //new public event EventHandler RequestCompleted;
-        ////
-        //// 摘要:
-        ////     获取与当前的请求相关联的请求状态 （例如，会话状态） 时发生。
-        //new public event EventHandler PostAcquireRequestState;
-        ////
-        //// 摘要:
-        ////     ASP.NET 开始执行事件处理程序 （例如，一个页面或 XML Web 服务） 之前发生。
-        //new public event EventHandler PreRequestHandlerExecute;
-        ////
-        //// 摘要:
-        ////     当 ASP.NET 事件处理程序 （例如，一个页面或 XML Web 服务） 完成执行时发生。
-        //new public event EventHandler PostRequestHandlerExecute;
-        ////
-        //// 摘要:
-        ////     ASP.NET 完成执行所有请求事件处理程序后发生。 此事件会导致状态模块保存当前的状态数据。
-        //new public event EventHandler ReleaseRequestState;
-        ////
-        //// 摘要:
-        ////     当 ASP.NET 已完成执行所有请求事件处理程序和存储数据的请求状态时发生。
-        //new public event EventHandler PostReleaseRequestState;
-        ////
-        //// 摘要:
-        ////     当 ASP.NET 完成执行事件处理程序，以便让缓存模块存储将用于为从缓存中的后续请求提供服务的响应时发生。
-        //new public event EventHandler UpdateRequestCache;
-        ////
-        //// 摘要:
-        ////     当 ASP.NET 完成更新的缓存模块和存储用于为从缓存中的后续请求提供服务的响应时发生。
-        //new public event EventHandler PostUpdateRequestCache;
-        ////
-        //// 摘要:
-        ////     ASP.NET 执行当前请求的任何日志记录之前发生。
-        //new public event EventHandler LogRequest;
-        ////
-        //// 摘要:
-        ////     当 ASP.NET 获取与当前的请求相关联的当前状态 （例如，会话状态）。
-        //new public event EventHandler AcquireRequestState;
-        ////
-        //// 摘要:
-        ////     作为执行的 HTTP 管道链中的最后一个事件发生，当 ASP.NET 的请求做出响应。
-        //new public event EventHandler EndRequest;
-        ////
-        //// 摘要:
-        ////     当引发未处理的异常时发生。
-        //new public event EventHandler Error;
-
         public override void Init()
         {
+            var events = Events;
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
             base.Init();
-
-            //var envents = Events;
-            //var dsPreSendRequestHeaders = PreSendRequestHeaders.GetInvocationList();
-            //var dsMapRequestHandler = MapRequestHandler.GetInvocationList();
-            ////var dsDisposed = Disposed.GetInvocationList();
-            //var dsBeginRequest = BeginRequest.GetInvocationList();
-            //var dsAuthenticateRequest = AuthenticateRequest.GetInvocationList();
-            //var dsPostAuthenticateRequest = PostAuthenticateRequest.GetInvocationList();
-            //var dsAuthorizeRequest = AuthorizeRequest.GetInvocationList();
-            //var dsPostAuthorizeRequest = PostAuthorizeRequest.GetInvocationList();
-            //var dsResolveRequestCache = ResolveRequestCache.GetInvocationList();
-            //var dsPostResolveRequestCache = PostResolveRequestCache.GetInvocationList();
-            //var dsPreSendRequestContent = PreSendRequestContent.GetInvocationList();
-            //var dsPostMapRequestHandler = PostMapRequestHandler.GetInvocationList();
-            //var dsPostLogRequest = PostLogRequest.GetInvocationList();
-            ////var dsRequestCompleted = RequestCompleted.GetInvocationList();
-            //var dsPostAcquireRequestState = PostAcquireRequestState.GetInvocationList();
-            //var dsPreRequestHandlerExecute = PreRequestHandlerExecute.GetInvocationList();
-            //var dsPostRequestHandlerExecute = PostRequestHandlerExecute.GetInvocationList();
-            //var dsReleaseRequestState = ReleaseRequestState.GetInvocationList();
-            //var dsPostReleaseRequestState = PostReleaseRequestState.GetInvocationList();
-            //var dsUpdateRequestCache = UpdateRequestCache.GetInvocationList();
-            //var dsPostUpdateRequestCache = PostUpdateRequestCache.GetInvocationList();
-            //var dsLogRequest = LogRequest.GetInvocationList();
-            //var dsAcquireRequestState = AcquireRequestState.GetInvocationList();
-            //var dsEndRequest = EndRequest.GetInvocationList();
-            //var dsError = Error.GetInvocationList();
-            //var type = this.GetType();
-            //var memberInfos = type.GetMember("BeginRequest");
-            //EventHandlerList eventHandlerList = (System.Reflection.RuntimeEventInfo)memberInfos.GetValue(0);
-            // var propertyInfos = type.GetProperties();
-            //type.GetRuntimeProperties();type.GetFields();
-            //foreach (var propertyInfo in propertyInfos)
-            //{
-            //    type.GetEvents();
-            //}
-            //EventHandlerList eventList = (EventHandlerList)propertyInfo.GetValue(btnDemo, null);
-
-
-
-            //var delegateInfo = Events["BeginRequest"];
-            //var delegateInfos = delegateInfo.GetInvocationList();
-            //foreach (var tempDelegateInfo in delegateInfos)
-            //{
-            //    //logger.InfoFormat("{0}:  {1}  {2}  {3}", "BeginRequest", tempDelegateInfo);
-            //}
+            
             var type = this.GetType();
             var memberInfos = type.GetMember("BeginRequest");
+            var length=memberInfos.Length;
+            var memberInfo = memberInfos[0];
+            //memberInfo.
             var v=memberInfos.GetValue(0);
             var t = v.GetType();
             //foreach (var memberInfo in memberInfos)
