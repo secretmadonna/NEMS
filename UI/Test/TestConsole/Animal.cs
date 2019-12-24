@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace SecretMadonna.NEMS.UI.TestConsole
 {
-    abstract class Animal
+    public abstract class Animal
     {
         private static readonly ILog logger = LogManager.GetLogger(typeof(Animal));
         private static int numberIndex = 0;
@@ -20,17 +20,9 @@ namespace SecretMadonna.NEMS.UI.TestConsole
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
         }
 
-        #region 嵌套类
         /// <summary>
-        /// 嵌套类修饰符（默认 private）
-        ///   7、protected : 
-        ///   8、protected internal 或 internal protected : 
-        ///   9、private : 
+        /// 动物的名称
         /// </summary>
-        internal protected class NestFatcherClass
-        {
-
-        }
-        #endregion
+        protected string name;
     }
 }

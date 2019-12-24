@@ -37,66 +37,50 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI
 
         protected void Application_Start(Object sender, EventArgs e)
         {
-            var events = Events;
+            //var events = Events;
             //System.Web.HttpRuntime httpRuntime;
             //Microsoft.Web.Administration.ApplicationPool applicationPool;
             //System.AppDomain appDomain;
             //System.Web.Hosting.HostingEnvironment hostingEnvironment;
             //System.Web.Hosting.ApplicationManager applicationManager;
 
-            Console.WriteLine(Site);
-            Console.WriteLine(User);
-            Console.WriteLine(Server);
-            Console.WriteLine(Application);
+            //Console.WriteLine(Site);
+            //Console.WriteLine(User);
+            //Console.WriteLine(Server);
+            //Console.WriteLine(Application);
             //Console.WriteLine(Session);
-            Console.WriteLine(Modules);
+            //Console.WriteLine(Modules);
             //Console.WriteLine(Request);
-            Console.WriteLine(Context);
+            //Console.WriteLine(Context);
             //Console.WriteLine(Response);
-            Console.WriteLine(Events);
-
+            //Console.WriteLine(Events);
 
             //System.Web.SessionState.SessionStateStoreProviderBase
             //System.Configuration.Provider.ProviderBase 
             //System.Web.SessionState.ISessionIDManager
-
-
-
-
 
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-
-
-
             for (int i = 0; i < Modules.Count; i++)
             {
                 var module = Modules[i];
                 var type = module.GetType();
-                logger.InfoFormat("{0}:  {1}  {2}  {3}", i, type.FullName, type.Assembly.ManifestModule.Name, type.Assembly.ManifestModule.FullyQualifiedName);
+                logger.InfoFormat("{0}:{1},{2}", i, type.FullName, type.Assembly.ManifestModule.FullyQualifiedName);
             }
         }
 
         public override void Init()
         {
-            var events = Events;
+            //var events = Events;
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
             base.Init();
-            
+
             var type = this.GetType();
-            var memberInfos = type.GetMember("BeginRequest");
-            var length=memberInfos.Length;
-            var memberInfo = memberInfos[0];
-            //memberInfo.
-            var v=memberInfos.GetValue(0);
-            var t = v.GetType();
-            //foreach (var memberInfo in memberInfos)
-            //{
-            //    var methodInfos = eventInfo.GetOtherMethods(true);
-            //}
+            var eventInfo = type.GetEvent("BeginRequest");
+            var eventInfoRuntime = type.GetRuntimeEvent("BeginRequest");
         }
 
         protected void Application_BeginRequest(Object sender, EventArgs e)

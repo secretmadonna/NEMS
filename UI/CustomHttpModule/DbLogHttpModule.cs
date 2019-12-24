@@ -5,20 +5,20 @@ using System.Web;
 
 namespace SecretMadonna.NEMS.UI.CustomHttpModule
 {
-    public class CustomHttpModule : IHttpModule
+    class DbLogHttpModule : IHttpModule
     {
-        public static ILog logger = LogManager.GetLogger(typeof(CustomHttpModule));
+        public static ILog logger = LogManager.GetLogger(typeof(DbLogHttpModule));
         public static int numberIndex = 0;
 
-        static CustomHttpModule()
+        static DbLogHttpModule()
         {
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
         }
-        public CustomHttpModule()
+        public DbLogHttpModule()
         {
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
         }
-        ~CustomHttpModule()
+        ~DbLogHttpModule()
         {
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
         }
