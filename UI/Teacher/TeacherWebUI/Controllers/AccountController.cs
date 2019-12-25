@@ -12,12 +12,13 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI.Controllers
             return View();
         }
 
-        public ActionResult Login(string ReturnUrl)
+        public ActionResult Login()
         {
             var loginModel = new AccountLoginModel()
             {
                 Loginname = "test",
-                Password = "123456"
+                Password = "123456",
+                ReturnUrl = Request.QueryString["ReturnUrl"]
             };
             return View(loginModel);
         }
@@ -26,7 +27,6 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI.Controllers
         {
             if (model.Loginname.Equals("test") && model.Password.Equals("123456"))
             {
-                //if(FormsAuthentication.)
                 FormsAuthentication.SetAuthCookie(model.Loginname, model.RememberMe);
                 var url = string.IsNullOrEmpty(model.ReturnUrl) ? FormsAuthentication.DefaultUrl : model.ReturnUrl;
                 return Redirect(url);

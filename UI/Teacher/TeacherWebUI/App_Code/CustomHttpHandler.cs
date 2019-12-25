@@ -39,7 +39,7 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI
         {
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
             //在此处写入您的处理程序实现。
-
+            context.Response.Write(this.GetType().FullName);
         }
         #endregion
     }

@@ -71,7 +71,8 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI
         #region EventHandler
         public void OnBeginRequest(Object source, EventArgs e)
         {
-            logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
+            var httpContext = HttpContext.Current;
+            logger.InfoFormat("{0:D3}.{1}  {2}", ++numberIndex, MethodBase.GetCurrentMethod().Name, httpContext.Request.RawUrl);
         }
         public void OnAuthenticateRequest(Object source, EventArgs e)
         {

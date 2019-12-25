@@ -3,7 +3,7 @@ using System;
 using System.Reflection;
 using System.Web;
 
-namespace SecretMadonna.NEMS.UI.CustomHttpModule
+namespace SecretMadonna.NEMS.UI.TeacherWebUI
 {
     class DbLogHttpModule : IHttpModule
     {
@@ -73,7 +73,6 @@ namespace SecretMadonna.NEMS.UI.CustomHttpModule
         {
             var httpContext = HttpContext.Current;
             logger.InfoFormat("{0:D3}.{1}  {2}", ++numberIndex, MethodBase.GetCurrentMethod().Name, httpContext.Request.RawUrl);
-            //httpContext.ApplicationInstance.CompleteRequest();
         }
         public void OnAuthenticateRequest(Object source, EventArgs e)
         {

@@ -2,7 +2,7 @@
 using System.Reflection;
 using System.Web;
 
-namespace SecretMadonna.NEMS.UI.CustomHttpHandler
+namespace SecretMadonna.NEMS.UI.TeacherWebUI
 {
     public class JpgHttpHandler : IHttpHandler
     {
