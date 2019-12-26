@@ -81,7 +81,9 @@ namespace SecretMadonna.NEMS.UI.CustomHttpModule
         }
         public void OnPostAuthenticateRequest(Object source, EventArgs e)
         {
+            var ctx = HttpContext.Current;
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
+            //ctx.Request.
         }
         public void OnAuthorizeRequest(Object source, EventArgs e)
         {

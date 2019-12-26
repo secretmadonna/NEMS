@@ -52,9 +52,6 @@
       <HintPath>..\..\..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Web.Administration, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Microsoft.Web.Administration.7.0.0.0\lib\net20\Microsoft.Web.Administration.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -724,10 +721,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Code\CustomHttpHandler.cs" />
-    <Compile Include="App_Code\CustomHttpModule.cs" />
-    <Content Include="App_Code\JpgHttpHandler.cs" />
-    <Content Include="App_Code\DbLogHttpModule.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -787,16 +780,14 @@
       <Project>{680813cf-ab43-44e2-8428-2ad201be8665}</Project>
       <Name>Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\CustomHttpHandler\CustomHttpHandler.csproj">
-      <Project>{e67c47a1-b5bf-4ea8-a646-fef85c84e83b}</Project>
-      <Name>CustomHttpHandler</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\CustomHttpModule\CustomHttpModule.csproj">
       <Project>{653a1681-3844-480b-b604-2ef49a6446da}</Project>
       <Name>CustomHttpModule</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Code\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

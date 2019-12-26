@@ -70,76 +70,14 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI
             //System.Web.SessionState.ISessionIDManager
 
         }
-        //private static readonly object EventDisposed = new object();
-        //private static readonly object EventErrorRecorded = new object();
-        //private static readonly object EventRequestCompleted = new object();
-        //private static readonly object EventPreSendRequestHeaders = new object();
-        //private static readonly object EventPreSendRequestContent = new object();
-        //private static readonly object EventBeginRequest = new object();
-        //private static readonly object EventAuthenticateRequest = new object();
-        //private static readonly object EventDefaultAuthentication = new object();
-        //private static readonly object EventPostAuthenticateRequest = new object();
-        //private static readonly object EventAuthorizeRequest = new object();
-        //private static readonly object EventPostAuthorizeRequest = new object();
-        //private static readonly object EventResolveRequestCache = new object();
-        //private static readonly object EventPostResolveRequestCache = new object();
-        //private static readonly object EventMapRequestHandler = new object();
-        //private static readonly object EventPostMapRequestHandler = new object();
-        //private static readonly object EventAcquireRequestState = new object();
-        //private static readonly object EventPostAcquireRequestState = new object();
-        //private static readonly object EventPreRequestHandlerExecute = new object();
-        //private static readonly object EventPostRequestHandlerExecute = new object();
-        //private static readonly object EventReleaseRequestState = new object();
-        //private static readonly object EventPostReleaseRequestState = new object();
-        //private static readonly object EventUpdateRequestCache = new object();
-        //private static readonly object EventPostUpdateRequestCache = new object();
-        //private static readonly object EventLogRequest = new object();
-        //private static readonly object EventPostLogRequest = new object();
-        //private static readonly object EventEndRequest = new object();
+        private static readonly object EventBeginRequest = new object();
         public override void Init()
         {
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
             base.Init();
-            //HttpContext.Current.Items["Application_EventBeginRequestBeginRequest"] = (object)1;
-            //HttpContext.Current.Items.Add("Application_EventBeginRequestBeginRequest", new object());
-            //HttpContext.Current.Items.Add("Application_EventBeginRequestBeginRequest", new object());
-            //HttpContext.Current.Items.Add("Application_EventBeginRequestBeginRequest", new object());
-            //HttpContext.Current.Items.Add("Application_EventBeginRequestBeginRequest", new object());
-            //HttpContext.Current.Items.Add("Application_EventBeginRequestBeginRequest", new object());
-            //HttpContext.Current.Items.Add("Application_EventBeginRequestBeginRequest", new object());
-            //HttpContext.Current.Items.Add("Application_EventBeginRequestBeginRequest", new object());
-            //HttpContext.Current.Items.Add("Application_EventBeginRequestBeginRequest", new object());
-            //HttpContext.Current.Items.Add("Application_EventBeginRequestBeginRequest", new object());
-            //HttpContext.Current.Items.Add("Application_EventBeginRequestBeginRequest", new object());
-            //HttpContext.Current.Items.Add("Application_EventBeginRequestBeginRequest", new object());
-            //HttpContext.Current.Items.Add("Application_EventBeginRequestBeginRequest", new object());
-            //HttpContext.Current.Items.Add("Application_EventBeginRequestBeginRequest", new object());
-            //HttpContext.Current.Items.Add("Application_EventBeginRequestBeginRequest", new object());
-            //HttpContext.Current.Items.Add("Application_EventBeginRequestBeginRequest", new object());
-            //HttpContext.Current.Items.Add("Application_EventBeginRequestBeginRequest", new object());
-            //HttpContext.Current.Items.Add("Application_EventBeginRequestBeginRequest", new object());
-            //HttpContext.Current.Items.Add("Application_EventBeginRequestBeginRequest", new object());
-            //HttpContext.Current.Items.Add("Application_EventBeginRequestBeginRequest", new object());
-            //HttpContext.Current.Items.Add("Application_EventBeginRequestBeginRequest", new object());
-            //HttpContext.Current.Items.Add("Application_EventBeginRequestBeginRequest", new object());
-            //HttpContext.Current.Items.Add("Application_EventBeginRequestBeginRequest", new object());
-            //HttpContext.Current.Items.Add("Application_EventBeginRequestBeginRequest", new object());
-            //HttpContext.Current.Items.Add("Application_EventBeginRequestBeginRequest", new object());
-            //HttpContext.Current.Items.Add("Application_EventBeginRequestBeginRequest", new object());
-            //HttpContext.Current.Items.Add("Application_EventBeginRequestBeginRequest", new object());
-            //HttpContext.Current.Items.Add("Application_EventBeginRequestBeginRequest", new object());
-            //HttpContext.Current.Items.Add("Application_EventBeginRequestBeginRequest", new object());
-            //HttpContext.Current.Items.Add("Application_EventBeginRequestBeginRequest", new object());
-            //HttpContext.Current.Items.Add("Application_EventBeginRequestBeginRequest", new object());
-            //HttpContext.Current.Items.Add("Application_EventBeginRequestBeginRequest", new object());
-            //HttpContext.Current.Items.Add("Application_EventBeginRequestBeginRequest", new object());
-            //HttpContext.Current.Items.Add("Application_EventBeginRequestBeginRequest", new object());
-            //HttpContext.Current.Items.Add("Application_EventBeginRequestBeginRequest", new object());
-
-            //HttpContext.Current.Items["Application_EventBeginRequestBeginRequest"] = (object)2;
-            //HttpContext.Current.Items["Application_EventBeginRequestBeginRequest"] = EventBeginRequest;
-            //HttpContext.Current.Items.Add("Application_EventBeginRequestBeginRequest", EventBeginRequest);
-            //var key = HttpContext.Current.Items["Application_EventBeginRequestBeginRequest"];
+            //HttpContext.Current.Items["Application_EventBeginRequest"] = (object)1;
+            
+            //var key = HttpContext.Current.Items["Application_EventBeginRequest"];
             //var events = Events;
             //var delegateBeginRequest = events[key];
             //var delegates = delegateBeginRequest.GetInvocationList();
@@ -151,18 +89,22 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI
 
         protected void Application_BeginRequest(Object sender, EventArgs e)
         {
-            logger.InfoFormat("{0:D3}.{1}  {2}", ++numberIndex, MethodBase.GetCurrentMethod().Name, Request.RawUrl);
+            var ctx = HttpContext.Current;
+            logger.InfoFormat("{0:D3}.{1}  {2}", ++numberIndex, MethodBase.GetCurrentMethod().Name, ctx.Request.RawUrl);
         }
         protected void Application_AuthenticateRequest(Object sender, EventArgs e)
         {
+            var ctx = HttpContext.Current;
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
         }
         protected void Application_PostAuthenticateRequest(Object sender, EventArgs e)
         {
+            var ctx = HttpContext.Current;
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
         }
         protected void Application_AuthorizeRequest(Object sender, EventArgs e)
         {
+            var ctx = HttpContext.Current;
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
         }
         protected void Application_PostAuthorizeRequest(Object sender, EventArgs e)
