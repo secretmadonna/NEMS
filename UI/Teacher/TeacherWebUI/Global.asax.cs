@@ -14,8 +14,8 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI
 {
     public class MvcApplication : System.Web.HttpApplication
     {
-        public static ILog logger = LogManager.GetLogger(typeof(MvcApplication));
-        public static int numberIndex = 0;
+        private static readonly ILog logger = LogManager.GetLogger(typeof(MvcApplication));
+        private static int numberIndex = 0;
 
         static MvcApplication()
         {
@@ -76,7 +76,7 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
             base.Init();
             //HttpContext.Current.Items["Application_EventBeginRequest"] = (object)1;
-            
+
             //var key = HttpContext.Current.Items["Application_EventBeginRequest"];
             //var events = Events;
             //var delegateBeginRequest = events[key];
@@ -135,9 +135,8 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI
         /// <param name="e"></param>
         protected void Session_Start(Object sender, EventArgs e)
         {
-            //logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
             var stackTrace = new System.Diagnostics.StackTrace(true);
-            logger.InfoFormat("{0:D3}.{1}", ++numberIndex, Environment.NewLine + stackTrace.DescInfo() + Environment.NewLine);
+            logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name + Environment.NewLine + stackTrace.DescInfo() + Environment.NewLine);
         }
         protected void Application_AcquireRequestState(Object sender, EventArgs e)
         {

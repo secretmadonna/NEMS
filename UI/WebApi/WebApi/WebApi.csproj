@@ -89,6 +89,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\UpdateController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -119,6 +121,10 @@
     <ProjectReference Include="..\..\..\Infrastructure\Common\Common.csproj">
       <Project>{680813cf-ab43-44e2-8428-2ad201be8665}</Project>
       <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CustomHttpModule\CustomHttpModule.csproj">
+      <Project>{653a1681-3844-480b-b604-2ef49a6446da}</Project>
+      <Name>CustomHttpModule</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

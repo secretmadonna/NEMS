@@ -9,8 +9,8 @@ namespace SecretMadonna.NEMS.UI.Frnas
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static ILog logger = LogManager.GetLogger(typeof(MainWindow));
-        public static int numberIndex = 0;
+        private static readonly ILog logger = LogManager.GetLogger(typeof(MainWindow));
+        private static int numberIndex = 0;
 
         public MainWindow()
         {

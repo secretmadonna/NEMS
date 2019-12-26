@@ -11,6 +11,9 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI.Controllers
 {
     public class HomeController : BaseController
     {
+        private static readonly ILog logger = LogManager.GetLogger(typeof(HomeController));
+        private static int numberIndex = 0;
+
         static HomeController()
         {
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);

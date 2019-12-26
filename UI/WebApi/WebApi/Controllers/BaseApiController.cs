@@ -1,23 +1,23 @@
 ﻿using log4net;
 using System.Reflection;
-using System.Web.Mvc;
+using System.Web.Http;
 
-namespace SecretMadonna.NEMS.UI.TeacherWebUI.Controllers
+namespace SecretMadonna.NEMS.UI.WebApi.Controllers
 {
-    public class BaseController : Controller
+    public class BaseApiController : ApiController
     {
-        private static readonly ILog logger = LogManager.GetLogger(typeof(BaseController));
+        private static readonly ILog logger = LogManager.GetLogger(typeof(BaseApiController));
         private static int numberIndex = 0;
 
-        static BaseController()
+        static BaseApiController()
         {
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
         }
-        public BaseController()
+        public BaseApiController()
         {
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
         }
-        ~BaseController()
+        ~BaseApiController()
         {
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
         }

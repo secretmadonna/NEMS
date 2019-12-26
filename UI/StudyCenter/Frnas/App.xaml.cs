@@ -15,8 +15,8 @@ namespace SecretMadonna.NEMS.UI.Frnas
     /// </summary>
     public partial class App : Application
     {
-        public static ILog logger = LogManager.GetLogger(typeof(App));
-        public static int numberIndex = 0;
+        private static readonly ILog logger = LogManager.GetLogger(typeof(App));
+        private static int numberIndex = 0;
 
         public App()
         {

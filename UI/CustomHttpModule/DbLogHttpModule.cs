@@ -7,8 +7,8 @@ namespace SecretMadonna.NEMS.UI.CustomHttpModule
 {
     class DbLogHttpModule : IHttpModule
     {
-        public static ILog logger = LogManager.GetLogger(typeof(DbLogHttpModule));
-        public static int numberIndex = 0;
+        private static readonly ILog logger = LogManager.GetLogger(typeof(DbLogHttpModule));
+        private static int numberIndex = 0;
 
         static DbLogHttpModule()
         {
