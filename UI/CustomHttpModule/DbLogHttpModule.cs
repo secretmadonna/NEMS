@@ -1,6 +1,8 @@
 ﻿using log4net;
 using System;
+using System.IO;
 using System.Reflection;
+using System.Text;
 using System.Web;
 
 namespace SecretMadonna.NEMS.UI.CustomHttpModule
@@ -99,7 +101,28 @@ namespace SecretMadonna.NEMS.UI.CustomHttpModule
         }
         public void OnPostResolveRequestCache(Object source, EventArgs e)
         {
+            var ctx = HttpContext.Current;
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
+            var request = ctx.Request;
+            var requestLine = new StringBuilder();//请求行
+            requestLine.Append($"{request.HttpMethod.ToUpper()} {request.Url.PathAndQuery} {"HTTP/1.1"}{Environment.NewLine}");
+            var headers = request.Headers;
+            var requestHeader = new StringBuilder();//请求头
+            for (int i = 0; i < headers.AllKeys.Length; i++)
+            {
+                var headerName = headers.AllKeys[i];
+                var headerValue = headers[headerName];
+                requestHeader.Append($"{headerName}:{headerValue}{Environment.NewLine}");
+            }
+            var requestBody = new StringBuilder();//请求体
+            if (request.InputStream.Length > 0)
+            {
+                using (var sr = new StreamReader(request.InputStream, request.ContentEncoding))
+                {
+                    requestBody.Append(sr.ReadToEnd());
+                }
+            }
+            logger.InfoFormat($"Request{Environment.NewLine}{requestLine}{requestHeader}{Environment.NewLine}{requestBody}");
         }
         public void OnMapRequestHandler(Object source, EventArgs e)
         {
@@ -153,7 +176,28 @@ namespace SecretMadonna.NEMS.UI.CustomHttpModule
         }
         public void OnEndRequest(Object source, EventArgs e)
         {
+            var ctx = HttpContext.Current;
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
+            var response = ctx.Response;
+            var statusLine = new StringBuilder();//状态行
+            statusLine.Append($"{"HTTP/1.1"} {response.Status}");
+            var headers = response.Headers;
+            var responseHeader = new StringBuilder();//响应头
+            for (int i = 0; i < headers.AllKeys.Length; i++)
+            {
+                var headerName = headers.AllKeys[i];
+                var headerValue = headers[headerName];
+                responseHeader.Append($"{headerName}:{headerValue}{Environment.NewLine}");
+            }
+            var responseBody = new StringBuilder();//响应体
+            if (response.OutputStream.Length > 0)
+            {
+                using (var sr = new StreamReader(response.OutputStream, response.ContentEncoding))
+                {
+                    responseBody.Append(sr.ReadToEnd());
+                }
+            }
+            logger.InfoFormat($"Response{Environment.NewLine}{statusLine}{responseHeader}{Environment.NewLine}{responseBody}");
         }
         public void OnPreSendRequestHeaders(Object source, EventArgs e)
         {

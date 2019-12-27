@@ -2,7 +2,6 @@
 using log4net.Config;
 using SecretMadonna.NEMS.Infrastructure.Common;
 using System;
-using System.ComponentModel;
 using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
@@ -19,22 +18,21 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI
 
         static MvcApplication()
         {
-            var httpContext = HttpContext.Current;
-            var request = httpContext.Request;
-            var requestContext = request.RequestContext;
+            var ctx = HttpContext.Current;
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
+            var request = ctx.Request;
+            var requestContext = request.RequestContext;
         }
         public MvcApplication()
         {
-            //var events = Events;
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
         }
         ~MvcApplication()
         {
-            //var events = Events;
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
         }
 
+        //private static readonly object EventBeginRequest = new object();
         protected void Application_Start(Object sender, EventArgs e)
         {
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
@@ -69,13 +67,8 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI
             //System.Configuration.Provider.ProviderBase 
             //System.Web.SessionState.ISessionIDManager
 
-        }
-        private static readonly object EventBeginRequest = new object();
-        public override void Init()
-        {
-            logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
-            base.Init();
-            //HttpContext.Current.Items["Application_EventBeginRequest"] = (object)1;
+
+            //HttpContext.Current.Items["Application_EventBeginRequest"] = EventBeginRequest;
 
             //var key = HttpContext.Current.Items["Application_EventBeginRequest"];
             //var events = Events;
@@ -86,6 +79,11 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI
             //var eventInfo = type.GetEvent("BeginRequest");
             //var eventInfoRuntime = type.GetRuntimeEvent("BeginRequest");
         }
+        public override void Init()
+        {
+            logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
+            base.Init();
+        }
 
         protected void Application_BeginRequest(Object sender, EventArgs e)
         {
@@ -94,17 +92,14 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI
         }
         protected void Application_AuthenticateRequest(Object sender, EventArgs e)
         {
-            var ctx = HttpContext.Current;
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
         }
         protected void Application_PostAuthenticateRequest(Object sender, EventArgs e)
         {
-            var ctx = HttpContext.Current;
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
         }
         protected void Application_AuthorizeRequest(Object sender, EventArgs e)
         {
-            var ctx = HttpContext.Current;
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
         }
         protected void Application_PostAuthorizeRequest(Object sender, EventArgs e)
@@ -117,6 +112,7 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI
         }
         protected void Application_PostResolveRequestCache(Object sender, EventArgs e)
         {
+            var ctx = HttpContext.Current;
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
         }
         protected void Application_MapRequestHandler(Object sender, EventArgs e)
