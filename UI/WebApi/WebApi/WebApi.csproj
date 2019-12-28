@@ -85,9 +85,12 @@
   <ItemGroup>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\CustomActionFilterAttribute.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
@@ -95,8 +98,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Account\AccountLoginDto.cs" />
+    <Compile Include="Models\Account\AccountLoginErrorCode.cs" />
     <Compile Include="Models\CommonResponse.cs" />
-    <Compile Include="Models\UpdateModels.cs" />
+    <Compile Include="Models\CommonErrorCode.cs" />
+    <Compile Include="Models\Update\UpdateModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -114,6 +120,10 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Application\Application\Application.csproj">
+      <Project>{31C125D9-7B55-4B72-8C76-7A27A3B9671C}</Project>
+      <Name>Application</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Domain\Model\Model.csproj">
       <Project>{ad0757a5-9c71-42f0-8336-7029bf4a00d0}</Project>
       <Name>Model</Name>

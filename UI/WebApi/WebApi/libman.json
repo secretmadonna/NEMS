@@ -1,0 +1,12 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "defaultDestination": "Content/plugins/",
+  "libraries": [
+    {
+      "provider": "cdnjs",
+      "library": "jquery@2.2.4",
+      "destination": "Content/plugins/jquery/"
+    }
+  ]
+}

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace SecretMadonna.NEMS.UI.TeacherWebUI.Models
 {
-    public class HomeIndexModel
+    public class HomeIndexViewModel
     {
     }
 }

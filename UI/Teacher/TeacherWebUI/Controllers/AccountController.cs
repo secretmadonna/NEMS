@@ -1,4 +1,5 @@
-﻿using SecretMadonna.NEMS.UI.TeacherWebUI.Models;
+﻿using SecretMadonna.NEMS.Application;
+using SecretMadonna.NEMS.UI.TeacherWebUI.Models;
 using System.Web.Mvc;
 using System.Web.Security;
 
@@ -6,6 +7,7 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI.Controllers
 {
     public class AccountController : BaseController
     {
+        private UserApplicationService userApplicationService = new UserApplicationService();
         // GET: Accont
         public ActionResult Index()
         {
@@ -14,7 +16,7 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI.Controllers
 
         public ActionResult Login()
         {
-            var loginModel = new AccountLoginModel()
+            var loginModel = new AccountLoginViewModel()
             {
                 Loginname = "test",
                 Password = "123456",
@@ -23,7 +25,7 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI.Controllers
             return View(loginModel);
         }
         [HttpPost]
-        public ActionResult Login(AccountLoginModel model)
+        public ActionResult Login(AccountLoginViewModel model)
         {
             if (model.Loginname.Equals("test") && model.Password.Equals("123456"))
             {

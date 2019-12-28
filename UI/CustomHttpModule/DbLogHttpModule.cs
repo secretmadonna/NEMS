@@ -73,9 +73,9 @@ namespace SecretMadonna.NEMS.UI.CustomHttpModule
         #region EventHandler
         public void OnBeginRequest(Object source, EventArgs e)
         {
-            var httpContext = HttpContext.Current;
-            logger.InfoFormat("{0:D3}.{1}  {2}", ++numberIndex, MethodBase.GetCurrentMethod().Name, httpContext.Request.RawUrl);
-            //httpContext.ApplicationInstance.CompleteRequest();
+            var ctx = HttpContext.Current;
+            logger.InfoFormat("{0:D3}.{1}  {2}", ++numberIndex, MethodBase.GetCurrentMethod().Name, ctx.Request.RawUrl);
+            ctx.Response.Filter = new OutputStream(ctx.Response.Filter, ctx.Response.ContentEncoding);
         }
         public void OnAuthenticateRequest(Object source, EventArgs e)
         {
@@ -83,9 +83,7 @@ namespace SecretMadonna.NEMS.UI.CustomHttpModule
         }
         public void OnPostAuthenticateRequest(Object source, EventArgs e)
         {
-            var ctx = HttpContext.Current;
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
-            //ctx.Request.
         }
         public void OnAuthorizeRequest(Object source, EventArgs e)
         {
@@ -103,9 +101,11 @@ namespace SecretMadonna.NEMS.UI.CustomHttpModule
         {
             var ctx = HttpContext.Current;
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
+
+            #region DbLog
             var request = ctx.Request;
             var requestLine = new StringBuilder();//请求行
-            requestLine.Append($"{request.HttpMethod.ToUpper()} {request.Url.PathAndQuery} {"HTTP/1.1"}{Environment.NewLine}");
+            requestLine.Append($"{request.HttpMethod.ToUpper()} {request.Url.PathAndQuery} {request.ServerVariables["SERVER_PROTOCOL"]}{Environment.NewLine}");
             var headers = request.Headers;
             var requestHeader = new StringBuilder();//请求头
             for (int i = 0; i < headers.AllKeys.Length; i++)
@@ -122,7 +122,9 @@ namespace SecretMadonna.NEMS.UI.CustomHttpModule
                     requestBody.Append(sr.ReadToEnd());
                 }
             }
-            logger.InfoFormat($"Request{Environment.NewLine}{requestLine}{requestHeader}{Environment.NewLine}{requestBody}");
+            logger.Info($"Request{Environment.NewLine}{"******************** log request begin **************************************************"}{Environment.NewLine}{requestLine}{requestHeader}{Environment.NewLine}{requestBody}{Environment.NewLine}{"******************** log request end **************************************************"}");
+            ctx.Items["DbLoged"] = true;
+            #endregion
         }
         public void OnMapRequestHandler(Object source, EventArgs e)
         {
@@ -178,26 +180,35 @@ namespace SecretMadonna.NEMS.UI.CustomHttpModule
         {
             var ctx = HttpContext.Current;
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
-            var response = ctx.Response;
-            var statusLine = new StringBuilder();//状态行
-            statusLine.Append($"{"HTTP/1.1"} {response.Status}");
-            var headers = response.Headers;
-            var responseHeader = new StringBuilder();//响应头
-            for (int i = 0; i < headers.AllKeys.Length; i++)
+
+            var dbLoged = (ctx.Items["DbLoged"] as bool?);
+            if (dbLoged.HasValue && dbLoged.Value)
             {
-                var headerName = headers.AllKeys[i];
-                var headerValue = headers[headerName];
-                responseHeader.Append($"{headerName}:{headerValue}{Environment.NewLine}");
-            }
-            var responseBody = new StringBuilder();//响应体
-            if (response.OutputStream.Length > 0)
-            {
-                using (var sr = new StreamReader(response.OutputStream, response.ContentEncoding))
+                #region DbLog
+                var response = ctx.Response;
+                var statusLine = new StringBuilder();//状态行
+                statusLine.Append($"{ctx.Request.ServerVariables["SERVER_PROTOCOL"]} {response.Status}{Environment.NewLine}");
+                var headers = response.Headers;
+                var responseHeader = new StringBuilder();//响应头
+                for (int i = 0; i < headers.AllKeys.Length; i++)
                 {
-                    responseBody.Append(sr.ReadToEnd());
+                    var headerName = headers.AllKeys[i];
+                    var headerValue = headers[headerName];
+                    responseHeader.Append($"{headerName}:{headerValue}{Environment.NewLine}");
                 }
+                var responseBody = new StringBuilder();//响应体
+                var outputStream = ctx.Response.Filter as OutputStream;
+                responseBody.Append(outputStream?.ReadToEnd());
+                //if (response.OutputStream.Length > 0)
+                //{
+                //    using (var sr = new StreamReader(response.OutputStream, response.ContentEncoding))
+                //    {
+                //        responseBody.Append(sr.ReadToEnd());
+                //    }
+                //}
+                logger.Info($"Response{Environment.NewLine}{"******************** log response begin **************************************************"}{Environment.NewLine}{statusLine}{responseHeader}{Environment.NewLine}{responseBody}{Environment.NewLine}{"******************** log response end **************************************************"}");
+                #endregion
             }
-            logger.InfoFormat($"Response{Environment.NewLine}{statusLine}{responseHeader}{Environment.NewLine}{responseBody}");
         }
         public void OnPreSendRequestHeaders(Object source, EventArgs e)
         {

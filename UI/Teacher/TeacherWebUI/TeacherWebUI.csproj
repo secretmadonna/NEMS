@@ -729,9 +729,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Account\AccountLoginModel.cs" />
-    <Compile Include="Models\Home\HomeIndexModel.cs" />
-    <Compile Include="Models\Home\HomeTestPostModel.cs" />
+    <Compile Include="Models\Account\AccountLoginViewModel.cs" />
+    <Compile Include="Models\Home\HomeIndexViewModel.cs" />
+    <Compile Include="Models\Home\HomeTestPostViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -772,6 +772,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Application\Application\Application.csproj">
+      <Project>{31C125D9-7B55-4B72-8C76-7A27A3B9671C}</Project>
+      <Name>Application</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Domain\Model\Model.csproj">
       <Project>{ad0757a5-9c71-42f0-8336-7029bf4a00d0}</Project>
       <Name>Model</Name>

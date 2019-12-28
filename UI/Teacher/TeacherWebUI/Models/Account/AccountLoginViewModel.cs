@@ -1,6 +1,6 @@
 ﻿namespace SecretMadonna.NEMS.UI.TeacherWebUI.Models
 {
-    public class AccountLoginModel
+    public class AccountLoginViewModel
     {
         public string Loginname { get; set; }
         public string Password { get; set; }

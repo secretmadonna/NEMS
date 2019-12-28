@@ -4,9 +4,10 @@
     {
         public int Code { get; set; }
         public string Description { get; set; }
+        public object Data { get; set; }
     }
     public class CommonResponse<T> : CommonResponse
     {
-        public T Data { get; set; }
+        new public T Data { get; set; }
     }
 }

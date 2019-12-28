@@ -1,6 +1,6 @@
 ﻿namespace SecretMadonna.NEMS.UI.TeacherWebUI.Models
 {
-    public class HomeTestPostModel
+    public class HomeTestPostViewModel
     {
         public int Id { get; set; }
         public string ImageBase64 { get; set; }

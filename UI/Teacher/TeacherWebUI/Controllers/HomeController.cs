@@ -31,18 +31,18 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI.Controllers
         public ActionResult Index()
         {
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
-            var vm = new HomeIndexModel();
+            var vm = new HomeIndexViewModel();
             return View(vm);
         }
 
         public ActionResult TestPost()
         {
-            var vm = new HomeTestPostModel();
+            var vm = new HomeTestPostViewModel();
             return View(vm);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult TestPost(HomeTestPostModel vm)
+        public ActionResult TestPost(HomeTestPostViewModel vm)
         {
             logger.Info(vm);
             var saveFile = Server.MapPath($"~/ResourceFiles/{DateTime.Now.ToString("yyyyMMddHHmmssfff")}.jpg");

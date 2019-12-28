@@ -11,17 +11,14 @@ using System.Web.Routing;
 [assembly: XmlConfigurator(ConfigFile = "log4net.config", Watch = true)]
 namespace SecretMadonna.NEMS.UI.TeacherWebUI
 {
-    public class MvcApplication : System.Web.HttpApplication
+    public class MvcApplication : HttpApplication
     {
         private static readonly ILog logger = LogManager.GetLogger(typeof(MvcApplication));
         private static int numberIndex = 0;
 
         static MvcApplication()
         {
-            var ctx = HttpContext.Current;
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
-            var request = ctx.Request;
-            var requestContext = request.RequestContext;
         }
         public MvcApplication()
         {
@@ -40,12 +37,13 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            for (int i = 0; i < Modules.Count; i++)
-            {
-                var module = Modules[i];
-                var type = module.GetType();
-                logger.InfoFormat("{0}:{1},{2}", i, type.FullName, type.Assembly.ManifestModule.FullyQualifiedName);
-            }
+            //for (int i = 0; i < Modules.Count; i++)
+            //{
+            //    var module = Modules[i];
+            //    var type = module.GetType();
+            //    logger.InfoFormat("{0}:{1},{2}", i, type.FullName, type.Assembly.ManifestModule.FullyQualifiedName);
+            //}
+
             //System.Web.HttpRuntime httpRuntime;
             //Microsoft.Web.Administration.ApplicationPool applicationPool;
             //System.AppDomain appDomain;
@@ -112,7 +110,6 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI
         }
         protected void Application_PostResolveRequestCache(Object sender, EventArgs e)
         {
-            var ctx = HttpContext.Current;
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
         }
         protected void Application_MapRequestHandler(Object sender, EventArgs e)
@@ -131,8 +128,10 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI
         /// <param name="e"></param>
         protected void Session_Start(Object sender, EventArgs e)
         {
-            var stackTrace = new System.Diagnostics.StackTrace(true);
-            logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name + Environment.NewLine + stackTrace.DescInfo() + Environment.NewLine);
+            var ctx = HttpContext.Current;
+            logger.InfoFormat("{0:D3}.{1}  {2}", ++numberIndex, MethodBase.GetCurrentMethod().Name, ctx.Session.SessionID);
+            //var stackTrace = new System.Diagnostics.StackTrace(true);
+            //logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name + Environment.NewLine + stackTrace.DescInfo() + Environment.NewLine);
         }
         protected void Application_AcquireRequestState(Object sender, EventArgs e)
         {

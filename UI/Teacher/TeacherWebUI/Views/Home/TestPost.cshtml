@@ -1,4 +1,4 @@
-﻿@model SecretMadonna.NEMS.UI.TeacherWebUI.Models.HomeTestPostModel
+﻿@model SecretMadonna.NEMS.UI.TeacherWebUI.Models.HomeTestPostViewModel
 
 @{
     ViewBag.Title = "TestPost";
@@ -10,7 +10,6 @@
 }
 
 <h2>TestPost</h2>
-
 
 @using (Ajax.BeginForm("TestPost", "Home", new AjaxOptions { }, new { }))
 {
