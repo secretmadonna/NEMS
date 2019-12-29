@@ -29,7 +29,7 @@ namespace SecretMadonna.NEMS.UI.WebApi
 
             //config.Filters.Add(new CustomAuthorizationFilterAttribute());
             config.Filters.Add(new CustomActionFilterAttribute());
-            //config.Filters.Add(new CustomExceptionFilterAttribute());
+            config.Filters.Add(new CustomExceptionFilterAttribute());
         }
     }
 }

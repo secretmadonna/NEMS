@@ -115,12 +115,15 @@ namespace SecretMadonna.NEMS.UI.CustomHttpModule
                 requestHeader.Append($"{headerName}:{headerValue}{Environment.NewLine}");
             }
             var requestBody = new StringBuilder();//请求体
-            if (request.InputStream.Length > 0)
+            var inputStream = request.InputStream;
+            if (inputStream.Length > 0)
             {
-                using (var sr = new StreamReader(request.InputStream, request.ContentEncoding))
-                {
-                    requestBody.Append(sr.ReadToEnd());
-                }
+                var oldPosition = inputStream.Position;
+                inputStream.Seek(0, SeekOrigin.Begin);
+                var bytes = new byte[inputStream.Length];
+                inputStream.Read(bytes, 0, bytes.Length);
+                requestBody.Append(request.ContentEncoding.GetString(bytes));
+                inputStream.Seek(oldPosition, SeekOrigin.Begin);
             }
             logger.Info($"Request{Environment.NewLine}{"******************** log request begin **************************************************"}{Environment.NewLine}{requestLine}{requestHeader}{Environment.NewLine}{requestBody}{Environment.NewLine}{"******************** log request end **************************************************"}");
             ctx.Items["DbLoged"] = true;

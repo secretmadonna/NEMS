@@ -3,6 +3,9 @@ using SecretMadonna.NEMS.Application;
 using SecretMadonna.NEMS.Application.Models;
 using SecretMadonna.NEMS.Infrastructure.Common;
 using SecretMadonna.NEMS.UI.WebApi.Models;
+using System.ComponentModel.DataAnnotations;
+using System.Net;
+using System.Net.Http;
 using System.Reflection;
 using System.Web.Http;
 
@@ -34,14 +37,16 @@ namespace SecretMadonna.NEMS.UI.WebApi.Controllers
         /// <param name="dto"></param>
         /// <returns></returns>
         [HttpPost, Route("account/login")]
-        public IHttpActionResult Login(AccountLoginDto dto)
+        public IHttpActionResult Login([Required]AccountLoginDto dto)
         {
-            var result = new CommonResponse<UserDto>();
+            logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
+            throw new System.Exception("测试异常！");
+            var result = new CommonResponse();
             if (dto == null)
             {
                 result.Code = (int)CommonErrorCode.ParameterError;
                 result.Description = CommonErrorCode.ParameterError.Description();
-                return Ok(result);
+                return ResponseMessage(Request.CreateResponse(HttpStatusCode.BadRequest, result));
             }
             var user = userApplicationService.GetByLoginname(dto.Loginname);
             if (user == null)
@@ -62,8 +67,8 @@ namespace SecretMadonna.NEMS.UI.WebApi.Controllers
                 result.Description = AccountLoginErrorCode.AccountIsDisabled.Description();
                 return Ok(result);
             }
-            result.Code = (int)AccountLoginErrorCode.AccountIsDisabled;
-            result.Description = AccountLoginErrorCode.AccountIsDisabled.Description();
+            result.Code = (int)CommonErrorCode.Success;
+            result.Description = CommonErrorCode.Success.Description();
             result.Data = user;
             return Ok(result);
         }
