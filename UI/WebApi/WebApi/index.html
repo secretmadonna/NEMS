@@ -8,17 +8,36 @@
 <body>
     <h2>index</h2>
     <button id="btnRequest">发起请求</button>
+    <button id="btnRequest_AccountLogin">发起登录请求</button>
 
     <script src="Content/plugins/jquery/jquery.js"></script>
     <script>
         $(function () {
-            var baseUrl = "http://localhost:64590/";
+            var baseUrl = "http://www.mytest.com/MyWebSite/NEMS/WebApi/";
             $("#btnRequest").on("click", function (e) {
                 $.ajax({
                     type: "POST",
+                    url: baseUrl + "account1/login",
+                    dataType: "json",
+                    beforeSend: function (jqXHR, settings) {
+                        console.log(arguments);
+                    },
+                    success: function (data, textStatus, jqXHR) {
+                        console.log(arguments);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.log(arguments);
+                    },
+                    complete: function (jqXHR, textStatus) {
+                        console.log(arguments);
+                    }
+                });
+            });
+            $("#btnRequest_AccountLogin").on("click", function (e) {
+                $.ajax({
+                    type: "POST",
                     url: baseUrl + "account/login",
-                    data: { Loginname: "normaluser", Password: "123456" },
-                    //contentType: "application/json; charset=utf-8",
+                    data: { Loginname: "exception", Password: "123456" },
                     dataType: "json",
                     beforeSend: function (jqXHR, settings) {
                         console.log(arguments);

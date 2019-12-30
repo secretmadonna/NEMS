@@ -1,6 +1,7 @@
 ﻿using log4net;
 using log4net.Config;
 using System;
+using System.Net;
 using System.Reflection;
 using System.Web;
 using System.Web.Http;
@@ -74,6 +75,7 @@ namespace SecretMadonna.NEMS.UI.WebApi
         protected void Application_PostMapRequestHandler(Object sender, EventArgs e)
         {
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
+            //CompleteRequest();
         }
         /// <summary>
         /// Application_PostMapRequestHandler 之后执行

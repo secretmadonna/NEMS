@@ -125,8 +125,8 @@ namespace SecretMadonna.NEMS.UI.CustomHttpModule
                 requestBody.Append(request.ContentEncoding.GetString(bytes));
                 inputStream.Seek(oldPosition, SeekOrigin.Begin);
             }
-            logger.Info($"Request{Environment.NewLine}{"******************** log request begin **************************************************"}{Environment.NewLine}{requestLine}{requestHeader}{Environment.NewLine}{requestBody}{Environment.NewLine}{"******************** log request end **************************************************"}");
-            ctx.Items["DbLoged"] = true;
+            var requestInfo = $"{"******************** log request begin **************************************************"}{Environment.NewLine}{requestLine}{requestHeader}{Environment.NewLine}{requestBody}{Environment.NewLine}{"******************** log request end **************************************************"}";
+            ctx.Items["DbLog_RequestInfo"] = requestInfo;
             #endregion
         }
         public void OnMapRequestHandler(Object source, EventArgs e)
@@ -184,8 +184,8 @@ namespace SecretMadonna.NEMS.UI.CustomHttpModule
             var ctx = HttpContext.Current;
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
 
-            var dbLoged = (ctx.Items["DbLoged"] as bool?);
-            if (dbLoged.HasValue && dbLoged.Value)
+            var requestInfo = (ctx.Items["DbLog_RequestInfo"] as string);
+            if (!string.IsNullOrWhiteSpace(requestInfo))
             {
                 #region DbLog
                 var response = ctx.Response;
@@ -209,7 +209,8 @@ namespace SecretMadonna.NEMS.UI.CustomHttpModule
                 //        responseBody.Append(sr.ReadToEnd());
                 //    }
                 //}
-                logger.Info($"Response{Environment.NewLine}{"******************** log response begin **************************************************"}{Environment.NewLine}{statusLine}{responseHeader}{Environment.NewLine}{responseBody}{Environment.NewLine}{"******************** log response end **************************************************"}");
+                var responseInfo = $"{"******************** log response begin **************************************************"}{Environment.NewLine}{statusLine}{responseHeader}{Environment.NewLine}{responseBody}{Environment.NewLine}{"******************** log response end **************************************************"}";
+                logger.Info($"Request and Response{Environment.NewLine}{requestInfo}{responseInfo}");
                 #endregion
             }
         }

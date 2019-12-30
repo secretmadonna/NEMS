@@ -3,6 +3,7 @@ using SecretMadonna.NEMS.Application;
 using SecretMadonna.NEMS.Application.Models;
 using SecretMadonna.NEMS.Infrastructure.Common;
 using SecretMadonna.NEMS.UI.WebApi.Models;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.Net;
 using System.Net.Http;
@@ -40,13 +41,13 @@ namespace SecretMadonna.NEMS.UI.WebApi.Controllers
         public IHttpActionResult Login([Required]AccountLoginDto dto)
         {
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
-            throw new System.Exception("测试异常！");
             var result = new CommonResponse();
             if (dto == null)
             {
                 result.Code = (int)CommonErrorCode.ParameterError;
                 result.Description = CommonErrorCode.ParameterError.Description();
-                return ResponseMessage(Request.CreateResponse(HttpStatusCode.BadRequest, result));
+                //return ResponseMessage(Request.CreateResponse(HttpStatusCode.BadRequest, result));
+                return Ok(result);
             }
             var user = userApplicationService.GetByLoginname(dto.Loginname);
             if (user == null)

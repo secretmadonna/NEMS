@@ -72,7 +72,7 @@ namespace SecretMadonna.NEMS.UI.WebApi
             }
             if (!actionContext.ModelState.IsValid)
             {
-                actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.BadRequest, new CommonResponse()
+                actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.OK, new CommonResponse()
                 {
                     Code = (int)CommonErrorCode.ParameterError,
                     Description = CommonErrorCode.ParameterError.Description(),

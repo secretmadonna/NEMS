@@ -14,7 +14,7 @@
     <RootNamespace>SecretMadonna.NEMS.UI.TeacherWebUI</RootNamespace>
     <AssemblyName>TeacherWebUI</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -810,7 +810,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>62308</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://www.mytest.com/MyWebSite/NEMS/Teacher</IISUrl>
+          <IISUrl>http://localhost:62308/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
