@@ -1,17 +1,12 @@
 ﻿using log4net;
 using SecretMadonna.NEMS.Infrastructure.Common;
 using SecretMadonna.NEMS.UI.WebApi.Models;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Web;
-using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 
@@ -36,15 +31,10 @@ namespace SecretMadonna.NEMS.UI.WebApi
         }
 
         #region override
-        public override void OnActionExecuted(HttpActionExecutedContext actionExecutedContext)
+        public override Task OnActionExecutingAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
         {
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
-            base.OnActionExecuted(actionExecutedContext);
-        }
-        public override Task OnActionExecutedAsync(HttpActionExecutedContext actionExecutedContext, CancellationToken cancellationToken)
-        {
-            logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
-            return base.OnActionExecutedAsync(actionExecutedContext, cancellationToken);
+            return base.OnActionExecutingAsync(actionContext, cancellationToken);
         }
         public override void OnActionExecuting(HttpActionContext actionContext)
         {
@@ -72,6 +62,12 @@ namespace SecretMadonna.NEMS.UI.WebApi
             }
             if (!actionContext.ModelState.IsValid)
             {
+                //actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.BadRequest, new CommonResponse()
+                //{
+                //    Code = (int)CommonErrorCode.ParameterError,
+                //    Description = CommonErrorCode.ParameterError.Description(),
+                //    Data = actionContext.ModelState
+                //});
                 actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.OK, new CommonResponse()
                 {
                     Code = (int)CommonErrorCode.ParameterError,
@@ -80,10 +76,15 @@ namespace SecretMadonna.NEMS.UI.WebApi
                 });
             }
         }
-        public override Task OnActionExecutingAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
+        public override Task OnActionExecutedAsync(HttpActionExecutedContext actionExecutedContext, CancellationToken cancellationToken)
         {
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
-            return base.OnActionExecutingAsync(actionContext, cancellationToken);
+            return base.OnActionExecutedAsync(actionExecutedContext, cancellationToken);
+        }
+        public override void OnActionExecuted(HttpActionExecutedContext actionExecutedContext)
+        {
+            logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
+            base.OnActionExecuted(actionExecutedContext);
         }
         #endregion
     }

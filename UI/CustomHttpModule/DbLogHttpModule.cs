@@ -102,7 +102,7 @@ namespace SecretMadonna.NEMS.UI.CustomHttpModule
             var ctx = HttpContext.Current;
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
 
-            #region DbLog
+            #region 组织请求信息
             var request = ctx.Request;
             var requestLine = new StringBuilder();//请求行
             requestLine.Append($"{request.HttpMethod.ToUpper()} {request.Url.PathAndQuery} {request.ServerVariables["SERVER_PROTOCOL"]}{Environment.NewLine}");
@@ -125,9 +125,13 @@ namespace SecretMadonna.NEMS.UI.CustomHttpModule
                 requestBody.Append(request.ContentEncoding.GetString(bytes));
                 inputStream.Seek(oldPosition, SeekOrigin.Begin);
             }
-            var requestInfo = $"{"******************** log request begin **************************************************"}{Environment.NewLine}{requestLine}{requestHeader}{Environment.NewLine}{requestBody}{Environment.NewLine}{"******************** log request end **************************************************"}";
-            ctx.Items["DbLog_RequestInfo"] = requestInfo;
+            var requestInfo = new StringBuilder();
+            requestInfo.Append($"******************** log request begin **************************************************{Environment.NewLine}");
+            requestInfo.Append($"{requestLine}{requestHeader}{Environment.NewLine}{requestBody}");
+            requestInfo.Append($"{Environment.NewLine}******************** log request end **************************************************");
             #endregion
+
+            ctx.Items["DbLog_RequestInfo"] = requestInfo;
         }
         public void OnMapRequestHandler(Object source, EventArgs e)
         {
@@ -184,10 +188,10 @@ namespace SecretMadonna.NEMS.UI.CustomHttpModule
             var ctx = HttpContext.Current;
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
 
-            var requestInfo = (ctx.Items["DbLog_RequestInfo"] as string);
-            if (!string.IsNullOrWhiteSpace(requestInfo))
+            var requestInfo = (ctx.Items["DbLog_RequestInfo"] as StringBuilder);
+            if (requestInfo != null && requestInfo.Length > 0)
             {
-                #region DbLog
+                #region 组织响应信息
                 var response = ctx.Response;
                 var statusLine = new StringBuilder();//状态行
                 statusLine.Append($"{ctx.Request.ServerVariables["SERVER_PROTOCOL"]} {response.Status}{Environment.NewLine}");
@@ -202,16 +206,13 @@ namespace SecretMadonna.NEMS.UI.CustomHttpModule
                 var responseBody = new StringBuilder();//响应体
                 var outputStream = ctx.Response.Filter as OutputStream;
                 responseBody.Append(outputStream?.ReadToEnd());
-                //if (response.OutputStream.Length > 0)
-                //{
-                //    using (var sr = new StreamReader(response.OutputStream, response.ContentEncoding))
-                //    {
-                //        responseBody.Append(sr.ReadToEnd());
-                //    }
-                //}
-                var responseInfo = $"{"******************** log response begin **************************************************"}{Environment.NewLine}{statusLine}{responseHeader}{Environment.NewLine}{responseBody}{Environment.NewLine}{"******************** log response end **************************************************"}";
-                logger.Info($"Request and Response{Environment.NewLine}{requestInfo}{responseInfo}");
+                var responseInfo = new StringBuilder();
+                responseInfo.Append($"******************** log response begin **************************************************{Environment.NewLine}");
+                responseInfo.Append($"{statusLine}{responseHeader}{Environment.NewLine}{responseBody}");
+                responseInfo.Append($"{Environment.NewLine}******************** log response end **************************************************");
                 #endregion
+
+                logger.Info($"Request and Response{Environment.NewLine}{requestInfo}{Environment.NewLine}{responseInfo}");
             }
         }
         public void OnPreSendRequestHeaders(Object source, EventArgs e)

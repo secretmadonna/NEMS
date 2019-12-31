@@ -150,7 +150,9 @@ namespace SecretMadonna.NEMS.UI.WebApi
         /// <param name="e"></param>
         protected void Application_EndRequest(Object sender, EventArgs e)
         {
+            var ctx = HttpContext.Current;
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
+            var response = ctx.Response;
         }
         /// <summary>
         /// 总是会被执行

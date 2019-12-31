@@ -5,7 +5,6 @@ using System;
 using System.Net;
 using System.Net.Http;
 using System.Reflection;
-using System.Text.RegularExpressions;
 using System.Web.Http;
 
 namespace SecretMadonna.NEMS.UI.WebApi.Controllers
@@ -84,6 +83,17 @@ namespace SecretMadonna.NEMS.UI.WebApi.Controllers
             return Ok(result);
         }
 
+        [HttpGet, HttpPost, Route("error/sc400")]
+        public IHttpActionResult Sc400()
+        {
+            logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
+
+            var result = new CommonResponse();
+            result.Code = (int)CommonErrorCode.Fail;
+            result.Description = CommonErrorCode.Fail.Description();
+            result.Data = new { Query = Request.RequestUri.Query.TrimStart(new char[] { '?' }), HttpStatusCode = HttpStatusCode.BadRequest, };
+            return ResponseMessage(Request.CreateResponse(HttpStatusCode.BadRequest, result));
+        }
         [HttpGet, HttpPost, Route("error/sc404")]
         public IHttpActionResult Sc404()
         {

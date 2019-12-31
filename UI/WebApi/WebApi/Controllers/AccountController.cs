@@ -42,13 +42,6 @@ namespace SecretMadonna.NEMS.UI.WebApi.Controllers
         {
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
             var result = new CommonResponse();
-            if (dto == null)
-            {
-                result.Code = (int)CommonErrorCode.ParameterError;
-                result.Description = CommonErrorCode.ParameterError.Description();
-                //return ResponseMessage(Request.CreateResponse(HttpStatusCode.BadRequest, result));
-                return Ok(result);
-            }
             var user = userApplicationService.GetByLoginname(dto.Loginname);
             if (user == null)
             {
