@@ -3,7 +3,7 @@ using System.Text;
 
 namespace SecretMadonna.NEMS.Infrastructure.Common
 {
-    public class Base64Helper
+    public static class Base64Helper
     {
         private static readonly char[] _base64Alphabet = new char[]
         {

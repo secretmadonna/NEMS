@@ -85,6 +85,8 @@
   <ItemGroup>
     <Content Include="Content\plugins\jquery\jquery.js" />
     <Content Include="Content\plugins\jquery\jquery.min.js" />
+    <Content Include="Content\plugins\jsencrypt\jsencrypt.js" />
+    <Content Include="Content\plugins\jsencrypt\jsencrypt.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="index.html" />
@@ -95,10 +97,12 @@
   <ItemGroup>
     <Compile Include="App_Start\CustomActionFilterAttribute.cs" />
     <Compile Include="App_Start\CustomExceptionFilterAttribute.cs" />
+    <Compile Include="App_Start\RsaKeyManager.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\SecurityController.cs" />
     <Compile Include="Controllers\UpdateController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

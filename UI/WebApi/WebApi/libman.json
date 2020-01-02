@@ -7,6 +7,10 @@
       "provider": "cdnjs",
       "library": "jquery@2.2.4",
       "destination": "Content/plugins/jquery/"
+    },
+    {
+      "library": "jsencrypt@2.3.1",
+      "destination": "Content/plugins/jsencrypt"
     }
   ]
 }

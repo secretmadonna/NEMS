@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace SecretMadonna.NEMS.Infrastructure.Common
 {
@@ -21,9 +18,9 @@ namespace SecretMadonna.NEMS.Infrastructure.Common
         /// </summary>
         /// <param name="xmlPrivateKey">私钥</param>
         /// <param name="xmlPublicKey">公钥</param>
-        public static void GenerateKey(out string xmlPrivateKey, out string xmlPublicKey)
+        public static void GenerateKey(int keySize, out string xmlPrivateKey, out string xmlPublicKey)
         {
-            var rsaCsp = new RSACryptoServiceProvider();
+            var rsaCsp = new RSACryptoServiceProvider(keySize);
             xmlPrivateKey = rsaCsp.ToXmlString(true);
             xmlPublicKey = rsaCsp.ToXmlString(false);
         }

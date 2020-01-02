@@ -11,19 +11,24 @@
     <button id="btnRequest_AccountLogin">发起登录请求</button>
 
     <script src="Content/plugins/jquery/jquery.js"></script>
+    <script src="Content/plugins/jsencrypt/jsencrypt.js"></script>
     <script>
         $(function () {
-            var baseUrl = "http://www.mytest.com/MyWebSite/NEMS/WebApi/";
+            var baseUrl = "http://localhost:64590/";//"http://www.mytest.com/MyWebSite/NEMS/WebApi/";
             $("#btnRequest").on("click", function (e) {
                 $.ajax({
-                    type: "POST",
-                    url: baseUrl + "test.json",
+                    type: "GET",
+                    url: baseUrl + "security/getpublickey",
                     dataType: "json",
                     beforeSend: function (jqXHR, settings) {
                         console.log(arguments);
                     },
                     success: function (data, textStatus, jqXHR) {
                         console.log(arguments);
+                        if (data && data.Code === 0) {
+                            var rsaPublicKey = JSON.stringify(data.Data);
+                            localStorage.setItem("RsaPublicKey", rsaPublicKey);
+                        }
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         console.log(arguments);
@@ -34,24 +39,33 @@
                 });
             });
             $("#btnRequest_AccountLogin").on("click", function (e) {
-                $.ajax({
-                    type: "POST",
-                    url: baseUrl + "account/login",
-                    data: { Loginname: "exception", Password: "123456" },
-                    dataType: "json",
-                    beforeSend: function (jqXHR, settings) {
-                        console.log(arguments);
-                    },
-                    success: function (data, textStatus, jqXHR) {
-                        console.log(arguments);
-                    },
-                    error: function (jqXHR, textStatus, errorThrown) {
-                        console.log(arguments);
-                    },
-                    complete: function (jqXHR, textStatus) {
-                        console.log(arguments);
-                    }
-                });
+                var rsaPublicKey = localStorage.getItem("RsaPublicKey");
+                rsaPublicKey = JSON.parse(rsaPublicKey);
+                var encrypt = new JSEncrypt();
+                encrypt.setPublicKey("-----BEGIN PUBLIC KEY-----" + rsaPublicKey.Modulus + rsaPublicKey.Exponent + "-----END PUBLIC KEY-----");
+                encrypt.setPublicKey("-----BEGIN PUBLIC KEY-----" + rsaPublicKey.Modulus + rsaPublicKey.Exponent + "-----END PUBLIC KEY-----");
+                var password = "123456";
+                var encPassword = encrypt.encrypt(password);
+                console.log("加密前的数据：%s", password);
+                console.log("加密后的数据：%s", encPassword);
+                //$.ajax({
+                //    type: "POST",
+                //    url: baseUrl + "account/login",
+                //    data: { Loginname: "normaluser", Password: encPassword },
+                //    dataType: "json",
+                //    beforeSend: function (jqXHR, settings) {
+                //        console.log(arguments);
+                //    },
+                //    success: function (data, textStatus, jqXHR) {
+                //        console.log(arguments);
+                //    },
+                //    error: function (jqXHR, textStatus, errorThrown) {
+                //        console.log(arguments);
+                //    },
+                //    complete: function (jqXHR, textStatus) {
+                //        console.log(arguments);
+                //    }
+                //});
             });
         });
     </script>
