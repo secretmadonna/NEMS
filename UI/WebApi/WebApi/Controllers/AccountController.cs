@@ -49,7 +49,8 @@ namespace SecretMadonna.NEMS.UI.WebApi.Controllers
                 result.Description = AccountLoginErrorCode.LoginnameNotExist.Description();
                 return Ok(result);
             }
-            else if (!user.Password.Equals(dto.Password))
+            var password = RsaHelper.Decrypt(dto.Password, RsaKeyManager.XmlPrivateKey);
+            if (!user.Password.Equals(password))
             {
                 result.Code = (int)AccountLoginErrorCode.LoginnameAndPasswordNotMatch;
                 result.Description = AccountLoginErrorCode.LoginnameAndPasswordNotMatch.Description();

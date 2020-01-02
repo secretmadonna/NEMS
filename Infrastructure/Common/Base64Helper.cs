@@ -17,6 +17,7 @@ namespace SecretMadonna.NEMS.Infrastructure.Common
         };
         private static readonly char _equal = '=';
 
+        #region 编码
         /// <summary>
         /// 编码
         /// </summary>
@@ -78,6 +79,18 @@ namespace SecretMadonna.NEMS.Infrastructure.Common
             }
             return sb.ToString();
         }
+        /// <summary>
+        /// 编码
+        /// </summary>
+        /// <param name="originalStr">原始字符串</param>
+        /// <returns>编码后的字符串</returns>
+        public static string UrlSafeEncode(string originalStr)
+        {
+            return Encode(originalStr).Replace("+", "-").Replace("/", "_").Replace("=", "");
+        }
+        #endregion
+
+        #region 解码
         /// <summary>
         /// 解码
         /// </summary>
@@ -150,16 +163,6 @@ namespace SecretMadonna.NEMS.Infrastructure.Common
             }
             return Encoding.Default.GetString(bytes);
         }
-
-        /// <summary>
-        /// 编码
-        /// </summary>
-        /// <param name="originalStr">原始字符串</param>
-        /// <returns>编码后的字符串</returns>
-        public static string UrlSafeEncode(string originalStr)
-        {
-            return Encode(originalStr).Replace("+", "-").Replace("/", "_").Replace("=", "");
-        }
         /// <summary>
         /// 解码
         /// </summary>
@@ -175,5 +178,6 @@ namespace SecretMadonna.NEMS.Infrastructure.Common
             }
             return Decode(base64Str);
         }
+        #endregion
     }
 }

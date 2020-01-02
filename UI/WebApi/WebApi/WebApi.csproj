@@ -129,6 +129,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\javascript\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Application\Application\Application.csproj">

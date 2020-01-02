@@ -32,7 +32,7 @@ namespace SecretMadonna.NEMS.UI.WebApi.Controllers
             {
                 Code = (int)CommonErrorCode.Success,
                 Description = CommonErrorCode.Success.Description(),
-                Data = RsaKeyManager.PublicKey
+                Data = RsaKeyManager.PemPublicKey
             };
             return Ok(result);
         }

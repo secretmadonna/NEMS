@@ -35,7 +35,7 @@ namespace SecretMadonna.NEMS.Infrastructure.Common
         }
         public static string Serialize<T>(T obj) where T : new()
         {
-            return Serialize<T>(obj);
+            return Serialize<T>(obj, Encoding.Default);
         }
 
         public static string ObjectToXml(object obj)

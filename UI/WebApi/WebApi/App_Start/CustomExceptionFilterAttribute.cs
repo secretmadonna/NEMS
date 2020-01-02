@@ -28,8 +28,8 @@ namespace SecretMadonna.NEMS.UI.WebApi
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
 
             var exceptionMaxRecursiveDepth = ConfigurationManager.AppSettings["ExceptionMaxRecursiveDepth"];
-            int.TryParse(exceptionMaxRecursiveDepth, out var result);
-            if (result >= 0)
+            var isParseSuccess = int.TryParse(exceptionMaxRecursiveDepth, out var result);
+            if (isParseSuccess && result >= 0)
             {
                 maxRecursiveDepth = result;
             }

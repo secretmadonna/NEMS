@@ -15,7 +15,7 @@ namespace SecretMadonna.NEMS.Infrastructure.Common
     public static class ObjectExtension
     {
         /// <summary>
-        /// object转T（强转）
+        /// object 转 T（强转）
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="obj"></param>
@@ -27,7 +27,7 @@ namespace SecretMadonna.NEMS.Infrastructure.Common
         }
 
         /// <summary>
-        /// object转T
+        /// object 转 T
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="obj"></param>
@@ -44,15 +44,15 @@ namespace SecretMadonna.NEMS.Infrastructure.Common
         }
 
         /// <summary>
-        /// item是否在list中
+        /// item 是否在 array 中
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="item"></param>
-        /// <param name="list"></param>
+        /// <param name="array"></param>
         /// <returns></returns>
-        public static bool IsIn<T>(this T item, params T[] list)
+        public static bool IsIn<T>(this T item, params T[] array)
         {
-            return list.Contains(item);
+            return array.Contains(item);
         }
 
         #region Enum 扩展

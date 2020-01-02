@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Org.BouncyCastle.Crypto.Encodings;
+using Org.BouncyCastle.Crypto.Parameters;
+using Org.BouncyCastle.Math;
+using Org.BouncyCastle.OpenSsl;
+using System;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
@@ -24,45 +28,80 @@ namespace SecretMadonna.NEMS.Infrastructure.Common
             xmlPrivateKey = rsaCsp.ToXmlString(true);
             xmlPublicKey = rsaCsp.ToXmlString(false);
         }
+        /// <summary>
+        /// “xml秘钥”转“pem秘钥”
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="isPrivateKey"></param>
+        /// <returns></returns>
+        public static string Xml2Pem(string key, bool isPrivateKey = false)
+        {
+            var rsaCsp = new RSACryptoServiceProvider();
+            rsaCsp.FromXmlString(key);
+            RSAParameters rsaParameters = new RSAParameters();
+            RsaKeyParameters rsaKeyParameters = null;
+            if (isPrivateKey)
+            {
+                rsaParameters = rsaCsp.ExportParameters(true);
+                rsaKeyParameters = new RsaPrivateCrtKeyParameters(
+                    new BigInteger(1, rsaParameters.Modulus),
+                    new BigInteger(1, rsaParameters.Exponent),
+                    new BigInteger(1, rsaParameters.D),
+                    new BigInteger(1, rsaParameters.P),
+                    new BigInteger(1, rsaParameters.Q),
+                    new BigInteger(1, rsaParameters.DP),
+                    new BigInteger(1, rsaParameters.DQ),
+                    new BigInteger(1, rsaParameters.InverseQ));
+            }
+            else
+            {
+                rsaParameters = rsaCsp.ExportParameters(false);
+                rsaKeyParameters = new RsaKeyParameters(false,
+                    new BigInteger(1, rsaParameters.Modulus),
+                    new BigInteger(1, rsaParameters.Exponent));
+            }
+            using (var sw = new StringWriter())
+            {
+                var pemWriter = new PemWriter(sw);
+                pemWriter.WriteObject(rsaKeyParameters);
+                pemWriter.Writer.Flush();
+                var pemKey = sw.ToString();
+                return pemKey;
+            }
+        }
         #endregion
 
-        #region RSA 加密
-        public static string Encrypt(string plaintext, string xmlPublicKey)
+        #region RSA 公钥加密
+        public static byte[] Encrypt(byte[] plainBytes, string xmlPublicKey)
         {
             RSACryptoServiceProvider rsaCsp = new RSACryptoServiceProvider();
             rsaCsp.FromXmlString(xmlPublicKey);
-            var plaintextBa = Encoding.Default.GetBytes(plaintext);
-            var ciphertextBa = rsaCsp.Encrypt(plaintextBa, false);
-            var ciphertext = Convert.ToBase64String(ciphertextBa);//Encoding.Default.GetString(ciphertextBa);
-            return ciphertext;
+            var cipherBytes = rsaCsp.Encrypt(plainBytes, false);
+            return cipherBytes;
         }
-        public static string Encrypt(byte[] plaintextBa, string xmlPublicKey)
+        public static string Encrypt(string plainText, string xmlPublicKey)
         {
-            RSACryptoServiceProvider rsaCsp = new RSACryptoServiceProvider();
-            rsaCsp.FromXmlString(xmlPublicKey);
-            var ciphertextBa = rsaCsp.Encrypt(plaintextBa, false);
-            var ciphertext = Convert.ToBase64String(ciphertextBa);//Encoding.Default.GetString(ciphertextBa);
-            return ciphertext;
+            var plainBytes = Encoding.Default.GetBytes(plainText);
+            var cipherBytes = Encrypt(plainBytes, xmlPublicKey);
+            var cipherText = Convert.ToBase64String(cipherBytes);
+            return cipherText;
         }
         #endregion
 
-        #region RSA 解密
-        public static string Decrypt(string ciphertext, string xmlPrivateKey)
+        #region RSA 私钥解密
+        public static byte[] Decrypt(byte[] cipherBytes, string xmlPrivateKey)
         {
             RSACryptoServiceProvider rsaCsp = new RSACryptoServiceProvider();
             rsaCsp.FromXmlString(xmlPrivateKey);
-            var ciphertextBa = Convert.FromBase64String(ciphertext);
-            var plaintextBa = rsaCsp.Encrypt(ciphertextBa, false);
-            var plaintext = Encoding.Default.GetString(ciphertextBa);
-            return plaintext;
+            var plainBytes = rsaCsp.Decrypt(cipherBytes, false);
+            return plainBytes;
         }
-        public static string Decrypt(byte[] ciphertextBa, string xmlPrivateKey)
+        public static string Decrypt(string cipherText, string xmlPrivateKey)
         {
-            RSACryptoServiceProvider rsaCsp = new RSACryptoServiceProvider();
-            rsaCsp.FromXmlString(xmlPrivateKey);
-            var plaintextBa = rsaCsp.Encrypt(ciphertextBa, false);
-            var plaintext = Encoding.Default.GetString(ciphertextBa);
-            return plaintext;
+            var cipherBytes = Convert.FromBase64String(cipherText);
+            var plainBytes = Decrypt(cipherBytes, xmlPrivateKey);
+            var plainText = Encoding.Default.GetString(plainBytes);
+            return plainText;
         }
         #endregion
 
@@ -70,91 +109,62 @@ namespace SecretMadonna.NEMS.Infrastructure.Common
 
         #region RSA 签名 验签
 
-        #region 生成摘要
-        public static byte[] GetByteDigest(string plaintext)
-        {
-            var md5 = HashAlgorithm.Create("MD5");
-            var plaintextBa = Encoding.Default.GetBytes(plaintext);
-            var plaintextDigestBa = md5.ComputeHash(plaintextBa);
-            return plaintextDigestBa;
-        }
-        public static string GetStringDigest(string plaintext)
-        {
-            var plaintextDigestBa = GetByteDigest(plaintext);
-            var plaintextDigest = Convert.ToBase64String(plaintextDigestBa);
-            return plaintextDigest;
-        }
-        public static byte[] GetByteDigest(Stream stream)
-        {
-            var md5 = HashAlgorithm.Create("MD5");
-            var plaintextDigestBa = md5.ComputeHash(stream);
-            stream.Close();
-            return plaintextDigestBa;
-        }
-        public static string GetStringDigest(Stream stream)
-        {
-            var plaintextDigestBa = GetByteDigest(stream);
-            var plaintextDigest = Convert.ToBase64String(plaintextDigestBa);
-            return plaintextDigest;
-        }
-        #endregion
-
-        #region RSA 签名
-        public static byte[] SignToByte(byte[] digest, string xmlPrivateKey)
+        #region RSA 私钥签名
+        public static byte[] SignToByte(byte[] digestBytes, string xmlPrivateKey)
         {
             var rsaCsp = new RSACryptoServiceProvider();
             rsaCsp.FromXmlString(xmlPrivateKey);
             var rsaPsf = new RSAPKCS1SignatureFormatter(rsaCsp);
             rsaPsf.SetHashAlgorithm("MD5");
-            var signatureBa = rsaPsf.CreateSignature(digest);
-            return signatureBa;
+            var signatureBytes = rsaPsf.CreateSignature(digestBytes);
+            return signatureBytes;
         }
-        public static string SignToString(byte[] digest, string xmlPrivateKey)
+        public static string SignToString(byte[] digestBytes, string xmlPrivateKey)
         {
-            var signatureBa = SignToByte(digest, xmlPrivateKey);
-            var signature = Convert.ToBase64String(signatureBa);
-            return signature;
+            var signatureBytes = SignToByte(digestBytes, xmlPrivateKey);
+            var signatureText = Convert.ToBase64String(signatureBytes);
+            return signatureText;
         }
-        public static byte[] SignToByte(string digest, string xmlPrivateKey)
+        public static byte[] SignToByte(string digestText, string xmlPrivateKey)
         {
-            var digestBa = Convert.FromBase64String(digest);
-            var signatureBa = SignToByte(digestBa, xmlPrivateKey);
-            return signatureBa;
+            var digestBytes = Convert.FromBase64String(digestText);
+            var signaturebytes = SignToByte(digestBytes, xmlPrivateKey);
+            return signaturebytes;
         }
-        public static string SignToString(string digest, string xmlPrivateKey)
+        public static string SignToString(string digestText, string xmlPrivateKey)
         {
-            var digestBa = Convert.FromBase64String(digest);
-            var signatureBa = SignToByte(digestBa, xmlPrivateKey);
-            var signature = Convert.ToBase64String(signatureBa);
-            return signature;
+            var digestBytes = Convert.FromBase64String(digestText);
+            var signatureBytes = SignToByte(digestBytes, xmlPrivateKey);
+            var signatureText = Convert.ToBase64String(signatureBytes);
+            return signatureText;
         }
         #endregion
 
-        #region RSA 验签
-        public static bool ValidSignature(byte[] digest, byte[] signature, string xmlPublicKey)
+        #region RSA 公钥验签
+        public static bool ValidSignature(byte[] digestBytes, byte[] signatureBytes, string xmlPublicKey)
         {
             var rsaCsp = new RSACryptoServiceProvider();
             rsaCsp.FromXmlString(xmlPublicKey);
             var rsaPsd = new RSAPKCS1SignatureDeformatter(rsaCsp);
             rsaPsd.SetHashAlgorithm("MD5");
-            var isValid = rsaPsd.VerifySignature(digest, signature);
+            var isValid = rsaPsd.VerifySignature(digestBytes, signatureBytes);
             return isValid;
         }
-        public static bool ValidSignature(byte[] digest, string signature, string xmlPublicKey)
+        public static bool ValidSignature(byte[] digestBytes, string signatureText, string xmlPublicKey)
         {
-            var signatureBa = Convert.FromBase64String(signature);
-            return ValidSignature(digest, signatureBa, xmlPublicKey);
+            var signatureBytes = Convert.FromBase64String(signatureText);
+            return ValidSignature(digestBytes, signatureBytes, xmlPublicKey);
         }
-        public static bool ValidSignature(string digest, byte[] signature, string xmlPublicKey)
+        public static bool ValidSignature(string digestText, byte[] signatureBytes, string xmlPublicKey)
         {
-            var digestBa = Convert.FromBase64String(digest);
-            return ValidSignature(digestBa, signature, xmlPublicKey);
+            var digestBytes = Convert.FromBase64String(digestText);
+            return ValidSignature(digestBytes, signatureBytes, xmlPublicKey);
         }
-        public static bool ValidSignature(string digest, string signature, string xmlPublicKey)
+        public static bool ValidSignature(string digestText, string signatureText, string xmlPublicKey)
         {
-            var digestBa = Convert.FromBase64String(digest);
-            var signatureBa = Convert.FromBase64String(signature);
-            return ValidSignature(digestBa, signatureBa, xmlPublicKey);
+            var digestBytes = Convert.FromBase64String(digestText);
+            var signatureBytes = Convert.FromBase64String(signatureText);
+            return ValidSignature(digestBytes, signatureBytes, xmlPublicKey);
         }
         #endregion
 

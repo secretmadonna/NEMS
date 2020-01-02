@@ -1,5 +1,4 @@
 ﻿using log4net;
-using Newtonsoft.Json;
 using SecretMadonna.NEMS.Infrastructure.Common;
 using System.Configuration;
 using System.IO;
@@ -44,8 +43,8 @@ namespace SecretMadonna.NEMS.UI.WebApi
             if (string.IsNullOrEmpty(xmlPrivateKey) || string.IsNullOrEmpty(xmlPublicKey))
             {
                 var rsaKeySize = ConfigurationManager.AppSettings["RsaKeySize"];
-                int.TryParse(rsaKeySize, out var result);
-                if (result > 0)
+                var isParseSuccess = int.TryParse(rsaKeySize, out var result);
+                if (isParseSuccess && result > 0)
                 {
                     keySize = result;
                 }
@@ -57,17 +56,11 @@ namespace SecretMadonna.NEMS.UI.WebApi
             }
             XmlPrivateKey = xmlPrivateKey;
             XmlPublicKey = xmlPublicKey;
-            PublicKey = XmlHelper.DeSerialize<RSAKeyValue>(xmlPublicKey);
+            PemPublicKey = RsaHelper.Xml2Pem(xmlPublicKey);
         }
 
         public static string XmlPrivateKey { get; private set; }
         public static string XmlPublicKey { get; private set; }
-        public static RSAKeyValue PublicKey { get; private set; }
-    }
-
-    public class RSAKeyValue
-    {
-        public string Modulus { get; set; }
-        public string Exponent { get; set; }
+        public static string PemPublicKey { get; private set; }
     }
 }
