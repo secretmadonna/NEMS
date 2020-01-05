@@ -43,6 +43,7 @@ namespace SecretMadonna.NEMS.UI.WebApi
         {
             var ctx = HttpContext.Current;
             logger.InfoFormat("{0:D3}.{1}  {2}", ++numberIndex, MethodBase.GetCurrentMethod().Name, ctx.Request.RawUrl);
+            //ctx.Response.TrySkipIisCustomErrors = true;
         }
         protected void Application_AuthenticateRequest(Object sender, EventArgs e)
         {

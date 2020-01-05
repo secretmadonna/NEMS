@@ -18,6 +18,8 @@ namespace SecretMadonna.NEMS.UI.WebApi
                 defaults: new { id = RouteParameter.Optional }
             );
 
+            var jsonFormatter = config.Formatters.JsonFormatter;
+
             config.Formatters.JsonFormatter.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
             //var xml = config.Formatters.XmlFormatter;
             //var dcs = new DataContractSerializer();
