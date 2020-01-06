@@ -109,13 +109,15 @@ namespace SecretMadonna.NEMS.Infrastructure.Common
 
         #region RSA 签名 验签
 
+        private static readonly string hashAlgorithmName = "MD5";
+
         #region RSA 私钥签名
         public static byte[] SignToByte(byte[] digestBytes, string xmlPrivateKey)
         {
             var rsaCsp = new RSACryptoServiceProvider();
             rsaCsp.FromXmlString(xmlPrivateKey);
             var rsaPsf = new RSAPKCS1SignatureFormatter(rsaCsp);
-            rsaPsf.SetHashAlgorithm("MD5");
+            rsaPsf.SetHashAlgorithm(hashAlgorithmName);
             var signatureBytes = rsaPsf.CreateSignature(digestBytes);
             return signatureBytes;
         }
@@ -146,7 +148,7 @@ namespace SecretMadonna.NEMS.Infrastructure.Common
             var rsaCsp = new RSACryptoServiceProvider();
             rsaCsp.FromXmlString(xmlPublicKey);
             var rsaPsd = new RSAPKCS1SignatureDeformatter(rsaCsp);
-            rsaPsd.SetHashAlgorithm("MD5");
+            rsaPsd.SetHashAlgorithm(hashAlgorithmName);
             var isValid = rsaPsd.VerifySignature(digestBytes, signatureBytes);
             return isValid;
         }

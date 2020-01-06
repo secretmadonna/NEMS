@@ -10,7 +10,7 @@ using System.Text;
 namespace SecretMadonna.NEMS.Infrastructure.Common
 {
     /// <summary>
-    /// Object 扩展
+    /// 扩展类的实例方法
     /// </summary>
     public static class ObjectExtension
     {
