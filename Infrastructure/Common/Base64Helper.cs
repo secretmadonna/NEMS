@@ -81,6 +81,9 @@ namespace SecretMadonna.NEMS.Infrastructure.Common
         }
         /// <summary>
         /// 编码
+        /// 替换：“+”->“-”
+        /// 替换：“/”->“_”
+        /// 替换：“=”->“”
         /// </summary>
         /// <param name="originalStr">原始字符串</param>
         /// <returns>编码后的字符串</returns>
@@ -165,6 +168,9 @@ namespace SecretMadonna.NEMS.Infrastructure.Common
         }
         /// <summary>
         /// 解码
+        /// 替换：“-”->“+”
+        /// 替换：“_”->“/”
+        /// 补：“=”
         /// </summary>
         /// <param name="urlSafeBase64Str">Base64 编码（Url Safe）后的字符串</param>
         /// <returns>原始字符串</returns>

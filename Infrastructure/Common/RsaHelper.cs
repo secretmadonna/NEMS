@@ -14,6 +14,8 @@ namespace SecretMadonna.NEMS.Infrastructure.Common
     /// </summary>
     public static class RsaHelper
     {
+        private static readonly string hashAlgorithmName = "MD5";
+
         #region RSA 加密 解密
 
         #region RSA 生成秘钥
@@ -108,8 +110,6 @@ namespace SecretMadonna.NEMS.Infrastructure.Common
         #endregion
 
         #region RSA 签名 验签
-
-        private static readonly string hashAlgorithmName = "MD5";
 
         #region RSA 私钥签名
         public static byte[] SignToByte(byte[] digestBytes, string xmlPrivateKey)

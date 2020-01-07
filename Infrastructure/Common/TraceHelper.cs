@@ -7,7 +7,8 @@ namespace SecretMadonna.NEMS.Infrastructure.Common
     {
         public static void Exception(Exception exception)
         {
-            Trace.TraceError(exception.Message);
+            var message = exception.Message;
+            Trace.TraceError(message);
         }
         public static void Infomation(string infomation)
         {
