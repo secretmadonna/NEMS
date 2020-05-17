@@ -18,3 +18,5 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI.Controllers
         {
             return View();
         }
+    }
+}
