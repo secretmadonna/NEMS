@@ -1,25 +1,14 @@
 ﻿@model SecretMadonna.NEMS.UI.TeacherWebUI.Models.HomeIndexViewModel
-
 @{
     ViewBag.Title = "Index";
 }
-
-@section headend
-{
-
-}
-
+@section headend{}
 <h2>Index</h2>
-
 <span><i class="ace-icon fa fa-download"></i>fa-download</span>
 <span><i class="ace-icon glyphicon glyphicon-remove"></i>glyphicon-remove</span>
-
 <img src="~/Content/images/photo.jpg" />
-
 @Html.ActionLink("TestPost", "TestPost", "Home", "http", "localhost", "123", null, new { })
-
-@section bodyend
-{
+@section bodyend{
     <script>
         $(function () {
             var url = "http://www.mytest.com/mywebsite/nems/webapi/account/login";

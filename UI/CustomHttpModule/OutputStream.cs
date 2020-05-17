@@ -9,37 +9,35 @@ namespace SecretMadonna.NEMS.UI.CustomHttpModule
         private readonly MemoryStream CopyStream;
         private readonly Encoding Encoding;
 
-        static OutputStream()
-        { }
         public OutputStream(Stream innerStream, Encoding encoding)
         {
-            this.InnerStream = innerStream;
-            this.CopyStream = new MemoryStream();
-            this.Encoding = encoding;
+            InnerStream = innerStream;
+            CopyStream = new MemoryStream();
+            Encoding = encoding;
         }
         ~OutputStream()
         { }
 
         public string ReadToEnd()
         {
-            lock (this.InnerStream)
+            lock (InnerStream)
             {
-                if (!this.CopyStream.CanRead || !this.CopyStream.CanSeek || this.CopyStream.Length <= 0L)
+                if (!CopyStream.CanRead || !CopyStream.CanSeek || CopyStream.Length <= 0L)
                 {
                     return string.Empty;
                 }
 
-                var pos = this.CopyStream.Position;
-                this.CopyStream.Position = 0L;
+                var pos = CopyStream.Position;
+                CopyStream.Position = 0L;
                 try
                 {
-                    return new StreamReader(this.CopyStream, this.Encoding).ReadToEnd();
+                    return new StreamReader(CopyStream, Encoding).ReadToEnd();
                 }
                 finally
                 {
                     try
                     {
-                        this.CopyStream.Position = pos;
+                        CopyStream.Position = pos;
                     }
                     catch { }
                 }
@@ -49,56 +47,56 @@ namespace SecretMadonna.NEMS.UI.CustomHttpModule
         #region override
         public override bool CanRead
         {
-            get { return this.InnerStream.CanRead; }
+            get { return InnerStream.CanRead; }
         }
 
         public override bool CanSeek
         {
-            get { return this.InnerStream.CanSeek; }
+            get { return InnerStream.CanSeek; }
         }
 
         public override bool CanWrite
         {
-            get { return this.InnerStream.CanWrite; }
+            get { return InnerStream.CanWrite; }
         }
 
         public override long Length
         {
-            get { return this.InnerStream.Length; }
+            get { return InnerStream.Length; }
         }
 
         public override long Position
         {
-            get { return this.InnerStream.Position; }
-            set { this.CopyStream.Position = this.InnerStream.Position = value; }
+            get { return InnerStream.Position; }
+            set { CopyStream.Position = InnerStream.Position = value; }
         }
 
         public override void Flush()
         {
-            this.InnerStream.Flush();
+            InnerStream.Flush();
         }
 
         public override int Read(byte[] buffer, int offset, int count)
         {
-            return this.InnerStream.Read(buffer, offset, count);
+            return InnerStream.Read(buffer, offset, count);
         }
 
         public override long Seek(long offset, SeekOrigin origin)
         {
-            this.CopyStream.Seek(offset, origin);
-            return this.InnerStream.Seek(offset, origin);
+            CopyStream.Seek(offset, origin);
+            return InnerStream.Seek(offset, origin);
         }
 
         public override void SetLength(long value)
         {
-            this.CopyStream.SetLength(value);
-            this.InnerStream.SetLength(value);
+            CopyStream.SetLength(value);
+            InnerStream.SetLength(value);
         }
 
         public override void Write(byte[] buffer, int offset, int count)
         {
-            this.CopyStream.Write(buffer, offset, count);
-            this.InnerStream.Write(buffer, offset, count);
+            CopyStream.Write(buffer, offset, count);
+            InnerStream.Write(buffer, offset, count);
         }
         #endregion
     }

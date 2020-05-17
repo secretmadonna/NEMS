@@ -29,8 +29,8 @@
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <div class="checkbox">
-                        <label>
-                            @Html.CheckBoxFor(m => m.RememberMe)
+                        <label title="@Html.DisplayNameFor(m => m.RememberMe)">
+                            @Html.CheckBoxFor(m => m.RememberMe) @Html.DisplayNameFor(m => m.RememberMe)
                         </label>
                     </div>
                 </div>
