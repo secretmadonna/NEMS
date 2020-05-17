@@ -1,16 +1,9 @@
 ﻿@model SecretMadonna.NEMS.UI.TeacherWebUI.Models.HomeTestPostViewModel
-
 @{
     ViewBag.Title = "TestPost";
 }
-
-@section headend
-{
-
-}
-
+@section headend{}
 <h2>TestPost</h2>
-
 @using (Ajax.BeginForm("TestPost", "Home", new AjaxOptions { }, new { }))
 {
     @Html.AntiForgeryToken()
@@ -22,11 +15,8 @@
 
     <input type="submit" value="提交" />
 }
-
 <img src="" id="imgBase64" />
-
-@section bodyend
-{
+@section bodyend{
     <script>
         var serverData =  {
             imageSrc: "http://www.dftest.com:8088/Content/images/7.00MB.jpg"//"@Url.Content("~/Content/images/7.00MB.jpg")"

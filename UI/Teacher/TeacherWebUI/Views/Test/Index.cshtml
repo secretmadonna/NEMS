@@ -1,7 +1,56 @@
-﻿
 @{
-    Layout = null;
+    ViewBag.Title = "Index";
 }
+@section headend{}
+<h2>Index</h2>
+<form>
+    <fieldset>
+        <input type="button" value="Connect" id="btnConnect" />
+        <input type="button" value="DisConnect" id="btnDisConnect" />
+        <hr />
+        <input type="text" id="txtInput" />
+        <input type="button" value="Send" id="btnSend" />
+        <br />
+        <span id="spanMessage" style="color:red;"></span>
+    </fieldset>
+</form>
+<div>
+    <video id="videoCamera"></video>
+</div>
+@*<video id='video'></video>
+    <canvas id="canvas"></canvas>
+    <img id="image">*@
+@section bodyend{
+    <script>
+        $(function () {
+            var ws;
+            $("#btnConnect").on("click", function (jqEvent) {
+                ws = new WebSocket("ws" + "://" + "localhost:62308" + "/WebSocket/Connect");
+                ws.onopen = function (event) {
+                    console.log(event);
+                };
+                ws.onmessage = function (messageEvent) {
+                    console.log(messageEvent);
+                };
+                ws.onerror = function (event) {
+                    console.log(event);
+                };
+                ws.onclose = function (closeEvent) {
+                    console.log(closeEvent);
+                };
+            });
+            $("#btnDisConnect").on("click", function (jqEvent) {
+                if (ws) {
+                    //console.log(ws);
+                    ws.close();
+                }
+            });
+            $("#btnSend").on("click", function (jqEvent) {
+                if (ws && ws.readyState == WebSocket.OPEN) {
+                    var sendMessage = $("#txtInput").val();
+                    ws.send(sendMessage);
+                }
+            });
 
 <!DOCTYPE html>
 

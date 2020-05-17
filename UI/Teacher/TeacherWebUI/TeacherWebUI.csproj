@@ -1,4 +1,4 @@
-﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -1334,6 +1334,8 @@
     <Content Include="Content\plugins\jqueryui\themes\vader\theme.min.css" />
     <Content Include="Content\plugins\jquery2\jquery.js" />
     <Content Include="Content\plugins\jquery2\jquery.min.js" />
+    <Content Include="Content\plugins\jquery\jquery.js" />
+    <Content Include="Content\plugins\jquery\jquery.min.js" />
     <Content Include="Content\plugins\modernizr\modernizr.js" />
     <Content Include="Content\plugins\modernizr\modernizr.min.js" />
     <Content Include="Content\plugins\mootools\mootools-core-compat.js" />
@@ -1383,6 +1385,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\WebSocketController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1391,12 +1394,14 @@
     <Compile Include="Models\Account\AccountLoginViewModel.cs" />
     <Compile Include="Models\Home\HomeIndexViewModel.cs" />
     <Compile Include="Models\Home\HomeTestPostViewModel.cs" />
+    <Compile Include="Models\WebSocket\WebSocketModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="libman.json" />
     <Content Include="Content\plugins\jquery2\jquery.min.map" />
+    <Content Include="Content\plugins\jquery\jquery.min.map" />
     <Content Include="Content\plugins\twitter-bootstrap\css\bootstrap-theme.css.map" />
     <Content Include="Content\plugins\twitter-bootstrap\css\bootstrap-theme.min.css.map" />
     <Content Include="Content\plugins\twitter-bootstrap\css\bootstrap.css.map" />
@@ -1427,6 +1432,7 @@
     <Content Include="Views\Home\PrintScore.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Test\Index.cshtml" />
+    <Content Include="Views\Test\TestInputChange.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

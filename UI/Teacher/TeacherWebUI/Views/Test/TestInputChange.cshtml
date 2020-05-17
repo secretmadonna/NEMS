@@ -1,0 +1,114 @@
+﻿@{
+    ViewBag.Title = "TestInputChange";
+}
+@section headend{}
+<h2>TestInputChange</h2>
+<div>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" name="mycheckbox" value="1" autocomplete="off" />checkbox1 description
+        </label>
+    </div>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" name="mycheckbox" value="2" autocomplete="off" />checkbox2 description
+        </label>
+    </div>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" name="mycheckbox" value="3" autocomplete="off" />checkbox3 description
+        </label>
+    </div>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" name="mycheckbox" value="4" autocomplete="off" />checkbox4 description
+        </label>
+    </div>
+</div>
+<div>
+    <div class="radio">
+        <label>
+            <input type="radio" name="myradio" value="1" autocomplete="off" />radio1 description
+        </label>
+    </div>
+    <div class="radio">
+        <label>
+            <input type="radio" name="myradio" value="2" autocomplete="off" />radio2 description
+        </label>
+    </div>
+    <div class="radio">
+        <label>
+            <input type="radio" name="myradio" value="3" autocomplete="off" />radio3 description
+        </label>
+    </div>
+    <div class="radio">
+        <label>
+            <input type="radio" name="myradio" value="4" autocomplete="off" />radio4 description
+        </label>
+    </div>
+</div>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+<h2>TestInputChange</h2>
+@section bodyend{
+    <script>
+        $(function () {
+            $("input:checkbox").on("click", function () {
+                var $this = $(this);
+                var key = $this.attr("name");
+                var value = [];
+                $("input:checkbox[name='" + key + "']:checked").each(function (index, element) {
+                    value.push($(this).val());
+                })
+                console.log("%s:%o", key, value.join(","));
+            });
+            $("input:radio").on("click", function () {
+                var $this = $(this);
+                var key = $this.attr("name");
+                var value = $("input:radio[name='" + key + "']:checked").val();
+                console.log("%s:%o", key, value);
+            });
+        });
+    </script>
+}
