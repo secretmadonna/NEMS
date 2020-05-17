@@ -6,7 +6,6 @@ using System.IO.MemoryMappedFiles;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Threading;
-using System.Windows;
 
 [assembly: XmlConfigurator(ConfigFile = "log4net.config", Watch = true)]
 namespace SecretMadonna.NEMS.UI.Frnas
@@ -38,20 +37,9 @@ namespace SecretMadonna.NEMS.UI.Frnas
         [STAThread]
         static void Main()
         {
-            MessageBox.Show("messageBoxText", "caption", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK, MessageBoxOptions.None);
-
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
 
             #region 利用 Mutex 防止应用程序多开
-            //var executingAssembly = Assembly.GetExecutingAssembly();
-            //var assemblyCompanyAttribute = executingAssembly.GetCustomAttribute<AssemblyCompanyAttribute>();
-            //var assemblyProductAttribute = executingAssembly.GetCustomAttribute<AssemblyProductAttribute>();
-            //var companyProduct = $"{assemblyCompanyAttribute.Company}_{assemblyProductAttribute.Product}";
-
-            //processIdentity = companyProduct;
-            //var currentProcess = Process.GetCurrentProcess();
-            //currentProcess.StartInfo.
-
             using (var mutex = new Mutex(true, $"Mutex_{processIdentity}", out var createdNew))
             {
                 var capacity = Marshal.SizeOf(typeof(int));
@@ -64,11 +52,11 @@ namespace SecretMadonna.NEMS.UI.Frnas
                         viewAccessor.Write(0, currentProcessId);
 
 
-                        //var appDomain = AppDomain.CurrentDomain;
-                        //var appDirectory = appDomain.SetupInformation.ApplicationBase;
-                        //var version = Assembly.GetExecutingAssembly().GetName().Version;
-                        //var v = System.Windows.Application.ResourceAssembly.GetName().Version;
-                        //return;
+                        var appDomain = AppDomain.CurrentDomain;
+                        var appDirectory = appDomain.SetupInformation.ApplicationBase;
+                        var version = Assembly.GetExecutingAssembly().GetName().Version;
+                        var v = System.Windows.Application.ResourceAssembly.GetName().Version;
+                        return;
                         var app = new App();
                         app.InitializeComponent();
                         app.Run();
@@ -76,9 +64,9 @@ namespace SecretMadonna.NEMS.UI.Frnas
                 }
                 else
                 {
-                    // 1.唤起已启动的进程
                     try
                     {
+                        // 1.唤起已启动的进程
                         using (var mmf = MemoryMappedFile.OpenExisting(processIdentity))
                         {
                             var viewAccessor = mmf.CreateViewAccessor(0, capacity);
@@ -90,19 +78,21 @@ namespace SecretMadonna.NEMS.UI.Frnas
                             //SwitchToThisWindow(mainWindowHandle, true);
                         }
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
-                        throw;
+                        throw ex;
                     }
-                    finally { }
-                    // 2.终止当前进程
-                    Environment.Exit(Environment.ExitCode); // 终止此进程，并将退出代码返回到操作系统
-                    //Environment.FailFast(null, null); // 向 Windows 的应用程序事件日志写入消息后立即终止进程，然后在发往 Microsoft 的错误报告中加入该消息和异常信息
-                    //var currentProcess = Process.GetCurrentProcess();
-                    //currentProcess.Kill(); // 立即停止关联的进程
-                    //var exitCode = (uint)Environment.ExitCode;
-                    //ExitProcess(exitCode);
-                    //TerminateProcess(currentProcess.Handle, exitCode);
+                    finally
+                    {
+                        // 2.终止当前进程
+                        Environment.Exit(Environment.ExitCode); // 终止此进程，并将退出代码返回到操作系统
+                        //Environment.FailFast(null, null); // 向 Windows 的应用程序事件日志写入消息后立即终止进程，然后在发往 Microsoft 的错误报告中加入该消息和异常信息
+                        //var currentProcess = Process.GetCurrentProcess();
+                        //currentProcess.Kill(); // 立即停止关联的进程
+                        //var exitCode = (uint)Environment.ExitCode;
+                        //ExitProcess(exitCode);
+                        //TerminateProcess(currentProcess.Handle, exitCode);
+                    }
                 }
             }
             #endregion
@@ -110,13 +100,15 @@ namespace SecretMadonna.NEMS.UI.Frnas
 
         #region Win32 API
         /// <summary>
-        /// 
+        /// 终止调用进程
         /// </summary>
         /// <param name="uExitCode"></param>
         [DllImport("kernel32.dll")]
         static extern void ExitProcess(uint uExitCode);
         /// <summary>
-        /// 
+        /// 终止(杀死)一个进程
+        ///   它不会留给进程及其所有线程清理的时间，系统会马上终止(杀死)这个进程的所有线程，致使进程终止。
+        ///   在使用此函数前我们必须要调用 OpenProcess 函数来获得我们要终止(杀死)进程的句柄，并且要获得进程的 PROCESS_TERMINATE 权限。
         /// </summary>
         /// <param name="hProcess"></param>
         /// <param name="uExitCode"></param>

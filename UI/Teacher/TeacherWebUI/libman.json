@@ -5,11 +5,6 @@
   "libraries": [
     {
       "provider": "cdnjs",
-      "library": "jquery@2.2.4",
-      "destination": "Content/plugins/jquery/"
-    },
-    {
-      "provider": "cdnjs",
       "library": "twitter-bootstrap@3.4.1",
       "destination": "Content/plugins/twitter-bootstrap/"
     },
@@ -78,6 +73,10 @@
     {
       "library": "jQuery.print@1.6.0",
       "destination": "Content/plugins/jQuery.print/"
+    },
+    {
+      "library": "jquery@1.12.4",
+      "destination": "Content/plugins/jquery/"
     }
   ]
 }

@@ -222,6 +222,8 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI
         protected void Application_Error(Object sender, EventArgs e)
         {
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
+            var ctx = HttpContext.Current;
+            var exception = ctx.Server.GetLastError();
         }
 
         /// <summary>

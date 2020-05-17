@@ -1,0 +1,19 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <textarea id="abc" name="abc" rows="12" style="width:100%;margin-top:5px;"></textarea>
+        <iframe id="eWebEditor_abc" src="@(Url.Content(string.Format("~/Content/plugins/ewebeditor/ewebeditor.htm?id={0}&style=StudentDoPaper&lang=zh-cn", "abc")))" frameborder="0" scrolling="no" width="100%" height="400px"></iframe>
+    </div>
+</body>
+</html>
