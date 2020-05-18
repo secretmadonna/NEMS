@@ -1,23 +1,23 @@
-<%@ Page Language="C#" AutoEventWireup="true" %>
+ï»¿<%@ Page Language="C#" AutoEventWireup="true" %>
 
 <html>
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-<title>eWebEditor £º ·ÖÒ³ÏÔÊ¾´¦ÀíÊ¾Àı</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<title>eWebEditor ï¼š åˆ†é¡µæ˜¾ç¤ºå¤„ç†ç¤ºä¾‹</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="example.css" />
 </head>
 <body>
 
-<p><b>µ¼º½ £º <a href="default.aspx">Ê¾ÀıÊ×Ò³</a> &gt; ·ÖÒ³ÏÔÊ¾´¦ÀíÊ¾Àı</b></p>
-<p>´ËÀıÑİÊ¾ÁËeWebEditorµÄ±ê×¼·ÖÒ³Ä£Ê½ÏÂ£¬³ÌĞò¶Ô±ê×¼·ÖÒ³·ûµÄ´¦Àí·½·¨¡£Äú¿ÉÒÔ²é¿´´ËÒ³³ÌĞòÔ´´úÂë£¬ÒÔÁË½â±ê×¼·ÖÒ³·û½á¹¹¼°Ê¹ÓÃ·½·¨¡£</p>
+<p><b>å¯¼èˆª ï¼š <a href="default.aspx">ç¤ºä¾‹é¦–é¡µ</a> &gt; åˆ†é¡µæ˜¾ç¤ºå¤„ç†ç¤ºä¾‹</b></p>
+<p>æ­¤ä¾‹æ¼”ç¤ºäº†eWebEditorçš„æ ‡å‡†åˆ†é¡µæ¨¡å¼ä¸‹ï¼Œç¨‹åºå¯¹æ ‡å‡†åˆ†é¡µç¬¦çš„å¤„ç†æ–¹æ³•ã€‚æ‚¨å¯ä»¥æŸ¥çœ‹æ­¤é¡µç¨‹åºæºä»£ç ï¼Œä»¥äº†è§£æ ‡å‡†åˆ†é¡µç¬¦ç»“æ„åŠä½¿ç”¨æ–¹æ³•ã€‚</p>
 
 
 <%
-// eWebEditor ±ê×¼·ÖÒ³·û¸ñÊ½¶¨Òå£º
+// eWebEditor æ ‡å‡†åˆ†é¡µç¬¦æ ¼å¼å®šä¹‰ï¼š
 // -------------------------------------------------------------------
-// <!--ewebeditor:page title="µÚNÒ³Ğ¡±êÌâ"-->
-// µÚNÒ³ÕıÎÄHTML´úÂë
+// <!--ewebeditor:page title="ç¬¬Né¡µå°æ ‡é¢˜"-->
+// ç¬¬Né¡µæ­£æ–‡HTMLä»£ç 
 // <!--/ewebeditor:page-->
 // -------------------------------------------------------------------
 
@@ -25,24 +25,24 @@
 
 
 
-// sContent±äÁ¿£ºËù±à¼­µÄÄÚÈİ£¬Ò»°ãÊÇ´ÓÊı¾İ¿âÖĞÈ¡³ö£¬ÒÔÏÂÎªÄ£ÄâÊı¾İ
+// sContentå˜é‡ï¼šæ‰€ç¼–è¾‘çš„å†…å®¹ï¼Œä¸€èˆ¬æ˜¯ä»æ•°æ®åº“ä¸­å–å‡ºï¼Œä»¥ä¸‹ä¸ºæ¨¡æ‹Ÿæ•°æ®
     String sContent;
 // sContent = rs("field")
-sContent = "<!--ewebeditor:page title=\"µÚÒ»Ò³Ğ¡±êÌâ\"-->" + "\r\n" +
+sContent = "<!--ewebeditor:page title=\"ç¬¬ä¸€é¡µå°æ ‡é¢˜\"-->" + "\r\n" +
            "<style>" + "\r\n" +
 		   ".p1{font-size:14px;color:#000000;}" + "\r\n" +
 		   ".p2{font-size:16px;color:#ff0000;}" + "\r\n" +
 		   ".p3{font-size:18px;color:#0000ff;}" + "\r\n" +
 		   "</style>" + "\r\n" +
-           "<p class=p1>µÚÒ»Ò³ÕıÎÄ</p>" + "\r\n" + 
+           "<p class=p1>ç¬¬ä¸€é¡µæ­£æ–‡</p>" + "\r\n" + 
            "<!--/ewebeditor:page-->" + "\r\n" + 
-		   "<!--ewebeditor:page title=\"µÚ¶şÒ³Ğ¡±êÌâ\"-->" + "\r\n" + 
-           "<p class=p2>µÚ¶şÒ³ÕıÎÄ</p>" + "\r\n" + 
+		   "<!--ewebeditor:page title=\"ç¬¬äºŒé¡µå°æ ‡é¢˜\"-->" + "\r\n" + 
+           "<p class=p2>ç¬¬äºŒé¡µæ­£æ–‡</p>" + "\r\n" + 
            "<!--/ewebeditor:page-->" + "\r\n" + 
-		   "<!--ewebeditor:page title=\"µÚÈıÒ³Ğ¡±êÌâ\"-->" + "\r\n" + 
-           "<p class=p3>µÚÈıÒ³ÕıÎÄ</p>" + "\r\n" + 
+		   "<!--ewebeditor:page title=\"ç¬¬ä¸‰é¡µå°æ ‡é¢˜\"-->" + "\r\n" + 
+           "<p class=p3>ç¬¬ä¸‰é¡µæ­£æ–‡</p>" + "\r\n" + 
            "<!--/ewebeditor:page-->";
-//sContent = "<p>Ö»ÓĞÒ»Ò³£¡</p>"
+//sContent = "<p>åªæœ‰ä¸€é¡µï¼</p>"
 
 
 
@@ -53,13 +53,13 @@ arr = eWebEditorPagination(sContent, sPage);
 sOutputContent = arr[1];
 sOutputTitles = arr[2];
 
-// ÏÔÊ¾±êÌâÁĞ±í¼°·ÖÒ³Á´½Ó
+// æ˜¾ç¤ºæ ‡é¢˜åˆ—è¡¨åŠåˆ†é¡µé“¾æ¥
 if (sOutputTitles != ""){
 	Response.Write("<hr size=1>");
 	Response.Write(sOutputTitles);
 }
 
-// ÏÔÊ¾ÕıÎÄ
+// æ˜¾ç¤ºæ­£æ–‡
 Response.Write("<hr size=1>");
 Response.Write(sOutputContent);
 
@@ -67,38 +67,38 @@ Response.Write(sOutputContent);
 
 <script language="c#" runat="server">
 
-    // eWebEditor ±ê×¼·ÖÒ³·û¸ñÊ½¶¨Òå£º
+    // eWebEditor æ ‡å‡†åˆ†é¡µç¬¦æ ¼å¼å®šä¹‰ï¼š
     // -------------------------------------------------------------------
-    // <!--ewebeditor:page title="µÚNÒ³Ğ¡±êÌâ"-->
-    // µÚNÒ³ÕıÎÄHTML´úÂë
+    // <!--ewebeditor:page title="ç¬¬Né¡µå°æ ‡é¢˜"-->
+    // ç¬¬Né¡µæ­£æ–‡HTMLä»£ç 
     // <!--/ewebeditor:page-->
     // -------------------------------------------------------------------
-    // eWebEditor±ê×¼·ÖÒ³·û·ÖÎö´¦Àíº¯ÊıÊ¾ÁĞ, ¿ÉÒÀÊµ¼ÊĞèÒªĞŞ¸Ä, ·µ»Ø¶àÖµÊı×é
+    // eWebEditoræ ‡å‡†åˆ†é¡µç¬¦åˆ†æå¤„ç†å‡½æ•°ç¤ºåˆ—, å¯ä¾å®é™…éœ€è¦ä¿®æ”¹, è¿”å›å¤šå€¼æ•°ç»„
     // -------------------------------------------------------------------
     String[] eWebEditorPagination(String s_Content, String s_CurrPage){
-        // Ğ¡±êÌâÁĞ±í£¬µ±Ç°Ò³±êÌâ£¬µ±Ç°Ò³ÄÚÈİ
+        // å°æ ‡é¢˜åˆ—è¡¨ï¼Œå½“å‰é¡µæ ‡é¢˜ï¼Œå½“å‰é¡µå†…å®¹
         String s_Titles, s_CurrTitle, s_CurrContent;
         s_Titles = "";
         s_CurrTitle = "";
         s_CurrContent = s_Content;
 
-        // Ò³Êı£º0±íÊ¾Ã»ÓĞ·ÖÒ³
+        // é¡µæ•°ï¼š0è¡¨ç¤ºæ²¡æœ‰åˆ†é¡µ
         int n_PageCount;
         n_PageCount = 0;
 
-        // µ±Ç°Ò³
+        // å½“å‰é¡µ
         int n_CurrPage;
         n_CurrPage = 1;
 
-        // µ±ÓĞ·ÖÒ³Ê±£¬´æ·ÖÒ³ÕıÎÄºÍ±êÌâµÄÊı×é£¬ÏÂ±ê´Ó1¿ªÊ¼
+        // å½“æœ‰åˆ†é¡µæ—¶ï¼Œå­˜åˆ†é¡µæ­£æ–‡å’Œæ ‡é¢˜çš„æ•°ç»„ï¼Œä¸‹æ ‡ä»1å¼€å§‹
         String[] a_PageContent = new String[1000];
         String[] a_PageTitle = new String[1000];
 
-        // ÕıÔò±í´ïÊ½¶ÔÏó
+        // æ­£åˆ™è¡¨è¾¾å¼å¯¹è±¡
         System.Text.RegularExpressions.MatchCollection ms;
         String s_Pattern;
 
-        // ·ÖÀë³öÄÚÈİÖĞµÄCSSÑùÊ½²¿·Ö£¬È»ºóÔÚ¸÷Ò³ÖĞºÏ²¢£¬Ê¹¸÷·ÖÒ³µÄÏÔÊ¾Ğ§¹û²»±ä
+        // åˆ†ç¦»å‡ºå†…å®¹ä¸­çš„CSSæ ·å¼éƒ¨åˆ†ï¼Œç„¶ååœ¨å„é¡µä¸­åˆå¹¶ï¼Œä½¿å„åˆ†é¡µçš„æ˜¾ç¤ºæ•ˆæœä¸å˜
         // <style>...</style>
         String s_Style;
         s_Style = "";
@@ -111,7 +111,7 @@ Response.Write(sOutputContent);
             s_CurrContent = System.Text.RegularExpressions.Regex.Replace(s_CurrContent, s_Pattern, "", System.Text.RegularExpressions.RegexOptions.IgnoreCase | System.Text.RegularExpressions.RegexOptions.Singleline);
         }
 
-        // Ê¹ÓÃÕıÔò±í´ïÊ½¶Ô·ÖÒ³½øĞĞ´¦Àí
+        // ä½¿ç”¨æ­£åˆ™è¡¨è¾¾å¼å¯¹åˆ†é¡µè¿›è¡Œå¤„ç†
         s_Pattern = "<!--ewebeditor:page title=\"([^\">]*)\"-->(.+?)<!--/ewebeditor:page-->";
         ms = System.Text.RegularExpressions.Regex.Matches(s_CurrContent, s_Pattern, System.Text.RegularExpressions.RegexOptions.IgnoreCase | System.Text.RegularExpressions.RegexOptions.Singleline);
 		for (int i=0; i<ms.Count; i++){
@@ -121,12 +121,12 @@ Response.Write(sOutputContent);
 		}
 
         if (n_PageCount == 0){
-            // Ã»ÓĞ·ÖÒ³
+            // æ²¡æœ‰åˆ†é¡µ
             s_Titles = "";
             s_CurrContent = s_Content;
         }else{
-            // ÓĞ·ÖÒ³
-            // ´Ó²ÎÊıÅĞ¶Ïµ±Ç°Ò³µÄÓĞĞ§ĞÔ
+            // æœ‰åˆ†é¡µ
+            // ä»å‚æ•°åˆ¤æ–­å½“å‰é¡µçš„æœ‰æ•ˆæ€§
             if (s_CurrPage==""){
                 n_CurrPage = 1;
             }else{
@@ -136,7 +136,7 @@ Response.Write(sOutputContent);
                 }
             }
 
-            // µ±ÓĞ¶à¸öÒ³Ê±£¬ÏÔÊ¾·ÖÒ³Ğ¡±êÌâ¼°·ÖÒ³Á´½Ó
+            // å½“æœ‰å¤šä¸ªé¡µæ—¶ï¼Œæ˜¾ç¤ºåˆ†é¡µå°æ ‡é¢˜åŠåˆ†é¡µé“¾æ¥
             s_Titles = "";
             for (int i=1;i<=n_PageCount;i++){
                 if (i == n_CurrPage){
@@ -146,16 +146,16 @@ Response.Write(sOutputContent);
                 }
             }
 
-            // µ±Ç°Ò³±êÌâºÍÄÚÈİ
+            // å½“å‰é¡µæ ‡é¢˜å’Œå†…å®¹
             s_CurrTitle = a_PageTitle[n_CurrPage];
             s_CurrContent = s_Style + a_PageContent[n_CurrPage];
         }
 
-        // ·µ»ØÖµÊı×é£¬ÒÀÊµ¼ÊĞèÒªĞŞ¸Ä
+        // è¿”å›å€¼æ•°ç»„ï¼Œä¾å®é™…éœ€è¦ä¿®æ”¹
         String[] ret = new String[4];
-        ret[1] = s_CurrContent;  //µ±Ç°Ò³ÄÚÈİ
-        ret[2] = s_Titles;       //±êÌâÁĞ±í
-        ret[3] = s_CurrTitle;    //µ±Ç°Ò³±êÌâ
+        ret[1] = s_CurrContent;  //å½“å‰é¡µå†…å®¹
+        ret[2] = s_Titles;       //æ ‡é¢˜åˆ—è¡¨
+        ret[3] = s_CurrTitle;    //å½“å‰é¡µæ ‡é¢˜
 
         return ret;
     }

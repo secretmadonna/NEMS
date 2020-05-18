@@ -1,10 +1,10 @@
-<%@ Page language="VB" AutoEventWireup="false" Inherits="eWebEditorAdmin.default_aspx" validateRequest="False" aspcompat="true" %>
+锘�<%@ Page language="VB" AutoEventWireup="false" Inherits="eWebEditorAdmin.default_aspx" validateRequest="false"%>
 
 <html>
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
-<title>eWebEditor在线编辑器 - 后台管理</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+<title>eWebEditor鍦ㄧ嚎缂栬緫鍣� - 鍚庡彴绠＄悊</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script language="JavaScript">
 window.self.focus();
 </script>
@@ -14,7 +14,7 @@ window.self.focus();
   <frame name="main" src="main.aspx" scrolling="yes">
   <noframes>
     <body topmargin="0" leftmargin="0">
-    <p>此网页使用了框架，但您的浏览器不支持框架</p>
+    <p>姝ょ綉椤典娇鐢ㄤ簡妗嗘灦锛屼絾鎮ㄧ殑娴忚鍣ㄤ笉鏀寔妗嗘灦</p>
     </body>
   </noframes>
 </frameset>

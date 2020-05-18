@@ -1,43 +1,43 @@
-<HTML>
+ï»¿<HTML>
 <HEAD>
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
-<TITLE>eWebEditor £º ´úÂëÊµÀı</TITLE>
-<META http-equiv=Content-Type content="text/html; charset=gbk">
+<TITLE>eWebEditor ï¼š ä»£ç å®ä¾‹</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
 <link rel='stylesheet' type='text/css' href='example.css'>
 </HEAD>
 <BODY>
 
 
-<p><b>µ¼º½ £º Ê¾ÀıÊ×Ò³</b></p>
+<p><b>å¯¼èˆª ï¼š ç¤ºä¾‹é¦–é¡µ</b></p>
 
-<p><b>Ê¾ÀıÄ¿Â¼ÖĞ£¬°üÀ¨µÄÊµÀı´úÂëÓĞ£º</b></p>
+<p><b>ç¤ºä¾‹ç›®å½•ä¸­ï¼ŒåŒ…æ‹¬çš„å®ä¾‹ä»£ç æœ‰ï¼š</b></p>
 <ol>
-<li><a href="standard.aspx">±ê×¼µ÷ÓÃÊ¾Àı</a> (_example/standard.aspx)
-<li><a href="popup.aspx">µ¯´°µ÷ÓÃÊ¾Àı</a> (_example/popup.aspx)
-<li><a href="remote.aspx">Ô¶³ÌÎÄ¼ş×Ô¶¯ÉÏ´«Ê¾Àı</a> (_example/remote.aspx)
-<li><a href="clientapi.aspx">¿Í»§¶ËAPIÊ¾Àı</a> (_example/clientapi.aspx)
-<li><a href="para_file.aspx">ÉÏ´«ÎÄ¼ş½Ó¿ÚÊ¾Àı</a> (_example/para_file.aspx)
-<li><a href="dlg_upload.aspx">ÊäÈë¿òµ÷ÓÃÉÏ´«ÎÄ¼ş¶Ô»°¿òÊ¾Àı</a>(_example/dlg_upload.aspx)
-<li><a href="para_extcss.aspx">Íâ²¿ÑùÊ½ÒıÓÃ½Ó¿ÚÊ¾Àı</a> (_example/para_extcss.aspx)
-<li>±íµ¥½ÓÊÕÊ¾Àı(ÉÏÃæÊ¾ÀıµãÌá½»ºó¼´Îª´ËÒ³) (_example/retrieve.aspx)
-<li><a href="pagination.aspx">·ÖÒ³ÏÔÊ¾´¦ÀíÊ¾Àı(VB)</a> (_example/pagination.aspx)<br>
-    <a href="pagination.cs.aspx">·ÖÒ³ÏÔÊ¾´¦ÀíÊ¾Àı(C#)</a> (_example/pagination.cs.aspx)
-<li><a href="ajax.aspx">AjaxÓ¦ÓÃÖ®´´½¨ºÍÉ¾³ı±à¼­Æ÷ÊµÀı</a> (_example/ajax.aspx)
-<li><a href="replacebycode.aspx">ÓÃJavascript°ÑÎÄ±¾¿ò»òDIVÌæ»»Îª±à¼­Æ÷</a> (_example/replacebycode.aspx)
-<li><a href="replacebyclass.aspx">ÓÃÑùÊ½ÀàÃû°ÑÎÄ±¾¿ò×Ô¶¯Ìæ»»Îª±à¼­Æ÷</a> (_example/replacebyclass.aspx)
+<li><a href="standard.aspx">æ ‡å‡†è°ƒç”¨ç¤ºä¾‹</a> (_example/standard.aspx)
+<li><a href="popup.aspx">å¼¹çª—è°ƒç”¨ç¤ºä¾‹</a> (_example/popup.aspx)
+<li><a href="remote.aspx">è¿œç¨‹æ–‡ä»¶è‡ªåŠ¨ä¸Šä¼ ç¤ºä¾‹</a> (_example/remote.aspx)
+<li><a href="clientapi.aspx">å®¢æˆ·ç«¯APIç¤ºä¾‹</a> (_example/clientapi.aspx)
+<li><a href="para_file.aspx">ä¸Šä¼ æ–‡ä»¶æ¥å£ç¤ºä¾‹</a> (_example/para_file.aspx)
+<li><a href="dlg_upload.aspx">è¾“å…¥æ¡†è°ƒç”¨ä¸Šä¼ æ–‡ä»¶å¯¹è¯æ¡†ç¤ºä¾‹</a>(_example/dlg_upload.aspx)
+<li><a href="para_extcss.aspx">å¤–éƒ¨æ ·å¼å¼•ç”¨æ¥å£ç¤ºä¾‹</a> (_example/para_extcss.aspx)
+<li>è¡¨å•æ¥æ”¶ç¤ºä¾‹(ä¸Šé¢ç¤ºä¾‹ç‚¹æäº¤åå³ä¸ºæ­¤é¡µ) (_example/retrieve.aspx)
+<li><a href="pagination.aspx">åˆ†é¡µæ˜¾ç¤ºå¤„ç†ç¤ºä¾‹(VB)</a> (_example/pagination.aspx)<br>
+    <a href="pagination.cs.aspx">åˆ†é¡µæ˜¾ç¤ºå¤„ç†ç¤ºä¾‹(C#)</a> (_example/pagination.cs.aspx)
+<li><a href="ajax.aspx">Ajaxåº”ç”¨ä¹‹åˆ›å»ºå’Œåˆ é™¤ç¼–è¾‘å™¨å®ä¾‹</a> (_example/ajax.aspx)
+<li><a href="replacebycode.aspx">ç”¨JavascriptæŠŠæ–‡æœ¬æ¡†æˆ–DIVæ›¿æ¢ä¸ºç¼–è¾‘å™¨</a> (_example/replacebycode.aspx)
+<li><a href="replacebyclass.aspx">ç”¨æ ·å¼ç±»åæŠŠæ–‡æœ¬æ¡†è‡ªåŠ¨æ›¿æ¢ä¸ºç¼–è¾‘å™¨</a> (_example/replacebyclass.aspx)
 </ol>
 
 
-<p><b>¸ü¶àÏà¹ØÔÚÏßÍøÖ·£º</b></p>
+<p><b>æ›´å¤šç›¸å…³åœ¨çº¿ç½‘å€ï¼š</b></p>
 <ul>
-<li>Ê×Ò³£º<br>
+<li>é¦–é¡µï¼š<br>
   <a href="http://www.ewebeditor.net" target="_blank">http://www.ewebeditor.net</a><br><br>
-<li>ÔÚÏßÑİÊ¾£º<br>
+<li>åœ¨çº¿æ¼”ç¤ºï¼š<br>
   <a href="http://www.ewebeditor.net/demo/" target="_blank">http://www.ewebeditor.net/demo/</a><br><br>
-<li>ÁªÏµÎÒÃÇ£º<br>
-  ÍøÕ¾£º<a href="http://www.ewebeditor.net" target="_blank">http://www.ewebeditor.net</a><br>
-  ÓÊÏä£º<a href="mailto:service@ewebsoft.com">service@ewebsoft.com</a><br>
-  ¹«Ë¾£º¸£Öİ¼«ÏŞÈí¼ş¿ª·¢ÓĞÏŞ¹«Ë¾
+<li>è”ç³»æˆ‘ä»¬ï¼š<br>
+  ç½‘ç«™ï¼š<a href="http://www.ewebeditor.net" target="_blank">http://www.ewebeditor.net</a><br>
+  é‚®ç®±ï¼š<a href="mailto:service@ewebsoft.com">service@ewebsoft.com</a><br>
+  å…¬å¸ï¼šç¦å·æé™è½¯ä»¶å¼€å‘æœ‰é™å…¬å¸
 
 </ul>
 

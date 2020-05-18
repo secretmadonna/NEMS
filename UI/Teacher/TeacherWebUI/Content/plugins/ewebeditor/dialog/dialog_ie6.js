@@ -1,7 +1,7 @@
-/*
+﻿/*
 *######################################
-* eWebEditor V9.0 - Advanced online web based WYSIWYG HTML editor.
-* Copyright (c) 2003-2013 eWebSoft.com
+* eWebEditor V11.9 - Advanced online web based WYSIWYG HTML editor.
+* Copyright (c) 2003-2019 eWebSoft.com
 *
 * For further information go to http://www.ewebeditor.net/
 * This copyright notice MUST stay intact for use.

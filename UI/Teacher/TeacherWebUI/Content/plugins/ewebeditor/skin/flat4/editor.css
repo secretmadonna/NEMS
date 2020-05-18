@@ -73,6 +73,7 @@ select{background: #ffffff;}
 
 #eWebEditor_EditareaTD {
 	border:0px;
+	padding:0px;
 }
 
 
@@ -85,6 +86,7 @@ td.SB{
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#FDFEFA', endColorstr='#E2F5BE', GradientType=0); 
 	background-image: linear-gradient(to bottom, #FDFEFA, #E2F5BE);
 	background-color: #F7FEFE;
+	height:23px;
 }
 
 table.SB{
@@ -126,3 +128,16 @@ td.SB_Mode_BtnOff img, td.SB_Mode_BtnOn img{position: relative;}
 
 .TableResizeSepV{background-image:url(tableresizesep_v.gif);}
 .TableResizeSepH{background-image:url(tableresizesep_h.gif);}
+
+
+
+div.ImgResize_Line{width:1px;height:1px;border:0;font-size:0;overflow:hidden;position:absolute;display:none;margin:0;padding:0;background-color:#C00}
+div.ImgResize_C{position:absolute;display:none;left:0;top:0;background-color:#ffffff;margin:0;padding:0;border:0;width:5px;height:5px;font-size:0;overflow:hidden;border:1px solid #C00;}
+#ImgResize_C_LT{margin-top:-3px;margin-left:-3px;cursor:nw-resize}
+#ImgResize_C_CT{margin-top:-3px;margin-left:-2px;cursor:n-resize}
+#ImgResize_C_RT{margin-top:-3px;margin-left:-2px;cursor:ne-resize}
+#ImgResize_C_LM{margin-top:-2px;margin-left:-3px;cursor:w-resize}
+#ImgResize_C_RM{margin-top:-2px;margin-left:-2px;cursor:e-resize}
+#ImgResize_C_LB{margin-top:-2px;margin-left:-3px;cursor:sw-resize}
+#ImgResize_C_CB{margin-top:-2px;margin-left:-2px;cursor:s-resize}
+#ImgResize_C_RB{margin-top:-2px;margin-left:-2px;cursor:se-resize}

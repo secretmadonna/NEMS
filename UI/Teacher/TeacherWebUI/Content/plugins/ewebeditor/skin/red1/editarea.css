@@ -1,4 +1,4 @@
-body {SCROLLBAR-BASE-COLOR:#FFCCCC;background-color:#FFFFFF}
+﻿body {SCROLLBAR-BASE-COLOR:#FFCCCC;background-color:#FFFFFF}
 
 #eWebEditor_FixWidth_DIV {
 	border-top:1px solid #000000;
@@ -57,7 +57,7 @@ form
 
 
 
-.ewebeditor__flash,.ewebeditor__unknownobject,.ewebeditor__mediaplayer6,.ewebeditor__mediaplayer7,.ewebeditor__flv,.ewebeditor__realplayer,.ewebeditor__quicktime{
+.ewebeditor__flash,.ewebeditor__unknownobject,.ewebeditor__mediaplayer6,.ewebeditor__mediaplayer7,.ewebeditor__flv,.ewebeditor__realplayer,.ewebeditor__quicktime,.ewebeditor__vlc,.ewebeditor__video,.ewebeditor__audio{
 	border: #a9a9a9 1px solid;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -70,7 +70,9 @@ form
 .ewebeditor__flv{background-image: url(../../sysimage/editarea/fake_flv.gif);}
 .ewebeditor__realplayer{background-image: url(../../sysimage/editarea/fake_realplayer.gif);}
 .ewebeditor__quicktime{background-image: url(../../sysimage/editarea/fake_quicktime.gif);}
-
+.ewebeditor__vlc{background-image: url(../../sysimage/editarea/fake_vlc.gif);}
+.ewebeditor__video{background-image: url(../../sysimage/editarea/fake_video.gif);}
+.ewebeditor__audio{background-image: url(../../sysimage/editarea/fake_audio.gif);}
 
 
 

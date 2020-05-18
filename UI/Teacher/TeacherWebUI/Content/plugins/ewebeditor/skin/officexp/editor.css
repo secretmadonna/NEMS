@@ -1,10 +1,4 @@
-body,a,table,div,span,td,th,input,select,p,li,textarea{font-size:9pt;font-family:ËÎÌå}
-
-input.dlgBtnCommon {width:60px}
-input.dlgBtnBrowse {width:63px;height:18px;margin-left:2px;padding-top:0px;}
-input.dlgBtnFind {width:80px}
-
-td.TB_Left{background-image: url(tbleft.gif);background-repeat:no-repeat;width:7px;}
+ï»¿td.TB_Left{background-image: url(tbleft.gif);background-repeat:no-repeat;width:7px;}
 td.TB_Right{background-image: url(tbright.gif);background-repeat:no-repeat;background-position:right;height:26px;width:8px;}
 td.TB_Center{background-image: url(tbbg.gif);height: 26px;}
 
@@ -56,7 +50,7 @@ td.TB_Btn_Padding{padding:0px 0px 0px 0px}
 
 
 
-body{background-color:#D0D0C8; padding: 2px 2px 2px 2px; margin: 0px 0px 0px 0px;}
+body{background-color:#D0D0C8; padding:2px; margin:0px; border:0px;}
 select{background: #eeeeee;}
 
 
@@ -81,6 +75,7 @@ select{background: #eeeeee;}
 #eWebEditor_EditareaTD {
 	border:0px\9;
 	background-color:#ffffff;
+	padding:0px;
 }
 
 /* IE9+firefox */
@@ -92,10 +87,10 @@ select{background: #eeeeee;}
 .SB_Btn_Image{overflow:hidden;width:16px;height:16px;margin:0px;background-repeat:no-repeat;border:0px;}
 
 
-td.SB{height:22px;padding-top:1px}
+td.SB{height:22px;padding-top:2px}
 
 table.SB{
-	height:21px;
+	height:20px;
 }
 
 table.SB_Mode {height:20px}
@@ -132,3 +127,16 @@ td.SB_Mode_BtnOff img, td.SB_Mode_BtnOn img{position: relative;}
 
 .TableResizeSepV{background-image:url(tableresizesep_v.gif);}
 .TableResizeSepH{background-image:url(tableresizesep_h.gif);}
+
+
+
+div.ImgResize_Line{width:1px;height:1px;border:0;font-size:0;overflow:hidden;position:absolute;display:none;margin:0;padding:0;background-color:#C00}
+div.ImgResize_C{position:absolute;display:none;left:0;top:0;background-color:#ffffff;margin:0;padding:0;border:0;width:5px;height:5px;font-size:0;overflow:hidden;border:1px solid #C00;}
+#ImgResize_C_LT{margin-top:-3px;margin-left:-3px;cursor:nw-resize}
+#ImgResize_C_CT{margin-top:-3px;margin-left:-2px;cursor:n-resize}
+#ImgResize_C_RT{margin-top:-3px;margin-left:-2px;cursor:ne-resize}
+#ImgResize_C_LM{margin-top:-2px;margin-left:-3px;cursor:w-resize}
+#ImgResize_C_RM{margin-top:-2px;margin-left:-2px;cursor:e-resize}
+#ImgResize_C_LB{margin-top:-2px;margin-left:-3px;cursor:sw-resize}
+#ImgResize_C_CB{margin-top:-2px;margin-left:-2px;cursor:s-resize}
+#ImgResize_C_RB{margin-top:-2px;margin-left:-2px;cursor:se-resize}

@@ -1,36 +1,36 @@
-<HTML>
+﻿<HTML>
 <HEAD>
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
-<TITLE>eWebEditor �� �ͻ���APIʾ��</TITLE>
-<META http-equiv=Content-Type content="text/html; charset=gbk">
+<TITLE>eWebEditor ： 客户端API示例</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
 <link rel='stylesheet' type='text/css' href='example.css'>
 </HEAD>
 <BODY>
 
-<p><b>���� �� <a href="default.aspx">ʾ����ҳ</a> &gt; �ͻ���APIʾ��</b></p>
-<p>��������eWebEditor�ṩ�Ŀͻ���API���Ա༭��ִ�и߼�����������API����μ������ֲᡣ</p>
+<p><b>导航 ： <a href="default.aspx">示例首页</a> &gt; 客户端API示例</b></p>
+<p>您可以用eWebEditor提供的客户端API，对编辑器执行高级操作。更多API，请参见开发手册。</p>
 
 
 
 <FORM method="post" name="myform" action="retrieve.aspx">
 <TABLE border="0" cellpadding="2" cellspacing="1">
 <TR>
-	<TD>�༭���ݣ�</TD>
+	<TD>编辑内容：</TD>
 	<TD>
-		<INPUT type="hidden" name="content1" value="&lt;p&gt;eWebEditor - ����HTML�༭����HTML���߱༭�ð���&lt;/p&gt;">
+		<INPUT type="hidden" name="content1" value="&lt;p&gt;eWebEditor - 在线HTML编辑器，HTML在线编辑好帮手&lt;/p&gt;">
 		<IFRAME ID="eWebEditor1" src="../ewebeditor.htm?id=content1&style=coolblue" frameborder="0" scrolling="no" width="550" height="350"></IFRAME>
 	</TD>
 </TR>
 <TR>
 	<TD colspan=2 align=right>
-	<INPUT type=submit value="�ύ"> 
-	<INPUT type=reset value="����"> 
-	<INPUT type=button value="�鿴Դ�ļ�" onclick="location.replace('view-source:'+location)"> 
+	<INPUT type=submit value="提交"> 
+	<INPUT type=reset value="重填"> 
+	<INPUT type=button value="查看源文件" onclick="location.replace('view-source:'+location)"> 
 	</TD>
 </TR>
 <TR>
-	<TD>HTML���룺</TD>
-	<TD><TEXTAREA cols=50 rows=5 id=myTextArea style="width:550px">�����ȡֵ����ť����һ��Ч����</TEXTAREA></TD>
+	<TD>HTML代码：</TD>
+	<TD><TEXTAREA cols=50 rows=5 id=myTextArea style="width:550px">点击“取值”按钮，看一下效果！</TEXTAREA></TD>
 </TR>
 <TR>
 	<TD colspan=2 align=right>
@@ -95,25 +95,25 @@ function DoAPI(s_Flag){
 
 </script>
 
-		<INPUT type=button value="ȡֵ(HTML)" onclick="DoAPI('gethtml')" class=btn> 
-		<INPUT type=button value="ȡֵ(���ı�)" onclick="DoAPI('gettext')" class=btn> 
-		<INPUT type=button value="��ֵ" onclick="DoAPI('sethtml')" class=btn>
-		<INPUT type=button value="��ǰλ�ò���" onclick="DoAPI('inserthtml')" class=btn>
-		<INPUT type=button value="β��׷��" onclick="DoAPI('appendhtml')" class=btn>
+		<INPUT type=button value="取值(HTML)" onclick="DoAPI('gethtml')" class=btn> 
+		<INPUT type=button value="取值(纯文本)" onclick="DoAPI('gettext')" class=btn> 
+		<INPUT type=button value="赋值" onclick="DoAPI('sethtml')" class=btn>
+		<INPUT type=button value="当前位置插入" onclick="DoAPI('inserthtml')" class=btn>
+		<INPUT type=button value="尾部追加" onclick="DoAPI('appendhtml')" class=btn>
 		<br>
-		<INPUT type=button value="����״̬" onclick="DoAPI('code')" class=btn>
-		<INPUT type=button value="���״̬" onclick="DoAPI('edit')" class=btn>
-		<INPUT type=button value="�ı�״̬" onclick="DoAPI('text')" class=btn>
-		<INPUT type=button value="Ԥ��״̬" onclick="DoAPI('view')" class=btn>
+		<INPUT type=button value="代码状态" onclick="DoAPI('code')" class=btn>
+		<INPUT type=button value="设计状态" onclick="DoAPI('edit')" class=btn>
+		<INPUT type=button value="文本状态" onclick="DoAPI('text')" class=btn>
+		<INPUT type=button value="预览状态" onclick="DoAPI('view')" class=btn>
 		<br>
-		<INPUT type=button value="Ӣ������" onclick="DoAPI('getcount0')" class=btn>
-		<INPUT type=button value="��������" onclick="DoAPI('getcount1')" class=btn>
-		<INPUT type=button value="��Ӣ������(���ļ�1)" onclick="DoAPI('getcount2')" class=btn>
-		<INPUT type=button value="��Ӣ������(���ļ�2)" onclick="DoAPI('getcount3')" class=btn>	
+		<INPUT type=button value="英文字数" onclick="DoAPI('getcount0')" class=btn>
+		<INPUT type=button value="中文字数" onclick="DoAPI('getcount1')" class=btn>
+		<INPUT type=button value="中英文字数(中文加1)" onclick="DoAPI('getcount2')" class=btn>
+		<INPUT type=button value="中英文字数(中文加2)" onclick="DoAPI('getcount3')" class=btn>	
 		<br>
-		<INPUT type=button value="ֻ��[ģʽ1]" onclick="DoAPI('readonly1')" class=btn>
-		<INPUT type=button value="ֻ��[ģʽ2]" onclick="DoAPI('readonly2')" class=btn>
-		<INPUT type=button value="ȡ��ֻ��" onclick="DoAPI('readonly0')" class=btn>
+		<INPUT type=button value="只读[模式1]" onclick="DoAPI('readonly1')" class=btn>
+		<INPUT type=button value="只读[模式2]" onclick="DoAPI('readonly2')" class=btn>
+		<INPUT type=button value="取消只读" onclick="DoAPI('readonly0')" class=btn>
 
 	</TD>
 </TR>

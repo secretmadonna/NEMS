@@ -1,10 +1,10 @@
-<%@ Page language="VB" AutoEventWireup="false" Inherits="eWebEditorAdmin.login_aspx"%>
+ï»¿<%@ Page language="VB" AutoEventWireup="false" Inherits="eWebEditorAdmin.login_aspx"%>
 
 <HTML>
 <HEAD>
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
-<TITLE>eWebEditorÔÚÏß±à¼­Æ÷ - ºóÌ¨¹ÜÀí</TITLE>
-<META http-equiv=Content-Type content="text/html; charset=gbk">
+<TITLE>eWebEditoråœ¨çº¿ç¼–è¾‘å™¨ - åå°ç®¡ç†</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
 <style>
 body,td,a,p,input{font-size:9pt}
 body {margin:0px;background-color:#d9ddf7}
@@ -13,23 +13,45 @@ A:hover {COLOR: #ff9900}
 A:link {COLOR: #003366}
 .input {BORDER-RIGHT: #000000 1px solid; BORDER-TOP: #000000 1px solid; BORDER-LEFT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid;width:110px;height:18px;}
 </style>
+<script type="text/javascript" src="private.js"></script>
+<script type="text/javascript">
+function GetHost(){
+	var s_Host = location.hostname;
+	var n = s_Host.indexOf(":");
+	if (n>0){
+		n = s_Host.indexOf("]");
+		if (n<0){
+			s_Host = "[" + s_Host + "]";
+		}
+	}
+	return EWEBPunycode.EncodeDomain(s_Host);
+}
 
-<SCRIPT language=JavaScript>
 function checkForm(){
 	var frm = document.loginform
 	if(frm.usr.value == ""){
-		alert('ÓÃ»§Ãû²»ÔÊĞíÎª¿Õ');
+		alert('ç”¨æˆ·åä¸å…è®¸ä¸ºç©º');
 		frm.usr.focus();
 		return false;
 	}
 	if(frm.pwd.value == ""){
-		alert('ÓÃ»§ÃÜÂë²»ÔÊĞíÎª¿Õ');
+		alert('ç”¨æˆ·å¯†ç ä¸å…è®¸ä¸ºç©º');
 		frm.pwd.focus();
 		return false;
 	}
+	frm.h.value = GetHost();
 	frm.submit()
 }
-</SCRIPT>
+
+document.onkeydown = function(ev){
+	ev = ev || window.event;
+	var n_KeyCode = ev.keyCode || ev.which;
+	if(n_KeyCode==13){
+		return checkForm();
+	}
+	return true;
+}
+</script>
 
 </head>
 <BODY onload=document.loginform.usr.focus()>
@@ -52,13 +74,14 @@ function checkForm(){
   <TR>
     <TD background=images/1_12.gif colSpan=4>
       <TABLE cellSpacing=0 cellPadding=3 width="50%" border=0>
-        <FORM onkeydown="if(event.keyCode==13) return checkForm()" name=loginform action="?action=login" method=post>
+        <FORM name=loginform action="?action=login" method=post>
+		<input type=hidden name=h>
         <TBODY>
         <TR>
-          <TD class=c92 width="24%">ÓÃ»§Ãû</TD>
+          <TD class=c92 width="24%">ç”¨æˆ·å</TD>
           <TD width="76%"><INPUT class=input size=16 name=usr> </TD></TR>
         <TR>
-          <TD class=c92 width="24%">ÃÜ¡¡Âë</TD>
+          <TD class=c92 width="24%">å¯†ã€€ç </TD>
           <TD width="76%"><INPUT class=input type=password size=16 name=pwd> </TD></TR>
         <TR>
           <TD width="24%">&nbsp;</TD>

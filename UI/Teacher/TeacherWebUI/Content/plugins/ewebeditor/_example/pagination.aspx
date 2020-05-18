@@ -1,21 +1,21 @@
-<HTML>
+ï»¿<HTML>
 <HEAD>
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
-<TITLE>eWebEditor £º ·ÖÒ³ÏÔÊ¾´¦ÀíÊ¾Àı</TITLE>
-<META http-equiv=Content-Type content="text/html; charset=gbk">
+<TITLE>eWebEditor ï¼š åˆ†é¡µæ˜¾ç¤ºå¤„ç†ç¤ºä¾‹</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
 <link rel='stylesheet' type='text/css' href='example.css'>
 </HEAD>
 <BODY>
 
-<p><b>µ¼º½ £º <a href="default.aspx">Ê¾ÀıÊ×Ò³</a> &gt; ·ÖÒ³ÏÔÊ¾´¦ÀíÊ¾Àı</b></p>
-<p>´ËÀıÑİÊ¾ÁËeWebEditorµÄ±ê×¼·ÖÒ³Ä£Ê½ÏÂ£¬³ÌĞò¶Ô±ê×¼·ÖÒ³·ûµÄ´¦Àí·½·¨¡£Äú¿ÉÒÔ²é¿´´ËÒ³³ÌĞòÔ´´úÂë£¬ÒÔÁË½â±ê×¼·ÖÒ³·û½á¹¹¼°Ê¹ÓÃ·½·¨¡£</p>
+<p><b>å¯¼èˆª ï¼š <a href="default.aspx">ç¤ºä¾‹é¦–é¡µ</a> &gt; åˆ†é¡µæ˜¾ç¤ºå¤„ç†ç¤ºä¾‹</b></p>
+<p>æ­¤ä¾‹æ¼”ç¤ºäº†eWebEditorçš„æ ‡å‡†åˆ†é¡µæ¨¡å¼ä¸‹ï¼Œç¨‹åºå¯¹æ ‡å‡†åˆ†é¡µç¬¦çš„å¤„ç†æ–¹æ³•ã€‚æ‚¨å¯ä»¥æŸ¥çœ‹æ­¤é¡µç¨‹åºæºä»£ç ï¼Œä»¥äº†è§£æ ‡å‡†åˆ†é¡µç¬¦ç»“æ„åŠä½¿ç”¨æ–¹æ³•ã€‚</p>
 
 
 <%
-' eWebEditor ±ê×¼·ÖÒ³·û¸ñÊ½¶¨Òå£º
+' eWebEditor æ ‡å‡†åˆ†é¡µç¬¦æ ¼å¼å®šä¹‰ï¼š
 ' -------------------------------------------------------------------
-' <!--ewebeditor:page title="µÚNÒ³Ğ¡±êÌâ"-->
-' µÚNÒ³ÕıÎÄHTML´úÂë
+' <!--ewebeditor:page title="ç¬¬Né¡µå°æ ‡é¢˜"-->
+' ç¬¬Né¡µæ­£æ–‡HTMLä»£ç 
 ' <!--/ewebeditor:page-->
 ' -------------------------------------------------------------------
 
@@ -23,24 +23,24 @@
 
 
 
-' sContent±äÁ¿£ºËù±à¼­µÄÄÚÈİ£¬Ò»°ãÊÇ´ÓÊı¾İ¿âÖĞÈ¡³ö£¬ÒÔÏÂÎªÄ£ÄâÊı¾İ
+' sContentå˜é‡ï¼šæ‰€ç¼–è¾‘çš„å†…å®¹ï¼Œä¸€èˆ¬æ˜¯ä»æ•°æ®åº“ä¸­å–å‡ºï¼Œä»¥ä¸‹ä¸ºæ¨¡æ‹Ÿæ•°æ®
 Dim sContent
 ' sContent = rs("field")
-sContent = "<!--ewebeditor:page title=""µÚÒ»Ò³Ğ¡±êÌâ""-->" & vbCrlf & _
+sContent = "<!--ewebeditor:page title=""ç¬¬ä¸€é¡µå°æ ‡é¢˜""-->" & vbCrlf & _
            "<style>" & vbCrlf & _
 		   ".p1{font-size:14px;color:#000000;}" & vbCrlf & _
 		   ".p2{font-size:16px;color:#ff0000;}" & vbCrlf & _
 		   ".p3{font-size:18px;color:#0000ff;}" & vbCrlf & _
 		   "</style>" & vbCrlf & _
-           "<p class=p1>µÚÒ»Ò³ÕıÎÄ</p>" & vbCrlf & _
+           "<p class=p1>ç¬¬ä¸€é¡µæ­£æ–‡</p>" & vbCrlf & _
            "<!--/ewebeditor:page-->" & vbCrlf & _
-		   "<!--ewebeditor:page title=""µÚ¶şÒ³Ğ¡±êÌâ""-->" & vbCrlf & _
-           "<p class=p2>µÚ¶şÒ³ÕıÎÄ</p>" & vbCrlf & _
+		   "<!--ewebeditor:page title=""ç¬¬äºŒé¡µå°æ ‡é¢˜""-->" & vbCrlf & _
+           "<p class=p2>ç¬¬äºŒé¡µæ­£æ–‡</p>" & vbCrlf & _
            "<!--/ewebeditor:page-->" & vbCrlf & _
-		   "<!--ewebeditor:page title=""µÚÈıÒ³Ğ¡±êÌâ""-->" & vbCrlf & _
-           "<p class=p3>µÚÈıÒ³ÕıÎÄ</p>" & vbCrlf & _
+		   "<!--ewebeditor:page title=""ç¬¬ä¸‰é¡µå°æ ‡é¢˜""-->" & vbCrlf & _
+           "<p class=p3>ç¬¬ä¸‰é¡µæ­£æ–‡</p>" & vbCrlf & _
            "<!--/ewebeditor:page-->"
-'sContent = "<p>Ö»ÓĞÒ»Ò³£¡</p>"
+'sContent = "<p>åªæœ‰ä¸€é¡µï¼</p>"
 
 
 
@@ -50,13 +50,13 @@ arr = eWebEditorPagination(sContent, sPage)
 sOutputContent = arr(1)
 sOutputTitles = arr(2)
 
-' ÏÔÊ¾±êÌâÁĞ±í¼°·ÖÒ³Á´½Ó
+' æ˜¾ç¤ºæ ‡é¢˜åˆ—è¡¨åŠåˆ†é¡µé“¾æ¥
 If sOutputTitles <> "" Then
 	Response.Write("<hr size=1>")
 	Response.Write(sOutputTitles)
 End If
 
-' ÏÔÊ¾ÕıÎÄ
+' æ˜¾ç¤ºæ­£æ–‡
 Response.Write("<hr size=1>")
 Response.Write(sOutputContent)
 
@@ -64,39 +64,39 @@ Response.Write(sOutputContent)
 
 <script language="vb" runat="server">
 
-    ' eWebEditor ±ê×¼·ÖÒ³·û¸ñÊ½¶¨Òå£º
+    ' eWebEditor æ ‡å‡†åˆ†é¡µç¬¦æ ¼å¼å®šä¹‰ï¼š
     ' -------------------------------------------------------------------
-    ' <!--ewebeditor:page title="µÚNÒ³Ğ¡±êÌâ"-->
-    ' µÚNÒ³ÕıÎÄHTML´úÂë
+    ' <!--ewebeditor:page title="ç¬¬Né¡µå°æ ‡é¢˜"-->
+    ' ç¬¬Né¡µæ­£æ–‡HTMLä»£ç 
     ' <!--/ewebeditor:page-->
     ' -------------------------------------------------------------------
-    ' eWebEditor±ê×¼·ÖÒ³·û·ÖÎö´¦Àíº¯ÊıÊ¾ÁĞ, ¿ÉÒÀÊµ¼ÊĞèÒªĞŞ¸Ä, ·µ»Ø¶àÖµÊı×é
+    ' eWebEditoræ ‡å‡†åˆ†é¡µç¬¦åˆ†æå¤„ç†å‡½æ•°ç¤ºåˆ—, å¯ä¾å®é™…éœ€è¦ä¿®æ”¹, è¿”å›å¤šå€¼æ•°ç»„
     ' -------------------------------------------------------------------
     Function eWebEditorPagination(ByVal s_Content As String, ByVal s_CurrPage As String) As Array
-        ' Ğ¡±êÌâÁĞ±í£¬µ±Ç°Ò³±êÌâ£¬µ±Ç°Ò³ÄÚÈİ
+        ' å°æ ‡é¢˜åˆ—è¡¨ï¼Œå½“å‰é¡µæ ‡é¢˜ï¼Œå½“å‰é¡µå†…å®¹
         Dim s_Titles As String, s_CurrTitle As String, s_CurrContent As String
         s_Titles = ""
         s_CurrTitle = ""
         s_CurrContent = s_Content
 
-        ' Ò³Êı£º0±íÊ¾Ã»ÓĞ·ÖÒ³
+        ' é¡µæ•°ï¼š0è¡¨ç¤ºæ²¡æœ‰åˆ†é¡µ
         Dim n_PageCount As Integer
         n_PageCount = 0
 
-        ' µ±Ç°Ò³
+        ' å½“å‰é¡µ
         Dim n_CurrPage As Integer
         n_CurrPage = 1
 
-        ' µ±ÓĞ·ÖÒ³Ê±£¬´æ·ÖÒ³ÕıÎÄºÍ±êÌâµÄÊı×é£¬ÏÂ±ê´Ó1¿ªÊ¼
+        ' å½“æœ‰åˆ†é¡µæ—¶ï¼Œå­˜åˆ†é¡µæ­£æ–‡å’Œæ ‡é¢˜çš„æ•°ç»„ï¼Œä¸‹æ ‡ä»1å¼€å§‹
         Dim a_PageContent() As String, a_PageTitle() As String
 
-        ' ÕıÔò±í´ïÊ½¶ÔÏó
+        ' æ­£åˆ™è¡¨è¾¾å¼å¯¹è±¡
         Dim re As System.Text.RegularExpressions.Regex
         Dim m As System.Text.RegularExpressions.Match
         Dim ms As System.Text.RegularExpressions.MatchCollection
         Dim s_Pattern As String
 
-        ' ·ÖÀë³öÄÚÈİÖĞµÄCSSÑùÊ½²¿·Ö£¬È»ºóÔÚ¸÷Ò³ÖĞºÏ²¢£¬Ê¹¸÷·ÖÒ³µÄÏÔÊ¾Ğ§¹û²»±ä
+        ' åˆ†ç¦»å‡ºå†…å®¹ä¸­çš„CSSæ ·å¼éƒ¨åˆ†ï¼Œç„¶ååœ¨å„é¡µä¸­åˆå¹¶ï¼Œä½¿å„åˆ†é¡µçš„æ˜¾ç¤ºæ•ˆæœä¸å˜
         ' <style>...</style>
         Dim s_Style As String
         s_Style = ""
@@ -109,7 +109,7 @@ Response.Write(sOutputContent)
             s_CurrContent = re.Replace(s_CurrContent, s_Pattern, "", System.Text.RegularExpressions.RegexOptions.IgnoreCase Or System.Text.RegularExpressions.RegexOptions.Singleline)
         End If
 
-        ' Ê¹ÓÃÕıÔò±í´ïÊ½¶Ô·ÖÒ³½øĞĞ´¦Àí
+        ' ä½¿ç”¨æ­£åˆ™è¡¨è¾¾å¼å¯¹åˆ†é¡µè¿›è¡Œå¤„ç†
         s_Pattern = "<!--ewebeditor:page title=""([^"">]*)""-->(.+?)<!--/ewebeditor:page-->"
         ms = re.Matches(s_CurrContent, s_Pattern, System.Text.RegularExpressions.RegexOptions.IgnoreCase Or System.Text.RegularExpressions.RegexOptions.Singleline)
         For Each m In ms
@@ -121,12 +121,12 @@ Response.Write(sOutputContent)
 		Next
 
         If n_PageCount = 0 Then
-            ' Ã»ÓĞ·ÖÒ³
+            ' æ²¡æœ‰åˆ†é¡µ
             s_Titles = ""
             s_CurrContent = s_Content
         Else
-            ' ÓĞ·ÖÒ³
-            ' ´Ó²ÎÊıÅĞ¶Ïµ±Ç°Ò³µÄÓĞĞ§ĞÔ
+            ' æœ‰åˆ†é¡µ
+            ' ä»å‚æ•°åˆ¤æ–­å½“å‰é¡µçš„æœ‰æ•ˆæ€§
             If IsNumeric(s_CurrPage) = False Then
                 n_CurrPage = 1
             Else
@@ -137,7 +137,7 @@ Response.Write(sOutputContent)
             End If
 
             Dim i As Integer
-            ' µ±ÓĞ¶à¸öÒ³Ê±£¬ÏÔÊ¾·ÖÒ³Ğ¡±êÌâ¼°·ÖÒ³Á´½Ó
+            ' å½“æœ‰å¤šä¸ªé¡µæ—¶ï¼Œæ˜¾ç¤ºåˆ†é¡µå°æ ‡é¢˜åŠåˆ†é¡µé“¾æ¥
             s_Titles = ""
             For i = 1 To n_PageCount
                 If i = n_CurrPage Then
@@ -147,16 +147,16 @@ Response.Write(sOutputContent)
                 End If
             Next
 
-            ' µ±Ç°Ò³±êÌâºÍÄÚÈİ
+            ' å½“å‰é¡µæ ‡é¢˜å’Œå†…å®¹
             s_CurrTitle = a_PageTitle(n_CurrPage)
             s_CurrContent = s_Style & a_PageContent(n_CurrPage)
         End If
 
-        ' ·µ»ØÖµÊı×é£¬ÒÀÊµ¼ÊĞèÒªĞŞ¸Ä
+        ' è¿”å›å€¼æ•°ç»„ï¼Œä¾å®é™…éœ€è¦ä¿®æ”¹
         Dim ret(3) As String
-        ret(1) = s_CurrContent  'µ±Ç°Ò³ÄÚÈİ
-        ret(2) = s_Titles   '±êÌâÁĞ±í
-        ret(3) = s_CurrTitle  'µ±Ç°Ò³±êÌâ
+        ret(1) = s_CurrContent  'å½“å‰é¡µå†…å®¹
+        ret(2) = s_Titles   'æ ‡é¢˜åˆ—è¡¨
+        ret(3) = s_CurrTitle  'å½“å‰é¡µæ ‡é¢˜
 
         eWebEditorPagination = ret
     End Function

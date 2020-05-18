@@ -1,24 +1,24 @@
-<%@ Page language="VB" AutoEventWireup="false" validateRequest="False"%>
+ï»¿<%@ Page language="VB" AutoEventWireup="false" validateRequest="false"%>
 
 <HTML>
 <HEAD>
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
-<TITLE>eWebEditor £º ±íµ¥½ÓÊÕÊ¾Àý</TITLE>
-<META http-equiv=Content-Type content="text/html; charset=gbk">
+<TITLE>eWebEditor ï¼š è¡¨å•æŽ¥æ”¶ç¤ºä¾‹</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
 <link rel='stylesheet' type='text/css' href='example.css'>
 </HEAD>
 <BODY>
 
-<p><b>µ¼º½ £º <a href="default.aspx">Ê¾ÀýÊ×Ò³</a> &gt; ±íµ¥½ÓÊÕÊ¾Àý</b></p>
-<p>´ËÀýÑÝÊ¾ÁËÈçºÎ½ÓÊÕµ½±íµ¥Ìá½»¹ýÀ´µÄHTML´úÂë£¬²¢ÏÔÊ¾Ëü¡£</p>
+<p><b>å¯¼èˆª ï¼š <a href="default.aspx">ç¤ºä¾‹é¦–é¡µ</a> &gt; è¡¨å•æŽ¥æ”¶ç¤ºä¾‹</b></p>
+<p>æ­¤ä¾‹æ¼”ç¤ºäº†å¦‚ä½•æŽ¥æ”¶åˆ°è¡¨å•æäº¤è¿‡æ¥çš„HTMLä»£ç ï¼Œå¹¶æ˜¾ç¤ºå®ƒã€‚</p>
 
 <%
 
 Dim sContent1
 sContent1 = Request.Form("content1")
 
-Response.Write ("±à¼­ÄÚÈÝÈçÏÂ£º<br><br>" & sContent1)
-Response.Write ("<br><br><p><input type=button value=' ºóÍË ' onclick='history.back()'></p>")
+Response.Write ("ç¼–è¾‘å†…å®¹å¦‚ä¸‹ï¼š<br><br>" & sContent1)
+Response.Write ("<br><br><p><input type=button value=' åŽé€€ ' onclick='history.back()'></p>")
 
 %>
 

@@ -1,34 +1,34 @@
-<html>
+ï»¿<html>
 <head>
-<title>eWebEditor £º ÓÃÑùÊ½ÀàÃû°ÑÎÄ±¾¿ò×Ô¶¯Ìæ»»Îª±à¼­Æ÷</title>
-<meta http-equiv=Content-Type content="text/html; charset=gbk">
+<title>eWebEditor ï¼š ç”¨æ ·å¼ç±»åæŠŠæ–‡æœ¬æ¡†è‡ªåŠ¨æ›¿æ¢ä¸ºç¼–è¾‘å™¨</title>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
 <script type="text/javascript" src="../ewebeditor.js"></script>
 <link rel='stylesheet' type='text/css' href='example.css'>
 
 <script type="text/javascript">
-//Äú¿ÉÒÔÊ¹ÓÃÏÂÃæµÄÊôĞÔÀ´ÉèÖÃ´¦Àí·½Ê½
-//EWEBEDITOR.ReplaceByClassName = "ewebeditor";		//Ö¸¶¨Ê¹ÓÃµÄÀàĞÍ£¬Ä¬ÈÏÊÇ"ewebeditor"
-//EWEBEDITOR.ReplaceByClassEnabled = false;			//Ö¸¶¨ÊÇ·ñÆôÓÃ´Ë¹¦ÄÜ£¬Ä¬ÈÏÊÇÆôÓÃ
+//æ‚¨å¯ä»¥ä½¿ç”¨ä¸‹é¢çš„å±æ€§æ¥è®¾ç½®å¤„ç†æ–¹å¼
+//EWEBEDITOR.ReplaceByClassName = "ewebeditor";		//æŒ‡å®šä½¿ç”¨çš„ç±»å‹ï¼Œé»˜è®¤æ˜¯"ewebeditor"
+//EWEBEDITOR.ReplaceByClassEnabled = false;			//æŒ‡å®šæ˜¯å¦å¯ç”¨æ­¤åŠŸèƒ½ï¼Œé»˜è®¤æ˜¯å¯ç”¨
 </script>
 
 </head>
 <body>
 
-<p><b>µ¼º½ £º <a href="default.aspx">Ê¾ÀıÊ×Ò³</a> &gt; ÓÃÑùÊ½ÀàÃû°ÑÎÄ±¾¿ò×Ô¶¯Ìæ»»Îª±à¼­Æ÷</b></p>
-<p>´ËÀıÑİÊ¾ÁËÄú¿ÉÒÔÍ¨¹ıÑùÊ½ÀàÃûºÜ¼òµ¥µÄ°Ñ&lt;textarea&gt;Ìæ»»ÎªeWebEditor±à¼­Æ÷ÊµÀı¡£ÈçÏÂ´úÂëËùÊ¾£¬ÄúÖ»ĞèÒª¸ø&lt;textarea&gt;¼Ó¸öÖ¸¶¨µÄclass¼´¿É¡£Äú¿ÉÒÔÖ¸¶¨×Ô¼ºÏëÓÃµÄÑùÊ½ÀàÃû¡£ÏêÏ¸Ê¹ÓÃ·½·¨£¬Çë²Î¿´±¾Ò³Ô´ÎÄ¼ş´úÂëÖĞËµÃ÷»òÓÃ»§ÊÖ²á¡£</p>
+<p><b>å¯¼èˆª ï¼š <a href="default.aspx">ç¤ºä¾‹é¦–é¡µ</a> &gt; ç”¨æ ·å¼ç±»åæŠŠæ–‡æœ¬æ¡†è‡ªåŠ¨æ›¿æ¢ä¸ºç¼–è¾‘å™¨</b></p>
+<p>æ­¤ä¾‹æ¼”ç¤ºäº†æ‚¨å¯ä»¥é€šè¿‡æ ·å¼ç±»åå¾ˆç®€å•çš„æŠŠ&lt;textarea&gt;æ›¿æ¢ä¸ºeWebEditorç¼–è¾‘å™¨å®ä¾‹ã€‚å¦‚ä¸‹ä»£ç æ‰€ç¤ºï¼Œæ‚¨åªéœ€è¦ç»™&lt;textarea&gt;åŠ ä¸ªæŒ‡å®šçš„classå³å¯ã€‚æ‚¨å¯ä»¥æŒ‡å®šè‡ªå·±æƒ³ç”¨çš„æ ·å¼ç±»åã€‚è¯¦ç»†ä½¿ç”¨æ–¹æ³•ï¼Œè¯·å‚çœ‹æœ¬é¡µæºæ–‡ä»¶ä»£ç ä¸­è¯´æ˜æˆ–ç”¨æˆ·æ‰‹å†Œã€‚</p>
 <div class=code>&lt;textarea class=&quot;ewebeditor&quot; name=&quot;content1&quot;&gt;&lt;/textarea&gt;</div>
 
 
-<form action="retrieve.asp" method="post">
-<p><b>Ê¾Àı1£º</b></p>
-<textarea class="ewebeditor" name="content1" rows="10" cols="80">&lt;p&gt;ÕâÊÇ&lt;strong&gt;Ê¾Àı1&lt;/strong&gt;¡£ ÄúÕıÔÚÊ¹ÓÃ &lt;a href=&quot;http://www.ewebeditor.net/&quot;&gt;eWebEditor&lt;/a&gt;.&lt;/p&gt;</textarea>
+<form action="retrieve.aspx" method="post">
+<p><b>ç¤ºä¾‹1ï¼š</b></p>
+<textarea class="ewebeditor" name="content1" rows="10" cols="80">&lt;p&gt;è¿™æ˜¯&lt;strong&gt;ç¤ºä¾‹1&lt;/strong&gt;ã€‚ æ‚¨æ­£åœ¨ä½¿ç”¨ &lt;a href=&quot;http://www.ewebeditor.net/&quot;&gt;eWebEditor&lt;/a&gt;.&lt;/p&gt;</textarea>
 
-<p><b>Ê¾Àı2£º</b></p>
-<textarea class="ewebeditor" name="content2" rows="10" cols="80">&lt;p&gt;ÕâÊÇ&lt;strong&gt;Ê¾Àı2&lt;/strong&gt;¡£ ÄúÕıÔÚÊ¹ÓÃ &lt;a href=&quot;http://www.ewebeditor.net/&quot;&gt;eWebEditor&lt;/a&gt;.&lt;/p&gt;</textarea>
+<p><b>ç¤ºä¾‹2ï¼š</b></p>
+<textarea class="ewebeditor" name="content2" rows="10" cols="80">&lt;p&gt;è¿™æ˜¯&lt;strong&gt;ç¤ºä¾‹2&lt;/strong&gt;ã€‚ æ‚¨æ­£åœ¨ä½¿ç”¨ &lt;a href=&quot;http://www.ewebeditor.net/&quot;&gt;eWebEditor&lt;/a&gt;.&lt;/p&gt;</textarea>
 
 
 <p>
-	<input type="submit" value="Ìá½»" />
+	<input type="submit" value="æäº¤" />
 </p>
 </form>
 

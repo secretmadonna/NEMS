@@ -1,4 +1,4 @@
-<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -14,7 +14,7 @@
     <RootNamespace>SecretMadonna.NEMS.UI.TeacherWebUI</RootNamespace>
     <AssemblyName>TeacherWebUI</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -135,6 +135,35 @@
     <Content Include="Content\plugins\ewebeditor\admin\images\1_14.gif" />
     <Content Include="Content\plugins\ewebeditor\admin\images\2_10.gif" />
     <Content Include="Content\plugins\ewebeditor\admin\images\2_11.gif" />
+    <Content Include="Content\plugins\ewebeditor\admin\images\file\audio.gif" />
+    <Content Include="Content\plugins\ewebeditor\admin\images\file\avi.gif" />
+    <Content Include="Content\plugins\ewebeditor\admin\images\file\bmp.gif" />
+    <Content Include="Content\plugins\ewebeditor\admin\images\file\closedfolder.gif" />
+    <Content Include="Content\plugins\ewebeditor\admin\images\file\code.gif" />
+    <Content Include="Content\plugins\ewebeditor\admin\images\file\doc.gif" />
+    <Content Include="Content\plugins\ewebeditor\admin\images\file\exe.gif" />
+    <Content Include="Content\plugins\ewebeditor\admin\images\file\folder.gif" />
+    <Content Include="Content\plugins\ewebeditor\admin\images\file\folderback.gif" />
+    <Content Include="Content\plugins\ewebeditor\admin\images\file\gif.gif" />
+    <Content Include="Content\plugins\ewebeditor\admin\images\file\hlp.gif" />
+    <Content Include="Content\plugins\ewebeditor\admin\images\file\htm.gif" />
+    <Content Include="Content\plugins\ewebeditor\admin\images\file\jpg.gif" />
+    <Content Include="Content\plugins\ewebeditor\admin\images\file\mdb.gif" />
+    <Content Include="Content\plugins\ewebeditor\admin\images\file\mid.gif" />
+    <Content Include="Content\plugins\ewebeditor\admin\images\file\mp.gif" />
+    <Content Include="Content\plugins\ewebeditor\admin\images\file\mp3.gif" />
+    <Content Include="Content\plugins\ewebeditor\admin\images\file\openfolder.gif" />
+    <Content Include="Content\plugins\ewebeditor\admin\images\file\parentfolder.gif" />
+    <Content Include="Content\plugins\ewebeditor\admin\images\file\pdf.gif" />
+    <Content Include="Content\plugins\ewebeditor\admin\images\file\pic.gif" />
+    <Content Include="Content\plugins\ewebeditor\admin\images\file\ppt.gif" />
+    <Content Include="Content\plugins\ewebeditor\admin\images\file\rar.gif" />
+    <Content Include="Content\plugins\ewebeditor\admin\images\file\rm.gif" />
+    <Content Include="Content\plugins\ewebeditor\admin\images\file\swf.gif" />
+    <Content Include="Content\plugins\ewebeditor\admin\images\file\txt.gif" />
+    <Content Include="Content\plugins\ewebeditor\admin\images\file\unknow.gif" />
+    <Content Include="Content\plugins\ewebeditor\admin\images\file\xls.gif" />
+    <Content Include="Content\plugins\ewebeditor\admin\images\file\zip.gif" />
     <Content Include="Content\plugins\ewebeditor\admin\images\login.gif" />
     <Content Include="Content\plugins\ewebeditor\admin\images\menu.gif" />
     <Content Include="Content\plugins\ewebeditor\admin\images\spacer.gif" />
@@ -149,9 +178,9 @@
     <Content Include="Content\plugins\ewebeditor\admin\upload.aspx" />
     <Content Include="Content\plugins\ewebeditor\aspx\browse.aspx" />
     <Content Include="Content\plugins\ewebeditor\aspx\config.aspx" />
+    <Content Include="Content\plugins\ewebeditor\aspx\fs.aspx" />
     <Content Include="Content\plugins\ewebeditor\aspx\i.aspx" />
     <Content Include="Content\plugins\ewebeditor\aspx\upload.aspx" />
-    <Content Include="Content\plugins\ewebeditor\bin\config.aspx" />
     <Content Include="Content\plugins\ewebeditor\bin\eWebEditorAdmin.dll" />
     <Content Include="Content\plugins\ewebeditor\bin\eWebEditorControl.dll" />
     <Content Include="Content\plugins\ewebeditor\bin\eWebEditorServer.dll" />
@@ -163,12 +192,12 @@
     <Content Include="Content\plugins\ewebeditor\dialog\browse.htm" />
     <Content Include="Content\plugins\ewebeditor\dialog\dialog.htm" />
     <Content Include="Content\plugins\ewebeditor\dialog\dialog.js" />
-    <Content Include="Content\plugins\ewebeditor\dialog\dialog1.htm" />
     <Content Include="Content\plugins\ewebeditor\dialog\dialog_ie6.js" />
     <Content Include="Content\plugins\ewebeditor\dialog\emot.htm" />
     <Content Include="Content\plugins\ewebeditor\dialog\eq.htm" />
-    <Content Include="Content\plugins\ewebeditor\dialog\eWebEditor5.CAB" />
-    <Content Include="Content\plugins\ewebeditor\dialog\eWebEditor5Install.exe" />
+    <Content Include="Content\plugins\ewebeditor\dialog\eWebEditorFirefoxFix.exe" />
+    <Content Include="Content\plugins\ewebeditor\dialog\eWebEditorInstall.exe" />
+    <Content Include="Content\plugins\ewebeditor\dialog\eWebEditorPdfInstall.exe" />
     <Content Include="Content\plugins\ewebeditor\dialog\eWebEditorPrinterInstall.exe" />
     <Content Include="Content\plugins\ewebeditor\dialog\fieldset.htm" />
     <Content Include="Content\plugins\ewebeditor\dialog\file.htm" />
@@ -179,13 +208,16 @@
     <Content Include="Content\plugins\ewebeditor\dialog\hyperlink.htm" />
     <Content Include="Content\plugins\ewebeditor\dialog\iframe.htm" />
     <Content Include="Content\plugins\ewebeditor\dialog\image1.htm" />
+    <Content Include="Content\plugins\ewebeditor\dialog\imagemargin.htm" />
     <Content Include="Content\plugins\ewebeditor\dialog\images\bold.gif" />
     <Content Include="Content\plugins\ewebeditor\dialog\images\down.gif" />
+    <Content Include="Content\plugins\ewebeditor\dialog\images\eq.gif" />
     <Content Include="Content\plugins\ewebeditor\dialog\images\ewebeditor.gif" />
     <Content Include="Content\plugins\ewebeditor\dialog\images\info.gif" />
     <Content Include="Content\plugins\ewebeditor\dialog\images\italic.gif" />
     <Content Include="Content\plugins\ewebeditor\dialog\images\loading.gif" />
     <Content Include="Content\plugins\ewebeditor\dialog\images\lock.gif" />
+    <Content Include="Content\plugins\ewebeditor\dialog\images\pdf.gif" />
     <Content Include="Content\plugins\ewebeditor\dialog\images\rect.gif" />
     <Content Include="Content\plugins\ewebeditor\dialog\images\rectimg.gif" />
     <Content Include="Content\plugins\ewebeditor\dialog\images\refresh.gif" />
@@ -208,15 +240,14 @@
     <Content Include="Content\plugins\ewebeditor\dialog\images\unlock.gif" />
     <Content Include="Content\plugins\ewebeditor\dialog\img.htm" />
     <Content Include="Content\plugins\ewebeditor\dialog\importexcel.htm" />
+    <Content Include="Content\plugins\ewebeditor\dialog\importpdf.htm" />
     <Content Include="Content\plugins\ewebeditor\dialog\importppt.htm" />
     <Content Include="Content\plugins\ewebeditor\dialog\importword.htm" />
     <Content Include="Content\plugins\ewebeditor\dialog\installactivex.htm" />
-    <Content Include="Content\plugins\ewebeditor\dialog\installactivex\zh-cn\1.gif" />
-    <Content Include="Content\plugins\ewebeditor\dialog\installactivex\zh-cn\2.gif" />
-    <Content Include="Content\plugins\ewebeditor\dialog\installactivex\zh-cn\3.gif" />
-    <Content Include="Content\plugins\ewebeditor\dialog\installactivex\zh-cn\4.gif" />
-    <Content Include="Content\plugins\ewebeditor\dialog\installactivex\zh-cn\install.htm" />
+    <Content Include="Content\plugins\ewebeditor\dialog\installjre.htm" />
+    <Content Include="Content\plugins\ewebeditor\dialog\installpdf.htm" />
     <Content Include="Content\plugins\ewebeditor\dialog\installprinter.htm" />
+    <Content Include="Content\plugins\ewebeditor\dialog\installwordeq.htm" />
     <Content Include="Content\plugins\ewebeditor\dialog\i_upload.htm" />
     <Content Include="Content\plugins\ewebeditor\dialog\map.htm" />
     <Content Include="Content\plugins\ewebeditor\dialog\marquee.htm" />
@@ -232,14 +263,115 @@
     <Content Include="Content\plugins\ewebeditor\dialog\table.htm" />
     <Content Include="Content\plugins\ewebeditor\dialog\tablecell.htm" />
     <Content Include="Content\plugins\ewebeditor\dialog\tablecellsplit.htm" />
+    <Content Include="Content\plugins\ewebeditor\dialog\tabletemplate.htm" />
     <Content Include="Content\plugins\ewebeditor\dialog\template.htm" />
     <Content Include="Content\plugins\ewebeditor\ewebeditor.htm" />
     <Content Include="Content\plugins\ewebeditor\ewebeditor.js" />
     <Content Include="Content\plugins\ewebeditor\js\buttons.js" />
     <Content Include="Content\plugins\ewebeditor\js\ewebeditor_core.js" />
-    <Content Include="Content\plugins\ewebeditor\js\zh-cn.js" />
+    <Content Include="Content\plugins\ewebeditor\language\da.css" />
+    <Content Include="Content\plugins\ewebeditor\language\da.editarea.css" />
+    <Content Include="Content\plugins\ewebeditor\language\da.js" />
+    <Content Include="Content\plugins\ewebeditor\language\de.css" />
+    <Content Include="Content\plugins\ewebeditor\language\de.editarea.css" />
+    <Content Include="Content\plugins\ewebeditor\language\de.js" />
+    <Content Include="Content\plugins\ewebeditor\language\en.css" />
+    <Content Include="Content\plugins\ewebeditor\language\en.editarea.css" />
+    <Content Include="Content\plugins\ewebeditor\language\en.js" />
+    <Content Include="Content\plugins\ewebeditor\language\es.css" />
+    <Content Include="Content\plugins\ewebeditor\language\es.editarea.css" />
+    <Content Include="Content\plugins\ewebeditor\language\es.js" />
+    <Content Include="Content\plugins\ewebeditor\language\fr.css" />
+    <Content Include="Content\plugins\ewebeditor\language\fr.editarea.css" />
+    <Content Include="Content\plugins\ewebeditor\language\fr.js" />
+    <Content Include="Content\plugins\ewebeditor\language\it.css" />
+    <Content Include="Content\plugins\ewebeditor\language\it.editarea.css" />
+    <Content Include="Content\plugins\ewebeditor\language\it.js" />
+    <Content Include="Content\plugins\ewebeditor\language\ja.css" />
+    <Content Include="Content\plugins\ewebeditor\language\ja.editarea.css" />
+    <Content Include="Content\plugins\ewebeditor\language\ja.js" />
+    <Content Include="Content\plugins\ewebeditor\language\nl.css" />
+    <Content Include="Content\plugins\ewebeditor\language\nl.editarea.css" />
+    <Content Include="Content\plugins\ewebeditor\language\nl.js" />
+    <Content Include="Content\plugins\ewebeditor\language\no.css" />
+    <Content Include="Content\plugins\ewebeditor\language\no.editarea.css" />
+    <Content Include="Content\plugins\ewebeditor\language\no.js" />
+    <Content Include="Content\plugins\ewebeditor\language\pt.css" />
+    <Content Include="Content\plugins\ewebeditor\language\pt.editarea.css" />
+    <Content Include="Content\plugins\ewebeditor\language\pt.js" />
+    <Content Include="Content\plugins\ewebeditor\language\ru.css" />
+    <Content Include="Content\plugins\ewebeditor\language\ru.editarea.css" />
+    <Content Include="Content\plugins\ewebeditor\language\ru.js" />
+    <Content Include="Content\plugins\ewebeditor\language\sv.css" />
+    <Content Include="Content\plugins\ewebeditor\language\sv.editarea.css" />
+    <Content Include="Content\plugins\ewebeditor\language\sv.js" />
+    <Content Include="Content\plugins\ewebeditor\language\zh-cn.css" />
+    <Content Include="Content\plugins\ewebeditor\language\zh-cn.editarea.css" />
+    <Content Include="Content\plugins\ewebeditor\language\zh-cn.js" />
+    <Content Include="Content\plugins\ewebeditor\language\zh-tw.css" />
+    <Content Include="Content\plugins\ewebeditor\language\zh-tw.editarea.css" />
+    <Content Include="Content\plugins\ewebeditor\language\zh-tw.js" />
     <Content Include="Content\plugins\ewebeditor\plugin\flvplayer.swf" />
     <Content Include="Content\plugins\ewebeditor\popup.htm" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\back_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\book_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\book_lock_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\book_pencil_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\bullet_arrow_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\bullet_arrow_v48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\bullet_email_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\bullet_info_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\cd_gray_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\cd_green_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\cd_yellow_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\copy_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\doc_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\doc_faq_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\doc_important_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\doc_remove_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\email_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\email_delete_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\email_new_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\email_open_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\email_sent_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\folder_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\folder_info_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\folder_lock_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\folder_move_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\forward_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\mix_clock_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\mix_money_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\mix_pencil_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\mix_world_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\paste_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\stop_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\symbols_download_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\symbols_info_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\symbols_stop_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\symbol_faq_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\toolbar_back_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\toolbar_buy_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\toolbar_calendar_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\toolbar_edit_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\toolbar_help_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\toolbar_login_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\toolbar_manual_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\toolbar_open_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\toolbar_print_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\toolbar_remove_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\toolbar_save_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\toolbar_search_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\trash_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\trash_arrow_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\trash_full_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\user_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\user_add_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\user_delete_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\user_info_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\weather_clouds_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\weather_ray_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\weather_sunny_48.jpg" />
+    <Content Include="Content\plugins\ewebeditor\sharefile\image\weather_sun_48.jpg" />
     <Content Include="Content\plugins\ewebeditor\skin\blue1\btnchecked.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\blue1\btndown.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\blue1\btnover.gif" />
@@ -250,6 +382,7 @@
     <Content Include="Content\plugins\ewebeditor\skin\blue1\dlgbtnbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\blue1\dlgtabbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\blue1\editarea.css" />
+    <Content Include="Content\plugins\ewebeditor\skin\blue1\editarea.en.css" />
     <Content Include="Content\plugins\ewebeditor\skin\blue1\editarea.zh-cn.css" />
     <Content Include="Content\plugins\ewebeditor\skin\blue1\editor.css" />
     <Content Include="Content\plugins\ewebeditor\skin\blue1\menuarea.css" />
@@ -266,6 +399,7 @@
     <Content Include="Content\plugins\ewebeditor\skin\blue2\dlgbtnbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\blue2\dlgtabbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\blue2\editarea.css" />
+    <Content Include="Content\plugins\ewebeditor\skin\blue2\editarea.en.css" />
     <Content Include="Content\plugins\ewebeditor\skin\blue2\editarea.zh-cn.css" />
     <Content Include="Content\plugins\ewebeditor\skin\blue2\editor.css" />
     <Content Include="Content\plugins\ewebeditor\skin\blue2\menuarea.css" />
@@ -282,6 +416,7 @@
     <Content Include="Content\plugins\ewebeditor\skin\flat10\dlgbtnbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\flat10\dlgtabbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\flat10\editarea.css" />
+    <Content Include="Content\plugins\ewebeditor\skin\flat10\editarea.en.css" />
     <Content Include="Content\plugins\ewebeditor\skin\flat10\editarea.zh-cn.css" />
     <Content Include="Content\plugins\ewebeditor\skin\flat10\editor.css" />
     <Content Include="Content\plugins\ewebeditor\skin\flat10\menuarea.css" />
@@ -298,6 +433,7 @@
     <Content Include="Content\plugins\ewebeditor\skin\flat1\dlgbtnbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\flat1\dlgtabbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\flat1\editarea.css" />
+    <Content Include="Content\plugins\ewebeditor\skin\flat1\editarea.en.css" />
     <Content Include="Content\plugins\ewebeditor\skin\flat1\editarea.zh-cn.css" />
     <Content Include="Content\plugins\ewebeditor\skin\flat1\editor.css" />
     <Content Include="Content\plugins\ewebeditor\skin\flat1\menuarea.css" />
@@ -314,6 +450,7 @@
     <Content Include="Content\plugins\ewebeditor\skin\flat2\dlgbtnbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\flat2\dlgtabbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\flat2\editarea.css" />
+    <Content Include="Content\plugins\ewebeditor\skin\flat2\editarea.en.css" />
     <Content Include="Content\plugins\ewebeditor\skin\flat2\editarea.zh-cn.css" />
     <Content Include="Content\plugins\ewebeditor\skin\flat2\editor.css" />
     <Content Include="Content\plugins\ewebeditor\skin\flat2\menuarea.css" />
@@ -330,6 +467,7 @@
     <Content Include="Content\plugins\ewebeditor\skin\flat3\dlgbtnbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\flat3\dlgtabbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\flat3\editarea.css" />
+    <Content Include="Content\plugins\ewebeditor\skin\flat3\editarea.en.css" />
     <Content Include="Content\plugins\ewebeditor\skin\flat3\editarea.zh-cn.css" />
     <Content Include="Content\plugins\ewebeditor\skin\flat3\editor.css" />
     <Content Include="Content\plugins\ewebeditor\skin\flat3\menuarea.css" />
@@ -346,6 +484,7 @@
     <Content Include="Content\plugins\ewebeditor\skin\flat4\dlgbtnbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\flat4\dlgtabbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\flat4\editarea.css" />
+    <Content Include="Content\plugins\ewebeditor\skin\flat4\editarea.en.css" />
     <Content Include="Content\plugins\ewebeditor\skin\flat4\editarea.zh-cn.css" />
     <Content Include="Content\plugins\ewebeditor\skin\flat4\editor.css" />
     <Content Include="Content\plugins\ewebeditor\skin\flat4\menuarea.css" />
@@ -362,6 +501,7 @@
     <Content Include="Content\plugins\ewebeditor\skin\flat5\dlgbtnbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\flat5\dlgtabbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\flat5\editarea.css" />
+    <Content Include="Content\plugins\ewebeditor\skin\flat5\editarea.en.css" />
     <Content Include="Content\plugins\ewebeditor\skin\flat5\editarea.zh-cn.css" />
     <Content Include="Content\plugins\ewebeditor\skin\flat5\editor.css" />
     <Content Include="Content\plugins\ewebeditor\skin\flat5\menuarea.css" />
@@ -378,6 +518,7 @@
     <Content Include="Content\plugins\ewebeditor\skin\flat6\dlgbtnbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\flat6\dlgtabbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\flat6\editarea.css" />
+    <Content Include="Content\plugins\ewebeditor\skin\flat6\editarea.en.css" />
     <Content Include="Content\plugins\ewebeditor\skin\flat6\editarea.zh-cn.css" />
     <Content Include="Content\plugins\ewebeditor\skin\flat6\editor.css" />
     <Content Include="Content\plugins\ewebeditor\skin\flat6\menuarea.css" />
@@ -394,6 +535,7 @@
     <Content Include="Content\plugins\ewebeditor\skin\flat7\dlgbtnbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\flat7\dlgtabbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\flat7\editarea.css" />
+    <Content Include="Content\plugins\ewebeditor\skin\flat7\editarea.en.css" />
     <Content Include="Content\plugins\ewebeditor\skin\flat7\editarea.zh-cn.css" />
     <Content Include="Content\plugins\ewebeditor\skin\flat7\editor.css" />
     <Content Include="Content\plugins\ewebeditor\skin\flat7\menuarea.css" />
@@ -410,6 +552,7 @@
     <Content Include="Content\plugins\ewebeditor\skin\flat8\dlgbtnbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\flat8\dlgtabbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\flat8\editarea.css" />
+    <Content Include="Content\plugins\ewebeditor\skin\flat8\editarea.en.css" />
     <Content Include="Content\plugins\ewebeditor\skin\flat8\editarea.zh-cn.css" />
     <Content Include="Content\plugins\ewebeditor\skin\flat8\editor.css" />
     <Content Include="Content\plugins\ewebeditor\skin\flat8\menuarea.css" />
@@ -426,6 +569,7 @@
     <Content Include="Content\plugins\ewebeditor\skin\flat9\dlgbtnbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\flat9\dlgtabbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\flat9\editarea.css" />
+    <Content Include="Content\plugins\ewebeditor\skin\flat9\editarea.en.css" />
     <Content Include="Content\plugins\ewebeditor\skin\flat9\editarea.zh-cn.css" />
     <Content Include="Content\plugins\ewebeditor\skin\flat9\editor.css" />
     <Content Include="Content\plugins\ewebeditor\skin\flat9\menuarea.css" />
@@ -442,6 +586,7 @@
     <Content Include="Content\plugins\ewebeditor\skin\green1\dlgbtnbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\green1\dlgtabbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\green1\editarea.css" />
+    <Content Include="Content\plugins\ewebeditor\skin\green1\editarea.en.css" />
     <Content Include="Content\plugins\ewebeditor\skin\green1\editarea.zh-cn.css" />
     <Content Include="Content\plugins\ewebeditor\skin\green1\editor.css" />
     <Content Include="Content\plugins\ewebeditor\skin\green1\menuarea.css" />
@@ -458,6 +603,7 @@
     <Content Include="Content\plugins\ewebeditor\skin\light1\dlgbtnbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\light1\dlgtabbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\light1\editarea.css" />
+    <Content Include="Content\plugins\ewebeditor\skin\light1\editarea.en.css" />
     <Content Include="Content\plugins\ewebeditor\skin\light1\editarea.zh-cn.css" />
     <Content Include="Content\plugins\ewebeditor\skin\light1\editor.css" />
     <Content Include="Content\plugins\ewebeditor\skin\light1\menuarea.css" />
@@ -472,6 +618,7 @@
     <Content Include="Content\plugins\ewebeditor\skin\office2000\dlgbtnbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\office2000\dlgtabbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\office2000\editarea.css" />
+    <Content Include="Content\plugins\ewebeditor\skin\office2000\editarea.en.css" />
     <Content Include="Content\plugins\ewebeditor\skin\office2000\editarea.zh-cn.css" />
     <Content Include="Content\plugins\ewebeditor\skin\office2000\editor.css" />
     <Content Include="Content\plugins\ewebeditor\skin\office2000\menuarea.css" />
@@ -490,6 +637,7 @@
     <Content Include="Content\plugins\ewebeditor\skin\office2003\dlgbtnbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\office2003\dlgtabbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\office2003\editarea.css" />
+    <Content Include="Content\plugins\ewebeditor\skin\office2003\editarea.en.css" />
     <Content Include="Content\plugins\ewebeditor\skin\office2003\editarea.zh-cn.css" />
     <Content Include="Content\plugins\ewebeditor\skin\office2003\editor.css" />
     <Content Include="Content\plugins\ewebeditor\skin\office2003\menuarea.css" />
@@ -507,6 +655,7 @@
     <Content Include="Content\plugins\ewebeditor\skin\officexp\dlgbtnbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\officexp\dlgtabbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\officexp\editarea.css" />
+    <Content Include="Content\plugins\ewebeditor\skin\officexp\editarea.en.css" />
     <Content Include="Content\plugins\ewebeditor\skin\officexp\editarea.zh-cn.css" />
     <Content Include="Content\plugins\ewebeditor\skin\officexp\editor.css" />
     <Content Include="Content\plugins\ewebeditor\skin\officexp\menuarea.css" />
@@ -526,6 +675,7 @@
     <Content Include="Content\plugins\ewebeditor\skin\red1\dlgbtnbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\red1\dlgtabbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\red1\editarea.css" />
+    <Content Include="Content\plugins\ewebeditor\skin\red1\editarea.en.css" />
     <Content Include="Content\plugins\ewebeditor\skin\red1\editarea.zh-cn.css" />
     <Content Include="Content\plugins\ewebeditor\skin\red1\editor.css" />
     <Content Include="Content\plugins\ewebeditor\skin\red1\menuarea.css" />
@@ -542,6 +692,7 @@
     <Content Include="Content\plugins\ewebeditor\skin\vista1\dlgbtnbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\vista1\dlgtabbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\vista1\editarea.css" />
+    <Content Include="Content\plugins\ewebeditor\skin\vista1\editarea.en.css" />
     <Content Include="Content\plugins\ewebeditor\skin\vista1\editarea.zh-cn.css" />
     <Content Include="Content\plugins\ewebeditor\skin\vista1\editor.css" />
     <Content Include="Content\plugins\ewebeditor\skin\vista1\menuarea.css" />
@@ -565,6 +716,7 @@
     <Content Include="Content\plugins\ewebeditor\skin\yellow1\dlgbtnbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\yellow1\dlgtabbg.gif" />
     <Content Include="Content\plugins\ewebeditor\skin\yellow1\editarea.css" />
+    <Content Include="Content\plugins\ewebeditor\skin\yellow1\editarea.en.css" />
     <Content Include="Content\plugins\ewebeditor\skin\yellow1\editarea.zh-cn.css" />
     <Content Include="Content\plugins\ewebeditor\skin\yellow1\editor.css" />
     <Content Include="Content\plugins\ewebeditor\skin\yellow1\menuarea.css" />
@@ -598,6 +750,7 @@
     <Content Include="Content\plugins\ewebeditor\sysimage\editarea\block_p.gif" />
     <Content Include="Content\plugins\ewebeditor\sysimage\editarea\block_pre.gif" />
     <Content Include="Content\plugins\ewebeditor\sysimage\editarea\fake_anchor.gif" />
+    <Content Include="Content\plugins\ewebeditor\sysimage\editarea\fake_audio.gif" />
     <Content Include="Content\plugins\ewebeditor\sysimage\editarea\fake_comment.gif" />
     <Content Include="Content\plugins\ewebeditor\sysimage\editarea\fake_flash.gif" />
     <Content Include="Content\plugins\ewebeditor\sysimage\editarea\fake_flv.gif" />
@@ -610,6 +763,8 @@
     <Content Include="Content\plugins\ewebeditor\sysimage\editarea\fake_realplayer.gif" />
     <Content Include="Content\plugins\ewebeditor\sysimage\editarea\fake_script.gif" />
     <Content Include="Content\plugins\ewebeditor\sysimage\editarea\fake_style.gif" />
+    <Content Include="Content\plugins\ewebeditor\sysimage\editarea\fake_video.gif" />
+    <Content Include="Content\plugins\ewebeditor\sysimage\editarea\fake_vlc.gif" />
     <Content Include="Content\plugins\ewebeditor\sysimage\emot\01.gif" />
     <Content Include="Content\plugins\ewebeditor\sysimage\emot\02.gif" />
     <Content Include="Content\plugins\ewebeditor\sysimage\emot\03.gif" />
@@ -660,35 +815,6 @@
     <Content Include="Content\plugins\ewebeditor\sysimage\emot\48.gif" />
     <Content Include="Content\plugins\ewebeditor\sysimage\emot\49.gif" />
     <Content Include="Content\plugins\ewebeditor\sysimage\emot\50.gif" />
-    <Content Include="Content\plugins\ewebeditor\sysimage\file\audio.gif" />
-    <Content Include="Content\plugins\ewebeditor\sysimage\file\avi.gif" />
-    <Content Include="Content\plugins\ewebeditor\sysimage\file\bmp.gif" />
-    <Content Include="Content\plugins\ewebeditor\sysimage\file\closedfolder.gif" />
-    <Content Include="Content\plugins\ewebeditor\sysimage\file\code.gif" />
-    <Content Include="Content\plugins\ewebeditor\sysimage\file\doc.gif" />
-    <Content Include="Content\plugins\ewebeditor\sysimage\file\exe.gif" />
-    <Content Include="Content\plugins\ewebeditor\sysimage\file\folder.gif" />
-    <Content Include="Content\plugins\ewebeditor\sysimage\file\folderback.gif" />
-    <Content Include="Content\plugins\ewebeditor\sysimage\file\gif.gif" />
-    <Content Include="Content\plugins\ewebeditor\sysimage\file\hlp.gif" />
-    <Content Include="Content\plugins\ewebeditor\sysimage\file\htm.gif" />
-    <Content Include="Content\plugins\ewebeditor\sysimage\file\jpg.gif" />
-    <Content Include="Content\plugins\ewebeditor\sysimage\file\mdb.gif" />
-    <Content Include="Content\plugins\ewebeditor\sysimage\file\mid.gif" />
-    <Content Include="Content\plugins\ewebeditor\sysimage\file\mp.gif" />
-    <Content Include="Content\plugins\ewebeditor\sysimage\file\mp3.gif" />
-    <Content Include="Content\plugins\ewebeditor\sysimage\file\openfolder.gif" />
-    <Content Include="Content\plugins\ewebeditor\sysimage\file\parentfolder.gif" />
-    <Content Include="Content\plugins\ewebeditor\sysimage\file\pdf.gif" />
-    <Content Include="Content\plugins\ewebeditor\sysimage\file\pic.gif" />
-    <Content Include="Content\plugins\ewebeditor\sysimage\file\ppt.gif" />
-    <Content Include="Content\plugins\ewebeditor\sysimage\file\rar.gif" />
-    <Content Include="Content\plugins\ewebeditor\sysimage\file\rm.gif" />
-    <Content Include="Content\plugins\ewebeditor\sysimage\file\swf.gif" />
-    <Content Include="Content\plugins\ewebeditor\sysimage\file\txt.gif" />
-    <Content Include="Content\plugins\ewebeditor\sysimage\file\unknow.gif" />
-    <Content Include="Content\plugins\ewebeditor\sysimage\file\xls.gif" />
-    <Content Include="Content\plugins\ewebeditor\sysimage\file\zip.gif" />
     <Content Include="Content\plugins\ewebeditor\sysimage\icon16\aspx.gif" />
     <Content Include="Content\plugins\ewebeditor\sysimage\icon16\audio.gif" />
     <Content Include="Content\plugins\ewebeditor\sysimage\icon16\avi.gif" />
@@ -756,6 +882,7 @@
     <Content Include="Content\plugins\ewebeditor\template\05.htm" />
     <Content Include="Content\plugins\ewebeditor\template\06.htm" />
     <Content Include="Content\plugins\ewebeditor\template\article.htm" />
+    <Content Include="Content\plugins\ewebeditor\template\tabletemplate.js" />
     <Content Include="Content\plugins\ewebeditor\template\template.js" />
     <Content Include="Content\plugins\ewebeditor\_example\ajax.aspx" />
     <Content Include="Content\plugins\ewebeditor\_example\clientapi.aspx" />
@@ -1460,6 +1587,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
+    <Folder Include="Content\plugins\ewebeditor\sharefile\flash\" />
+    <Folder Include="Content\plugins\ewebeditor\sharefile\media\" />
+    <Folder Include="Content\plugins\ewebeditor\sharefile\other\" />
+    <Folder Include="Content\plugins\ewebeditor\uploadfile\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,9 +1,9 @@
-<%@ Page language="VB" AutoEventWireup="false" Inherits="eWebEditorAdmin.default_aspx" validateRequest="False" aspcompat="true" %>
+ï»¿<%@ Page language="VB" AutoEventWireup="false" Inherits="eWebEditorAdmin.default_aspx" validateRequest="false"%>
 <html>
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
 <title>eWebEditor</title>
-<meta http-equiv=Content-Type content="text/html; charset=gbk">
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
 <link type=text/css href='private.css' rel=stylesheet>
 <base target=main>
 </head>
@@ -23,34 +23,34 @@ function menu_tree(meval)
 <center>
 
   <table cellspacing=0  class="Menu">
-  <tr><th align=center  onclick="javascript:menu_tree('left_1');" >¡Ô Ê×Ñ¡·þÎñ ¡Ô</th></tr>
+  <tr><th align=center  onclick="javascript:menu_tree('left_1');" >â‰¡ é¦–é€‰æœåŠ¡ â‰¡</th></tr>
   <tr id='left_1'><td >
     <table width='100%'>
-    <tr><td><img border=0 src='images/menu.gif' align=absmiddle>&nbsp;<a href='style.aspx'>ÑùÊ½¹ÜÀí</a></td></tr>
-    <tr><td><img border=0 src='images/menu.gif' align=absmiddle>&nbsp;<a href='upload.aspx'>ÉÏ´«¹ÜÀí</a></td></tr>
+    <tr><td><img border=0 src='images/menu.gif' align=absmiddle>&nbsp;<a href='style.aspx'>æ ·å¼ç®¡ç†</a></td></tr>
+    <tr><td><img border=0 src='images/menu.gif' align=absmiddle>&nbsp;<a href='upload.aspx'>ä¸Šä¼ ç®¡ç†</a></td></tr>
     </table>
   </td></tr>
   </table>
 
   <table width='90%' height=2><tr ><td></td></tr></table>
   <table cellspacing=0  class="Menu">
-  <tr><th align=center  onclick="javascript:menu_tree('left_2');" >¡Ô ¸¨Öú·þÎñ ¡Ô</th></tr>
+  <tr><th align=center  onclick="javascript:menu_tree('left_2');" >â‰¡ è¾…åŠ©æœåŠ¡ â‰¡</th></tr>
   <tr id='left_2'><td>
     <table width='100%'>
-    <tr><td><img border=0 src='images/menu.gif' align=absmiddle>&nbsp;<a href='main.aspx'>ºóÌ¨Ê×Ò³</a></td></tr>
-	<tr><td><img border=0 src='images/menu.gif' align=absmiddle>&nbsp;<a href='../_example/default.aspx' target='_blank'>Ê¾ÀýÊ×Ò³</a></td></tr>
-    <tr><td><img border=0 src='images/menu.gif' align=absmiddle>&nbsp;<a href='modipwd.aspx'>ÐÞ¸ÄÃÜÂë</a></td></tr>
-	<tr><td><img border=0 src='images/menu.gif' align=absmiddle>&nbsp;<a href='modilicense.aspx'>Ðò ÁÐ ºÅ</a></td></tr>
-    <tr><td><img border=0 src='images/menu.gif' align=absmiddle>&nbsp;<a onclick="return confirm('ÌáÊ¾£ºÄúÈ·¶¨ÒªÍË³öÏµÍ³Âð£¿')" href='login.aspx?action=out' target='_parent'>ÍË³öºóÌ¨</a></td></tr>
+    <tr><td><img border=0 src='images/menu.gif' align=absmiddle>&nbsp;<a href='main.aspx'>åŽå°é¦–é¡µ</a></td></tr>
+	<tr><td><img border=0 src='images/menu.gif' align=absmiddle>&nbsp;<a href='../_example/default.aspx' target='_blank'>ç¤ºä¾‹é¦–é¡µ</a></td></tr>
+    <tr><td><img border=0 src='images/menu.gif' align=absmiddle>&nbsp;<a href='modipwd.aspx'>ä¿®æ”¹å¯†ç </a></td></tr>
+	<tr><td><img border=0 src='images/menu.gif' align=absmiddle>&nbsp;<a href='modilicense.aspx'>åº åˆ— å·</a></td></tr>
+    <tr><td><img border=0 src='images/menu.gif' align=absmiddle>&nbsp;<a onclick="return confirm('æç¤ºï¼šæ‚¨ç¡®å®šè¦é€€å‡ºç³»ç»Ÿå—ï¼Ÿ')" href='login.aspx?action=out' target='_parent'>é€€å‡ºåŽå°</a></td></tr>
     </table>
   </td></tr>
   </table>
   
   <table width='90%' height=2><tr ><td></td></tr></table>
   <table cellspacing=0  class="Menu">
-  <tr><th align=center  >¡þ °æ±¾ÐÅÏ¢ ¡þ</th></tr>
-  <tr><td align=center>eWebEditor V9.0</td></tr>
-  <tr><td align=center><a href='http://www.ewebeditor.net' target=_blank><b>ÔÚÏß°ïÖú</b></a></td></tr>
+  <tr><th align=center  >ã€“ ç‰ˆæœ¬ä¿¡æ¯ ã€“</th></tr>
+  <tr><td align=center>eWebEditor V11.9</td></tr>
+  <tr><td align=center><a href='http://www.ewebeditor.net' target=_blank><b>åœ¨çº¿å¸®åŠ©</b></a></td></tr>
   </table>
 
 </center>

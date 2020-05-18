@@ -57,9 +57,9 @@ namespace SecretMadonna.NEMS.UI.Frnas
                         var version = Assembly.GetExecutingAssembly().GetName().Version;
                         var v = System.Windows.Application.ResourceAssembly.GetName().Version;
                         return;
-                        var app = new App();
-                        app.InitializeComponent();
-                        app.Run();
+                        //var app = new App();
+                        //app.InitializeComponent();
+                        //app.Run();
                     }
                 }
                 else
