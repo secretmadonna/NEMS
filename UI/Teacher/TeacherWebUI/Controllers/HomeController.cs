@@ -85,5 +85,11 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI.Controllers
             return View();
         }
         #endregion
+
+        [HttpPost]
+        public ActionResult Test()
+        {
+            return Json(new { ret = "success" });
+        }
     }
 }

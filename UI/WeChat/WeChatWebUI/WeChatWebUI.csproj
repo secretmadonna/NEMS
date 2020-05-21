@@ -966,7 +966,9 @@
     <Content Include="Content\plugins\angular.js\angular-sanitize.min.js.map" />
     <Content Include="Content\plugins\angular.js\angular-touch.min.js.map" />
     <Content Include="Content\plugins\angular.js\angular.min.js.map" />
-    <Content Include="log4net.config" />
+    <Content Include="log4net.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="packages.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Test1.cshtml" />

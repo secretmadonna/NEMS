@@ -129,6 +129,10 @@
     <Content Include="Content\images\photo2-1024.png" />
     <Content Include="Content\images\photo2-640.png" />
     <Content Include="Content\images\photo3.jpg" />
+    <Content Include="Content\plugins\css3pie\PIE_IE678.js" />
+    <Content Include="Content\plugins\css3pie\PIE_IE678_uncompressed.js" />
+    <Content Include="Content\plugins\css3pie\PIE_IE9.js" />
+    <Content Include="Content\plugins\css3pie\PIE_IE9_uncompressed.js" />
     <Content Include="Content\plugins\ewebeditor\admin\default.aspx" />
     <Content Include="Content\plugins\ewebeditor\admin\images\1_12.gif" />
     <Content Include="Content\plugins\ewebeditor\admin\images\1_13.gif" />
@@ -1508,10 +1512,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\CustomActionFilterAttribute.cs" />
+    <Compile Include="App_Start\CustomAuthorizeAttribute.cs" />
+    <Compile Include="App_Start\CustomHandleErrorAttribute.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\ParameterActionFilterAttribute.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\NoFormController.cs" />
     <Compile Include="Controllers\WebSocketController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TestController.cs" />
@@ -1521,6 +1530,7 @@
     <Compile Include="Models\Account\AccountLoginViewModel.cs" />
     <Compile Include="Models\Home\HomeIndexViewModel.cs" />
     <Compile Include="Models\Home\HomeTestPostViewModel.cs" />
+    <Compile Include="Models\NoForm\NoFormIndexViewModel.cs" />
     <Compile Include="Models\WebSocket\WebSocketModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -1560,6 +1570,7 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Test\Index.cshtml" />
     <Content Include="Views\Test\TestInputChange.cshtml" />
+    <Content Include="Views\NoForm\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

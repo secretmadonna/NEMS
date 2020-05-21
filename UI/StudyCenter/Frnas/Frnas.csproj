@@ -112,7 +112,7 @@
     </EmbeddedResource>
     <Resource Include="favicon.ico" />
     <Content Include="log4net.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

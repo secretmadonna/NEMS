@@ -36,6 +36,7 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            FilterConfig.RegisterFilters(GlobalFilters.Filters);
 
             //for (int i = 0; i < Modules.Count; i++)
             //{

@@ -14,6 +14,7 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         public ActionResult Login()
         {
             var loginModel = new AccountLoginViewModel()
@@ -24,6 +25,7 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI.Controllers
             };
             return View(loginModel);
         }
+        [AllowAnonymous]
         [HttpPost]
         public ActionResult Login(AccountLoginViewModel model)
         {
@@ -38,7 +40,8 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI.Controllers
 
         public ActionResult Logout()
         {
-            FormsAuthentication.SignOut();
+            Session.Abandon();//取消当前会话
+            FormsAuthentication.SignOut();//移除验证票证
             return RedirectToAction("login");
         }
     }
