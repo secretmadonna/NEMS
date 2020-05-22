@@ -1,9 +1,7 @@
 ﻿using log4net;
-using System.Net;
 using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Security;
 
 namespace SecretMadonna.NEMS.UI.TeacherWebUI
 {
@@ -25,24 +23,7 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI
         protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
         {
             logger.InfoFormat("{0:D3}.{1}", ++numberIndex, MethodBase.GetCurrentMethod().Name);
-            //base.HandleUnauthorizedRequest(filterContext);
-            if (filterContext.HttpContext.Request.IsAjaxRequest())
-            {
-                filterContext.Result = new JsonResult
-                {
-                    Data = new
-                    {
-                        ret = (int)HttpStatusCode.Unauthorized,
-                        msg = HttpStatusCode.Unauthorized.ToString()
-                    },
-                    JsonRequestBehavior = JsonRequestBehavior.AllowGet
-                };
-            }
-            else
-            {
-                FormsAuthentication.RedirectToLoginPage();//重定向到登录页
-            }
-            filterContext.HttpContext.Response.Redirect(FormsAuthentication.LoginUrl, true);
+            base.HandleUnauthorizedRequest(filterContext);
         }
         protected override HttpValidationStatus OnCacheAuthorization(HttpContextBase httpContext)
         {

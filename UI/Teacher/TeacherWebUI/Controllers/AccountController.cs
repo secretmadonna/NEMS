@@ -1,5 +1,6 @@
 ﻿using SecretMadonna.NEMS.Application;
 using SecretMadonna.NEMS.UI.TeacherWebUI.Models;
+using System.Net;
 using System.Web.Mvc;
 using System.Web.Security;
 
@@ -17,6 +18,14 @@ namespace SecretMadonna.NEMS.UI.TeacherWebUI.Controllers
         [AllowAnonymous]
         public ActionResult Login()
         {
+            if (Request.IsAjaxRequest())
+            {
+                return Json(new
+                {
+                    ret = (int)HttpStatusCode.Unauthorized,
+                    msg = HttpStatusCode.Unauthorized.ToString()
+                }, JsonRequestBehavior.AllowGet);
+            }
             var loginModel = new AccountLoginViewModel()
             {
                 Loginname = "test",

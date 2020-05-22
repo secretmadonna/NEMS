@@ -1,12 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace SecretMadonna.NEMS.UI.TeacherWebUI.Controllers
 {
-    public class TestController : Controller
+    public class TestController : BaseController
     {
         // GET: Test
         public ActionResult Index()
